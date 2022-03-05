@@ -16,7 +16,7 @@ export class ValueTypeService {
     return value instanceof Promise;
   }
 
-  isString(value: any): boolean {
+  isString(value: any): value is string {
     return isString(value);
   }
 
