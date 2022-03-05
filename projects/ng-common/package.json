@@ -1,11 +1,29 @@
 {
-  "name": "ng-common",
+  "name": "@bigbear713/ng-common",
   "version": "12.0.0",
+  "homepage": "https://github.com/bigBear713/ng-common/blob/master/projects/ng-common/README.md",
+  "description": "An angular(2+) common component, pipe, service library.",
+  "keywords": [
+    "angular2+",
+    "bigBear713"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigBear713/ng-common.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bigBear713/ng-common/issues"
+  },
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0"
   },
   "dependencies": {
+    "lodash-es": "^4.17.21",
     "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.5"
   }
 }

@@ -132,7 +132,10 @@
           "options": {
             "main": "projects/ng-common/src/test.ts",
             "tsConfig": "projects/ng-common/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-common/karma.conf.js"
+            "karmaConfig": "projects/ng-common/karma.conf.js",
+            "watch": true,
+            "progress": true,
+            "codeCoverage": true
           }
         }
       }
