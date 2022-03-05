@@ -6,7 +6,15 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start:lib": "ng build --watch ng-common",
+    "build:lib": "ng build ng-common && npm run copy:readmeEn && cd dist/ng-common && npm pack",
+    "build:analyze": "npm run build -- --source-map && npm run view:analyze",
+    "view:analyze": "node_modules/.bin/source-map-explorer dist/ng-common-demo/*",
+    "test:lib": "ng test ng-common",
+    "deploy": "ng build --outputPath=docs --base-href=/ng-common/ && cp docs/index.html docs/404.html",
+    "publish:lib": "cd ./dist/ng-common && npm publish --access=public",
+    "copy:readmeEn": "cp projects/ng-common/README.EN.md dist/ng-common/README.EN.md"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +42,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "ng-packagr": "^12.1.1",
     "typescript": "~4.3.5"
   }
 }
