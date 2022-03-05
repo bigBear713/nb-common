@@ -1,6 +1,6 @@
 {
   "name": "ng-common-demo",
-  "version": "0.0.0",
+  "version": "12.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
