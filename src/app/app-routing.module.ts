@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'r-str-demo',
     loadChildren: () => import('./r-str-demo/r-str-demo.module').then(m => m.RStrDemoModule)
+  },
+  {
+    path: 'placeholder-str-demo',
+    loadChildren: () => import('./placeholder-str-demo/placeholder-str-demo.module').then(m => m.PlaceholderStrDemoModule)
   }
 ];
 
