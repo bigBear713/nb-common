@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: 'tpl-content-demo',
     loadChildren: () => import('./tpl-content-demo/tpl-content-demo.module').then(m => m.TplContentDemoModule)
+  },
+  {
+    path: 'r-str-demo',
+    loadChildren: () => import('./r-str-demo/r-str-demo.module').then(m => m.RStrDemoModule)
   }
 ];
 
