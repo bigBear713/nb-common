@@ -1,6 +1,6 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { TplContentPipe } from './tpl-content.pipe';
+import { TplContentPipe } from '../tpl-content.pipe';
 
 @Component({
   selector: 'mock-tpl-ref',

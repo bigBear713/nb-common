@@ -1,0 +1,38 @@
+<h2>适用于要显示的内容是字符串或者是Observable{{"\<string>"}}的场景</h2>
+
+<h4>当内容是字符串时，正常显示</h4>
+<span [r-str]="'string content'"></span>
+<h5>代码</h5>
+<pre>
+  <code>
+    {{"\<span [r-str]=\"'string content'\">\</span>"}}
+  </code>
+</pre>
+<hr>
+
+<h4>当内容是Observable{{"\<string>"}}</h4>
+<button (click)="changeObservableContent()">更改观察者对象的内容</button>
+<span [r-str]="observableDemo$"></span>
+<h5>代码</h5>
+<pre>
+  <code>
+    {{"//ts"}}
+    {{"observableDemo$ = new BehaviorSubject\<string>('1');"}}
+    {{"//html"}}
+    {{"\<span [r-str]=\"observableDemo$\">\</span>"}}
+  </code>
+</pre>
+<hr>
+
+<h4>当内容是Promise{{"\<string>"}}</h4>
+<span [r-str]="promiseDemo"></span>
+<h5>代码</h5>
+<pre>
+  <code>
+    {{"//ts"}}
+    {{"promiseDemo = Promise.resolve('1');"}}
+    {{"//html"}}
+    {{"\<span [r-str]=\"promiseDemo\">\</span>"}}
+  </code>
+</pre>
+<hr>

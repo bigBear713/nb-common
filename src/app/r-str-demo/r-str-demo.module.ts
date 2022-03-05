@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TplContentDemoComponent } from './tpl-content-demo.component';
+import { RStrDemoComponent } from './r-str-demo.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgCommonModule } from 'ng-common';
 
 const routes: Routes = [
   {
     path: '',
-    component: TplContentDemoComponent
+    component: RStrDemoComponent,
   }
 ];
 
@@ -17,6 +17,6 @@ const routes: Routes = [
     NgCommonModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [TplContentDemoComponent]
+  declarations: [RStrDemoComponent]
 })
-export class TplContentDemoModule { }
+export class RStrDemoModule { }
