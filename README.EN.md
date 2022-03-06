@@ -17,10 +17,10 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 - [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "English Document")
 
 ## Feature
-- 支持组件的更新策略为`ChangeDetectionStrategy.OnPush`;
+- Support the changeDetection of components as `ChangeDetectionStrategy.OnPush`;
 
 ### Version
-###### nb-common的大版本和Angular的大版本保持对应关系
+###### The nb-common's main version will keep up with the Angular's main version
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
 
 ### Installation
@@ -30,29 +30,29 @@ $ npm i @bigbear713/nb-common
 $ yarn add @bigbear713/nb-common
 ```
 
-## 启动demo项目
-- 安装依赖：
+## Start the demo project
+- Install the dependencies:
 ```bash
 npm i
 ```
 
-- 编译ng-common库
+- Build the nb-common lib
 ```bash
 npm run build:lib
 ```
 
-- 启动demo项目
+- Start the demo
 ```bash
 npm start
 ```
 
-- 部署demo
+- build the demo
 ```bash
 npm run build
 ```
 
-## 贡献者
-> 欢迎提feature和PR，一起使该项目更好
+## Contribution
+> Feature and PR are welcome to make this project better together
 
 <a href="https://github.com/bigBear713" target="_blank"><img src="https://avatars.githubusercontent.com/u/12368900?v=4" alt="bigBear713" width="30px" height="30px"></a>
 

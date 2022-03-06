@@ -2,7 +2,7 @@ import { TemplateRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Observable, Subject } from 'rxjs';
 import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
-import { TemplateRefTestingComponent, TemplateRefTestingModule } from '../../testing/templateRef/templateRef-testing.module';
+import { getTplRefInstance } from '../../testing/templateRef/templateRef-testing.module';
 import { NbValueTypeService } from '../value-type.service';
 
 describe('Service: NbValueType', () => {
@@ -11,16 +11,13 @@ describe('Service: NbValueType', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NbCommonTestingModule, TemplateRefTestingModule]
+      imports: [NbCommonTestingModule]
     });
   });
 
   beforeEach(() => {
     service = TestBed.inject(NbValueTypeService);
-    const tplFixture = TestBed.createComponent(TemplateRefTestingComponent);
-    const tplComp = tplFixture.componentInstance;
-    tplFixture.detectChanges();
-    tplRef = tplComp.tplRef;
+    tplRef = getTplRefInstance(TestBed).tplRef;
   });
 
   it('create an instance', () => {
