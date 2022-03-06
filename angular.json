@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-common-demo": {
+    "nb-common-demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-common-demo",
+            "outputPath": "dist/nb-common-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-common-demo:build:production"
+              "browserTarget": "nb-common-demo:build:production"
             },
             "development": {
-              "browserTarget": "ng-common-demo:build:development"
+              "browserTarget": "nb-common-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-common-demo:build"
+            "browserTarget": "nb-common-demo:build"
           }
         },
         "test": {
@@ -106,23 +106,23 @@
         }
       }
     },
-    "ng-common": {
+    "nb-common": {
       "projectType": "library",
-      "root": "projects/ng-common",
-      "sourceRoot": "projects/ng-common/src",
+      "root": "projects/nb-common",
+      "sourceRoot": "projects/nb-common/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ng-common/ng-package.json"
+            "project": "projects/nb-common/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ng-common/tsconfig.lib.prod.json"
+              "tsConfig": "projects/nb-common/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ng-common/tsconfig.lib.json"
+              "tsConfig": "projects/nb-common/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -130,9 +130,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng-common/src/test.ts",
-            "tsConfig": "projects/ng-common/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-common/karma.conf.js",
+            "main": "projects/nb-common/src/test.ts",
+            "tsConfig": "projects/nb-common/tsconfig.spec.json",
+            "karmaConfig": "projects/nb-common/karma.conf.js",
             "watch": true,
             "progress": true,
             "codeCoverage": true
@@ -141,5 +141,5 @@
       }
     }
   },
-  "defaultProject": "ng-common-demo"
+  "defaultProject": "nb-common-demo"
 }

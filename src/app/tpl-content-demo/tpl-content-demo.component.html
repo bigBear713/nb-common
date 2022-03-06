@@ -1,21 +1,22 @@
 <h2>适用于需要判断输入的是templateRef的场景</h2>
 
 <h4>当内容是数字时，返回null</h4>
-{{111 | tplContent | json}}
+{{111 | nbTplContent | json}}
 <h5>代码</h5>
 <pre>
   <code>
-    {{'{{111 | tplContent | json}}'}}
+    {{'{{111 | nbTplContent | json}}'}}
   </code>
 </pre>
 <hr>
 
 <h5>当内容是templateRef时，正常显示</h5>
-<ng-container *ngTemplateOutlet="tpl | tplContent"></ng-container>
+<ng-container *ngTemplateOutlet="tpl | nbTplContent"></ng-container>
 <h5>代码</h5>
 <pre>
   <code>
-    {{tplContentCode}}
+    {{"\<ng-container *ngTemplateOutlet=\"tpl | nbTplContent\">\</ng-container>"}}
+    {{"\<ng-template #tpl> template content \</ng-template>"}}
   </code>
 </pre>
 <hr>
