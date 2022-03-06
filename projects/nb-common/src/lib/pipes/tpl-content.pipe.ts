@@ -7,7 +7,7 @@ import { NbValueTypeService } from '../services/value-type.service';
 export class NbTplContentPipe implements PipeTransform {
   constructor(private valueTypeService: NbValueTypeService) { }
 
-  transform(value?: any): TemplateRef<any> | null {
+  transform(value: any): TemplateRef<any> | null {
     return this.valueTypeService.isTemplateRef(value) ? value : null;
   }
 

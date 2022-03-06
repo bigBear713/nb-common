@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 import { NbValueTypeService } from '../../services/value-type.service';
 import { NbTplContentPipe } from '../tpl-content.pipe';
-import { TemplateRefTestingComponent, TemplateRefTestingModule } from '../../testing/templateRef/templateRef-testing.module';
+import { getTplRefInstance } from '../../testing/templateRef/templateRef-testing.module';
 import { TemplateRef } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
@@ -13,7 +13,7 @@ describe('Pipe:  NbTplContente', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NbCommonTestingModule, TemplateRefTestingModule],
+      imports: [NbCommonTestingModule],
     })
       .compileComponents();
   });
@@ -21,10 +21,7 @@ describe('Pipe:  NbTplContente', () => {
   beforeEach(() => {
     const valueTypeService = TestBed.inject(NbValueTypeService);
     pipe = new NbTplContentPipe(valueTypeService);
-    const tplFixture = TestBed.createComponent(TemplateRefTestingComponent);
-    const tplComp = tplFixture.componentInstance;
-    tplFixture.detectChanges();
-    tplRef = tplComp.tplRef;
+    tplRef = tplRef = getTplRefInstance(TestBed).tplRef;;
   });
 
   it('create an instance', () => {
@@ -52,6 +49,5 @@ describe('Pipe:  NbTplContente', () => {
       });
     });
   });
-
 
 });
