@@ -12,9 +12,9 @@
     "declaration": false,
     "downlevelIteration": true,
     "paths": {
-      "ng-common": [
-        "dist/ng-common/ng-common",
-        "dist/ng-common"
+      "nb-common": [
+        "dist/nb-common/nb-common",
+        "dist/nb-common"
       ]
     },
     "experimentalDecorators": true,

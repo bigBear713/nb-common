@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlaceholderStrDemoComponent } from './placeholder-str-demo.component';
 import { RouterModule, Routes } from '@angular/router';
-import { NgCommonModule } from 'ng-common';
+import { NbCommonModule } from 'nb-common';
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    NgCommonModule,
+    NbCommonModule,
     RouterModule.forChild(routes)
   ],
   declarations: [PlaceholderStrDemoComponent]

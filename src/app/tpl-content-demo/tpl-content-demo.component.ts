@@ -7,9 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TplContentDemoComponent implements OnInit {
 
-  tplContentCode = `<ng-container *ngTemplateOutlet="tpl | tplContent"></ng-container>
-    <ng-template #tpl> template content </ng-template>`;
-
   constructor() { }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 {
-  "name": "ng-common-demo",
+  "name": "nb-common-demo",
   "version": "12.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,14 +7,14 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start:lib": "ng build --watch ng-common",
-    "build:lib": "ng build ng-common && npm run copy:readmeEn && cd dist/ng-common && npm pack",
+    "start:lib": "ng build --watch nb-common",
+    "build:lib": "ng build nb-common && npm run copy:readmeEn && cd dist/nb-common && npm pack",
     "build:analyze": "npm run build -- --source-map && npm run view:analyze",
-    "view:analyze": "node_modules/.bin/source-map-explorer dist/ng-common-demo/*",
-    "test:lib": "ng test ng-common",
-    "deploy": "ng build --outputPath=docs --base-href=/ng-common/ && cp docs/index.html docs/404.html",
-    "publish:lib": "cd ./dist/ng-common && npm publish --access=public",
-    "copy:readmeEn": "cp projects/ng-common/README.EN.md dist/ng-common/README.EN.md"
+    "view:analyze": "node_modules/.bin/source-map-explorer dist/nb-common-demo/*",
+    "test:lib": "ng test nb-common",
+    "deploy": "ng build --outputPath=docs --base-href=/nb-common/ && cp docs/index.html docs/404.html",
+    "publish:lib": "cd ./dist/nb-common && npm publish --access=public",
+    "copy:readmeEn": "cp projects/nb-common/README.EN.md dist/nb-common/README.EN.md"
   },
   "private": true,
   "dependencies": {
