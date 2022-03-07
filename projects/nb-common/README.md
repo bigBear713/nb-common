@@ -45,14 +45,15 @@ $ yarn add @bigbear713/nb-common
 
 #### NbValueTypeService
 ###### 提供值类型检测的功能的`service`。
+###### `v12.0.0`
 
 ##### Methods
-| Name  | Return  | Description  | Scenes  |
-| ------------ | ------------ | ------------ | ------------ |
-| isObservable(value: any)  | `value is Observable<any>`  | value参数是否为`Observable`类型的值。注：`Subject`等也属于`Observable`类型的一种 | 想要保证值为`Observable`类型时  |
-| isPromise(value: any)  | `value is Promise<any>`  | value参数是否为`Promise`类型的值。 | 想要保证值为`Promise`类型时  |
-| isString(value: any)  | `value is string`  | value参数是否为`string`类型的值。注:`string`和`String`都会返回true | 想要保证值为`string`类型时  |
-| isTemplateRef(value: any)  | `value is TemplateRef<any>`  | value参数是否为`TemplateRef`类型的值 | 想要保证值为`TemplateRef`类型时  |
+| Name  | Return  | Description  | Scenes  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| isObservable(value: any)   | `value is Observable<any>`  | value参数是否为`Observable`类型的值。注：`Subject`等也属于`Observable`类型的一种 | 想要保证值为`Observable`类型时  | `v12.0.0` |
+| isPromise(value: any) | `value is Promise<any>`  | value参数是否为`Promise`类型的值。 | 想要保证值为`Promise`类型时  | `v12.0.0` |
+| isString(value: any)  | `value is string`  | value参数是否为`string`类型的值。注:`string`和`String`都会返回true | 想要保证值为`string`类型时 | `v12.0.0` |
+| isTemplateRef(value: any)  | `value is TemplateRef<any>`  | value参数是否为`TemplateRef`类型的值 | 想要保证值为`TemplateRef`类型时  | `v12.0.0` |
 
 ##### Usage
 ```ts
@@ -78,10 +79,11 @@ this.valueType.isTemplateRef({}); // false
 
 #### `[nb-r-str]`
 ###### 字符串内容渲染，支持内容为string或者异步对象
+###### `v12.0.0`
 ##### Input
-| Name  | Type  | Default  | Description  |
-| ------------ | ------------ | ------------ | ------------ |
-| nb-r-str  | `string ｜ Observable<string> ｜ Promise<string>`  | ``  | 要显示的文本内容。会自动根据内容类型，选择合适的方式渲染出来 |
+| Name  | Type  | Default  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| nb-r-str  | `string ｜ Observable<string> ｜ Promise<string>`  | ` `  | 要显示的文本内容。会自动根据内容类型，选择合适的方式渲染出来 | `v12.0.0` |
 
 ##### Usage
 ```html
@@ -97,10 +99,11 @@ this.valueType.isTemplateRef({}); // false
 ### Directive
 #### `[nbPlaceholder]`
 ###### 设置placeholder属性值。支持内容为`string`和`Observable<string>`类型
+###### `v12.0.0`
 ##### Input
-| Name  | Type  | Default  | Description  |
-| ------------ | ------------ | ------------ | ------------ |
-| nbPlaceholder  | `string ｜ Observable<string>`  | `` | 要显示的placeholder的内容。如果是`string`，将直接绑定到placeholder属性。如果是`Observable<string>`,将订阅它；且当订阅到值改变时，自动更新placeholder属性值 |
+| Name  | Type  | Default  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| nbPlaceholder  | `string ｜ Observable<string>`  | ` ` | 要显示的placeholder的内容。如果是`string`，将直接绑定到placeholder属性。如果是`Observable<string>`,将订阅它；且当订阅到值改变时，自动更新placeholder属性值 | `v12.0.0` |
 
 ##### Usage
 ```html
@@ -115,10 +118,11 @@ this.valueType.isTemplateRef({}); // false
 
 #### nbIsAsync: `transform(value: any): value is Observable<any> | Promise<any>`
 ###### 判断值是否是异步的管道
+###### `v12.0.0`
 ##### Params
-| Name  | Type  | Mandatory  | Description  |
-| ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | 要判断类型的值  |
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | 要判断类型的值  | `v12.0.0` |
 
 ##### Return
 | Type  | Description  |
@@ -136,10 +140,11 @@ this.valueType.isTemplateRef({}); // false
 
 #### nbIsObservable: `transform(value: any): value is Observable<any>`
 ###### 判断值是否是异步的管道
+###### `v12.0.0`
 ##### Params
-| Name  | Type  | Mandatory  | Description  |
-| ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | 要判断类型的值  |
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | 要判断类型的值  | `v12.0.0` |
 
 ##### Return
 | Type  | Description  |
@@ -158,9 +163,9 @@ this.valueType.isTemplateRef({}); // false
 #### nbTplContent: `transform(value: any): TemplateRef<any> | null`
 ###### 获取TemplateRef类型的内容
 ##### Params
-| Name  | Type  | Mandatory  | Description  |
-| ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | 要判断的值  |
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | 要判断的值  | `v12.0.0` |
 
 ##### Return
 | Type  | Description  |
