@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-placeholder-str-demo',
   templateUrl: './placeholder-str-demo.component.html',
-  styleUrls: ['./placeholder-str-demo.component.scss']
+  styleUrls: ['./placeholder-str-demo.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlaceholderStrDemoComponent implements OnInit {
 

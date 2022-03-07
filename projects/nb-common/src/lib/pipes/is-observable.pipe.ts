@@ -11,5 +11,4 @@ export class NbIsObservablePipe implements PipeTransform {
   transform(value: any): value is Observable<any> {
     return this.valueTypeService.isObservable(value);
   }
-
 }

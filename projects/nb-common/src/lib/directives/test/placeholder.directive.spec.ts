@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { NbValueTypeService } from '../../services/value-type.service';
@@ -20,12 +20,16 @@ describe('Directive: NbPlaceholder', () => {
     await TestBed.configureTestingModule({
       imports: [NbCommonTestingModule],
       declarations: [MockComponent],
+      providers: [
+        { provide: ChangeDetectorRef, useValue: jasmine.createSpyObj(ChangeDetectorRef, ['markForCheck']) }
+      ]
     });
   });
 
   beforeEach(() => {
     const service = TestBed.inject(NbValueTypeService);
-    directive = new NbPlaceholderDirective(service);
+    const changeDR = TestBed.inject(ChangeDetectorRef);
+    directive = new NbPlaceholderDirective(changeDR, service);
   });
 
   it('create an instance', () => {

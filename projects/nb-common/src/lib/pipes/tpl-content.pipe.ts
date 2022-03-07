@@ -10,6 +10,4 @@ export class NbTplContentPipe implements PipeTransform {
   transform(value: any): TemplateRef<any> | null {
     return this.valueTypeService.isTemplateRef(value) ? value : null;
   }
-
-
 }

@@ -44,15 +44,18 @@ $ yarn add @bigbear713/nb-common
 ### Service
 
 #### NbValueTypeService
-###### The `service` can provide the function to get the type of value 。
+###### The `service` can provide the function to get the type of value
+###### `v12.0.0`
 
 ##### Methods
-| Name  | Return  | Description  | Scenes  |
-| ------------ | ------------ | ------------ | ------------ |
-| isObservable(value: any)  | `value is Observable<any>`  | Is the value params `Observable` type. Attention: `Subject` and so on also are one of `Observable` | Want to ensure the value is `Observable` type |
-| isPromise(value: any)  | `value is Promise<any>`  | Is the value params `Promise`type. | Want to ensure the value is `Promise` type |
-| isString(value: any)  | `value is string`  | Is the value `string` type. Attention: it is ture when the value is `string` or `String`type | Want to ensure the value is `string` type |
-| isTemplateRef(value: any)  | `value is TemplateRef<any>`  | Is the value `TemplateRef`type | Want to ensure the value is `TemplateRef` type |
+| Name  | Return  | Description  | Scenes  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| isBoolean(value: any)  | `value is boolean`  | Is the value `boolean` type. Attention: it is ture when the value is `boolean` or `Boolean` type | Want to ensure the value is `boolean` type | `v12.1.0` |
+| isNumber(value: any)  | `value is number`  | Is the value `number` type. Attention: it is ture when the value is `number` or `Number` type | Want to ensure the value is `number` type | `v12.1.0` |
+| isObservable(value: any)  | `value is Observable<any>`  | Is the value params `Observable` type. Attention: `Subject` and so on also are one of `Observable` | Want to ensure the value is `Observable` type | `v12.0.0` |
+| isPromise(value: any)  | `value is Promise<any>`  | Is the value params `Promise` type. | Want to ensure the value is `Promise` type | `v12.0.0` |
+| isString(value: any)  | `value is string`  | Is the value `string` type. Attention: it is ture when the value is `string` or `String` type | Want to ensure the value is `string` type | `v12.0.0` |
+| isTemplateRef(value: any)  | `value is TemplateRef<any>`  | Is the value `TemplateRef` type | Want to ensure the value is `TemplateRef` type | `v12.0.0` |
 
 ##### Usage
 ```ts
@@ -78,10 +81,11 @@ this.valueType.isTemplateRef({}); // false
 
 #### `[nb-r-str]`
 ###### Render the string content, support the type of content is string or anync object. 
+###### `v12.0.0`
 ##### Input
-| Name  | Type  | Default  | Description  |
-| ------------ | ------------ | ------------ | ------------ |
-| nb-r-str  | `string ｜ Observable<string> ｜ Promise<string>`  | ``  | The content want to render. It will auto be rendered via right method according to the type of content |
+| Name  | Type  | Default  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| nb-r-str  | `string ｜ Observable<string> ｜ Promise<string>`  | ` `  | The content want to render. It will auto be rendered via right method according to the type of content | `v12.0.0` |
 
 ##### Usage
 ```html
@@ -97,10 +101,11 @@ this.valueType.isTemplateRef({}); // false
 ### Directive
 #### `[nbPlaceholder]`
 ###### Set the value of placeholder attribute. Support `string` type and `Observable<string>` type
+###### `v12.0.0`
 ##### Input
-| Name  | Type  | Default  | Description  |
-| ------------ | ------------ | ------------ | ------------ |
-| nbPlaceholder  | `string ｜ Observable<string>`  | `` | The content want to be rendered. If the type is `string`, it will auto be set as the placeholder attribute. If the content is `Observable<string>`, will auto subscribe the value and auto update the value of placeholder attribute when the value has been changed |
+| Name  | Type  | Default  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| nbPlaceholder  | `string ｜ Observable<string>`  | ` ` | The content want to be rendered. If the type is `string`, it will auto be set as the placeholder attribute. If the content is `Observable<string>`, will auto subscribe the value and auto update the value of placeholder attribute when the value has been changed | `v12.0.0` |
 
 ##### Usage
 ```html
@@ -115,10 +120,11 @@ this.valueType.isTemplateRef({}); // false
 
 #### nbIsAsync: `transform(value: any): value is Observable<any> | Promise<any>`
 ###### Check the value is async type
+###### `v12.0.0`
 ##### Params
-| Name  | Type  | Mandatory  | Description  |
-| ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | The value will be checked  |
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | The value will be checked  | `v12.0.0` |
 
 ##### Return
 | Type  | Description  |
@@ -134,12 +140,57 @@ this.valueType.isTemplateRef({}); // false
 ```
 
 
+#### nbIsBoolean: `transform(value: any): value is boolean`
+###### Check the value is boolean type
+###### `v12.1.0`
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | The value will be checked  | `v12.1.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `value is boolean`  | Is the value `boolean` or `Boolean`  |
+
+##### Usage
+```html
+<ng-container [ngSwitch]="content | nbIsBoolean">
+    <ng-container *ngSwitchCase="true">{{!!content}}</ng-container>
+    <ng-container *ngSwitchDefault>{{content}}</ng-container>
+</ng-container>
+```
+
+
+#### nbIsNumber: `transform(value: any): value is number`
+###### Check the value is number type
+###### `v12.1.0`
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | The value will be checked  | `v12.1.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `value is number`  | Is the value `number` or `Number` |
+
+##### Usage
+```html
+<ng-container [ngSwitch]="content | nbIsNumber">
+    <ng-container *ngSwitchCase="true">{{content+1}}</ng-container>
+    <ng-container *ngSwitchDefault>{{+content+1}}</ng-container>
+</ng-container>
+```
+
+
 #### nbIsObservable: `transform(value: any): value is Observable<any>`
 ###### Check the value is Observable
+###### `v12.0.0`
 ##### Params
-| Name  | Type  | Mandatory  | Description  |
-| ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | The value will be checked |
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | The value will be checked | `v12.0.0` |
 
 ##### Return
 | Type  | Description  |
@@ -155,12 +206,35 @@ this.valueType.isTemplateRef({}); // false
 ```
 
 
+#### nbIsString: `transform(value: any): value is string`
+###### Check the value is string type
+###### `v12.1.0`
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | The value will be checked  | `v12.1.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `value is string`  | Is the value `string` or `String`  |
+
+##### Usage
+```html
+<ng-container [ngSwitch]="content | string">
+    <ng-container *ngSwitchCase="false">{{content | async}}</ng-container>
+    <ng-container *ngSwitchDefault>{{content}}</ng-container>
+</ng-container>
+```
+
+
 #### nbTplContent: `transform(value: any): TemplateRef<any> | null`
 ###### Get the TemplateRef content 
+###### `v12.0.0`
 ##### Params
-| Name  | Type  | Mandatory  | Description  |
-| ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | The value will be checked  |
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | The value will be checked  | `v12.0.0` |
 
 ##### Return
 | Type  | Description  |
