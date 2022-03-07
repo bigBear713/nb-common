@@ -1,4 +1,4 @@
-import { Directive, HostBinding, Input, OnChanges, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Directive, HostBinding, Input, OnChanges, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NbValueTypeService } from '../services/value-type.service';
@@ -8,12 +8,13 @@ import { NbValueTypeService } from '../services/value-type.service';
 })
 export class NbPlaceholderDirective implements OnChanges, OnDestroy {
   @Input() nbPlaceholder: string | Observable<string> = '';
-
   @HostBinding('placeholder') placeholder: string = '';
-
   private destroy$ = new Subject<void>();
 
-  constructor(private valueTypeService: NbValueTypeService) { }
+  constructor(
+    private chageDR: ChangeDetectorRef,
+    private valueTypeService: NbValueTypeService
+  ) { }
 
   ngOnChanges() {
     this.reRender();
@@ -27,13 +28,18 @@ export class NbPlaceholderDirective implements OnChanges, OnDestroy {
   private reRender(): void {
     if (this.valueTypeService.isString(this.nbPlaceholder)) {
       this.placeholder = this.nbPlaceholder;
+      this.chageDR.markForCheck();
       return;
     }
     this.destroy$.next();
     this.nbPlaceholder.pipe(
       takeUntil(this.destroy$)
-    ).subscribe(content => this.placeholder = content);
+    ).subscribe(content => this.updatePlaceholder(content));
   }
 
+  private updatePlaceholder(content: string): void {
+    this.placeholder = content;
+    this.chageDR.markForCheck();
+  }
 }
 
