@@ -50,10 +50,12 @@ $ yarn add @bigbear713/nb-common
 ##### Methods
 | Name  | Return  | Description  | Scenes  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
+| isBoolean(value: any)  | `value is boolean`  | Is the value `boolean` type. Attention: it is ture when the value is `boolean` or `Boolean` type | Want to ensure the value is `boolean` type | `v12.1.0` |
+| isNumber(value: any)  | `value is number`  | Is the value `number` type. Attention: it is ture when the value is `number` or `Number` type | Want to ensure the value is `number` type | `v12.1.0` |
 | isObservable(value: any)  | `value is Observable<any>`  | Is the value params `Observable` type. Attention: `Subject` and so on also are one of `Observable` | Want to ensure the value is `Observable` type | `v12.0.0` |
-| isPromise(value: any)  | `value is Promise<any>`  | Is the value params `Promise`type. | Want to ensure the value is `Promise` type | `v12.0.0` |
-| isString(value: any)  | `value is string`  | Is the value `string` type. Attention: it is ture when the value is `string` or `String`type | Want to ensure the value is `string` type | `v12.0.0` |
-| isTemplateRef(value: any)  | `value is TemplateRef<any>`  | Is the value `TemplateRef`type | Want to ensure the value is `TemplateRef` type | `v12.0.0` |
+| isPromise(value: any)  | `value is Promise<any>`  | Is the value params `Promise` type. | Want to ensure the value is `Promise` type | `v12.0.0` |
+| isString(value: any)  | `value is string`  | Is the value `string` type. Attention: it is ture when the value is `string` or `String` type | Want to ensure the value is `string` type | `v12.0.0` |
+| isTemplateRef(value: any)  | `value is TemplateRef<any>`  | Is the value `TemplateRef` type | Want to ensure the value is `TemplateRef` type | `v12.0.0` |
 
 ##### Usage
 ```ts
@@ -138,6 +140,50 @@ this.valueType.isTemplateRef({}); // false
 ```
 
 
+#### nbIsBoolean: `transform(value: any): value is boolean`
+###### Check the value is boolean type
+###### `v12.1.0`
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | The value will be checked  | `v12.1.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `value is boolean`  | Is the value `boolean` or `Boolean`  |
+
+##### Usage
+```html
+<ng-container [ngSwitch]="content | nbIsBoolean">
+    <ng-container *ngSwitchCase="true">{{!!content}}</ng-container>
+    <ng-container *ngSwitchDefault>{{content}}</ng-container>
+</ng-container>
+```
+
+
+#### nbIsNumber: `transform(value: any): value is number`
+###### Check the value is number type
+###### `v12.1.0`
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | The value will be checked  | `v12.1.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `value is number`  | Is the value `number` or `Number` |
+
+##### Usage
+```html
+<ng-container [ngSwitch]="content | nbIsNumber">
+    <ng-container *ngSwitchCase="true">{{content+1}}</ng-container>
+    <ng-container *ngSwitchDefault>{{+content+1}}</ng-container>
+</ng-container>
+```
+
+
 #### nbIsObservable: `transform(value: any): value is Observable<any>`
 ###### Check the value is Observable
 ###### `v12.0.0`
@@ -155,6 +201,28 @@ this.valueType.isTemplateRef({}); // false
 ```html
 <ng-container [ngSwitch]="content | nbIsObservable">
     <ng-container *ngSwitchCase="true">{{content | async}}</ng-container>
+    <ng-container *ngSwitchDefault>{{content}}</ng-container>
+</ng-container>
+```
+
+
+#### nbIsString: `transform(value: any): value is string`
+###### Check the value is string type
+###### `v12.1.0`
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | The value will be checked  | `v12.1.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `value is string`  | Is the value `string` or `String`  |
+
+##### Usage
+```html
+<ng-container [ngSwitch]="content | string">
+    <ng-container *ngSwitchCase="false">{{content | async}}</ng-container>
     <ng-container *ngSwitchDefault>{{content}}</ng-container>
 </ng-container>
 ```
