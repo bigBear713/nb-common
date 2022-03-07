@@ -1,5 +1,5 @@
 import { Injectable, TemplateRef } from '@angular/core';
-import { isString } from 'lodash-es';
+import { isBoolean, isNumber, isString } from 'lodash-es';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,6 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class NbValueTypeService {
   constructor() { }
+
+  isBoolean(value: any): value is boolean {
+    return isBoolean(value);
+  }
+
+  isNumber(value: any): value is number {
+    return isNumber(value);
+  }
 
   isObservable(value: any): value is Observable<any> {
     return value instanceof Observable;

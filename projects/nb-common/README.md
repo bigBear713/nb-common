@@ -50,6 +50,8 @@ $ yarn add @bigbear713/nb-common
 ##### Methods
 | Name  | Return  | Description  | Scenes  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
+| isBoolean(value: any)  | `value is boolean`  | value参数是否为`boolean`类型的值 | 想要保证值为`boolean`类型时  | `v12.1.0` |
+| isNumber(value: any)  | `value is number`  | value参数是否为`number`类型的值 | 想要保证值为`number`类型时  | `v12.1.0` |
 | isObservable(value: any)   | `value is Observable<any>`  | value参数是否为`Observable`类型的值。注：`Subject`等也属于`Observable`类型的一种 | 想要保证值为`Observable`类型时  | `v12.0.0` |
 | isPromise(value: any) | `value is Promise<any>`  | value参数是否为`Promise`类型的值。 | 想要保证值为`Promise`类型时  | `v12.0.0` |
 | isString(value: any)  | `value is string`  | value参数是否为`string`类型的值。注:`string`和`String`都会返回true | 想要保证值为`string`类型时 | `v12.0.0` |
@@ -58,6 +60,17 @@ $ yarn add @bigbear713/nb-common
 ##### Usage
 ```ts
 constructor(private valueType: NbValueTypeService) {}
+
+this.valueType.isBoolean(new Boolean(false)); // true
+this.valueType.isBoolean(false); // true
+this.valueType.isObservable({}); // false
+
+this.valueType.isNumber(new Number(1)); // true
+this.valueType.isNumber(1); // true
+this.valueType.isObservable({}); // false
+
+this.valueType.isObservable(new Subject()); // true
+this.valueType.isObservable({}); // false
 
 this.valueType.isObservable(new Subject()); // true
 this.valueType.isObservable({}); // false
@@ -138,6 +151,50 @@ this.valueType.isTemplateRef({}); // false
 ```
 
 
+#### nbIsBoolean: `transform(value: any): value is boolean`
+###### 判断值是否是异步的管道
+###### `v12.1.0`
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | 要判断类型的值  | `v12.1.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `value is boolean`  | value是否为`boolean`或者`Boolean`类型  |
+
+##### Usage
+```html
+<ng-container [ngSwitch]="content | nbIsBoolean">
+    <ng-container *ngSwitchCase="true">{{!!content}}</ng-container>
+    <ng-container *ngSwitchDefault>{{content}}</ng-container>
+</ng-container>
+```
+
+
+#### nbIsNumber: `transform(value: any): value is number`
+###### 判断值是否是数字的管道
+###### `v12.1.0`
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | 要判断类型的值  | `v12.1.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `value is number`  | value是否为`number`或者`Number`类型  |
+
+##### Usage
+```html
+<ng-container [ngSwitch]="content | nbIsNumber">
+    <ng-container *ngSwitchCase="true">{{content+1}}</ng-container>
+    <ng-container *ngSwitchDefault>{{+content+1}}</ng-container>
+</ng-container>
+```
+
+
 #### nbIsObservable: `transform(value: any): value is Observable<any>`
 ###### 判断值是否是异步的管道
 ###### `v12.0.0`
@@ -155,6 +212,28 @@ this.valueType.isTemplateRef({}); // false
 ```html
 <ng-container [ngSwitch]="content | nbIsObservable">
     <ng-container *ngSwitchCase="true">{{content | async}}</ng-container>
+    <ng-container *ngSwitchDefault>{{content}}</ng-container>
+</ng-container>
+```
+
+
+#### nbIsString: `transform(value: any): value is string`
+###### 判断值是否是字符串的管道
+###### `v12.1.0`
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `any`  | true  | 要判断类型的值  | `v12.1.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `value is string`  | value是否为`string`或者`String`类型  |
+
+##### Usage
+```html
+<ng-container [ngSwitch]="content | string">
+    <ng-container *ngSwitchCase="false">{{content | async}}</ng-container>
     <ng-container *ngSwitchDefault>{{content}}</ng-container>
 </ng-container>
 ```
