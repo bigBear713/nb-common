@@ -1,6 +1,6 @@
 <div align="center">
 
-### @bigbear713/nb-common
+# @bigbear713/nb-common
 
 Angular common lib by bigBear713, include some common `component`, `directive`, `pipe`, `service`.
 
@@ -13,17 +13,27 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 </div>
 
 ## Document
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "中文文档")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "English Document")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "Document - English")
+
+</div>
+
+## Changelog
+- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.EN.md "Changelog - English")
+
+<br>
 
 ## Feature
 - 支持组件的更新策略为`ChangeDetectionStrategy.OnPush`;
 
-### Version
+</div>
+
+## Version
 ###### nb-common的大版本和Angular的大版本保持对应关系
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
 
-### Installation
+## Installation
 ```bash
 $ npm i @bigbear713/nb-common
 // or
@@ -33,7 +43,7 @@ $ yarn add @bigbear713/nb-common
 ### Module
 
 #### NbCommonModule
-###### Common模块。引入该模块后，可使用`component`，`Directive`，`pipe`。`service`不需要引入该模块也可使用，默认为全局。
+###### Common模块。引入该模块后，可使用`component`，`directive`，`pipe`。`service`不需要引入该模块也可使用，默认为全局。
 
 #### NbCommonTestingModule
 ###### Common测试模块。用于Unit Test。
@@ -41,7 +51,7 @@ $ yarn add @bigbear713/nb-common
 #### function getTplRefInstance(TestBed: TestBedStatic) {fixture:ComponentFixture<TemplateRefTestingComponent>;component: TemplateRefTestingComponent;tplRef: TemplateRef<any>}
 ###### 获取templateRef的fixture, component, tplRef等，可用于快速获取TemplateRef类型的实例，方便Unit Test. 需先引入NbCommonTestingModule
 
-### Service
+### Services
 
 #### NbValueTypeService
 ###### 提供值类型检测的功能的`service`。
@@ -88,7 +98,7 @@ this.valueType.isTemplateRef({}); // false
 
 ```
 
-### Component
+### Components
 
 #### `[nb-r-str]`
 ###### 字符串内容渲染，支持内容为string或者异步对象
@@ -109,7 +119,7 @@ this.valueType.isTemplateRef({}); // false
 <span [nb-r-str]="promiseDemo"></span>
 ```
 
-### Directive
+### Directives
 #### `[nbPlaceholder]`
 ###### 设置placeholder属性值。支持内容为`string`和`Observable<string>`类型
 ###### `v12.0.0`
@@ -127,7 +137,7 @@ this.valueType.isTemplateRef({}); // false
 
 ```
 
-### Pipe
+### Pipes
 
 #### nbIsAsync: `transform(value: any): value is Observable<any> | Promise<any>`
 ###### 判断值是否是异步的管道
@@ -152,7 +162,7 @@ this.valueType.isTemplateRef({}); // false
 
 
 #### nbIsBoolean: `transform(value: any): value is boolean`
-###### 判断值是否是异步的管道
+###### 判断值是否是boolean类型的管道
 ###### `v12.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
@@ -196,7 +206,7 @@ this.valueType.isTemplateRef({}); // false
 
 
 #### nbIsObservable: `transform(value: any): value is Observable<any>`
-###### 判断值是否是异步的管道
+###### 判断值是否是可观察类型的管道
 ###### `v12.0.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |

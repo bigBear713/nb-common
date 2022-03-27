@@ -1,6 +1,6 @@
 <div align="center">
 
-### @bigbear713/nb-common
+# @bigbear713/nb-common
 
 Angular common lib by bigBear713, include some common `component`, `directive`, `pipe`, `service`.
 
@@ -13,17 +13,21 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 </div>
 
 ## Document
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "中文文档")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "English Document")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "Document - English")
+
+## Changelog
+- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.EN.md "Changelog - English")
 
 ## Feature
 - 支持组件的更新策略为`ChangeDetectionStrategy.OnPush`;
 
-### Version
+## Version
 ###### nb-common的大版本和Angular的大版本保持对应关系
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
 
-### Installation
+## Installation
 ```bash
 $ npm i @bigbear713/nb-common
 // or

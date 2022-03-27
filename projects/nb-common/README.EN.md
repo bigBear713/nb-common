@@ -1,6 +1,6 @@
 <div align="center">
 
-### @bigbear713/nb-common
+# @bigbear713/nb-common
 
 Angular common lib by bigBear713, include some common `component`, `directive`, `pipe`, `service`.
 
@@ -13,17 +13,27 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 </div>
 
 ## Document
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "中文文档")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "English Document")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "Document - English")
+
+<br>
+
+## Changelog
+- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.EN.md "Changelog - English")
+
+<br>
 
 ## Feature
 - Support the changeDetection of components as `ChangeDetectionStrategy.OnPush`;
 
-### Version
+<br>
+
+## Version
 ###### The nb-common's main version will keep up with the Angular's main version
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
 
-### Installation
+## Installation
 ```bash
 $ npm i @bigbear713/nb-common
 // or
@@ -33,7 +43,7 @@ $ yarn add @bigbear713/nb-common
 ### Module
 
 #### NbCommonModule
-###### Common module. After importing the module, you can use `component`, `Directive` and `pipe`. `service` can be used if you do not import the module, because they are provided in root
+###### Common module. After importing the module, you can use `component`, `directive` and `pipe`. `service` can be used if you do not import the module, because they are provided in root
 
 #### NbCommonTestingModule
 ###### Common testing module, used for Unit Test.
@@ -41,7 +51,7 @@ $ yarn add @bigbear713/nb-common
 #### function getTplRefInstance(TestBed: TestBedStatic) {fixture:ComponentFixture<TemplateRefTestingComponent>;component: TemplateRefTestingComponent;tplRef: TemplateRef<any>}
 ###### Get templateRef's fixture, component, tplRef. You can get the instance of TemplateRef type directly, so it is more convenience for unit test. You should import the NbCommonTestingModule firstly.
 
-### Service
+### Services
 
 #### NbValueTypeService
 ###### The `service` can provide the function to get the type of value
@@ -77,7 +87,7 @@ this.valueType.isTemplateRef({}); // false
 
 ```
 
-### Component
+### Components
 
 #### `[nb-r-str]`
 ###### Render the string content, support the type of content is string or anync object. 
@@ -98,7 +108,7 @@ this.valueType.isTemplateRef({}); // false
 <span [nb-r-str]="promiseDemo"></span>
 ```
 
-### Directive
+### Directives
 #### `[nbPlaceholder]`
 ###### Set the value of placeholder attribute. Support `string` type and `Observable<string>` type
 ###### `v12.0.0`
@@ -116,7 +126,7 @@ this.valueType.isTemplateRef({}); // false
 
 ```
 
-### Pipe
+### Pipes
 
 #### nbIsAsync: `transform(value: any): value is Observable<any> | Promise<any>`
 ###### Check the value is async type

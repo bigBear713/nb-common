@@ -1,6 +1,6 @@
 <div align="center">
 
-### @bigbear713/nb-common
+# @bigbear713/nb-common
 
 Angular common lib by bigBear713, include some common `component`, `directive`, `pipe`, `service`.
 
@@ -13,17 +13,21 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 </div>
 
 ## Document
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "中文文档")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "English Document")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "Document - English")
+
+## Changelog
+- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.EN.md "Changelog - English")
 
 ## Feature
 - Support the changeDetection of components as `ChangeDetectionStrategy.OnPush`;
 
-### Version
+## Version
 ###### The nb-common's main version will keep up with the Angular's main version
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
 
-### Installation
+## Installation
 ```bash
 $ npm i @bigbear713/nb-common
 // or
