@@ -17,8 +17,8 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 - [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "Document - English")
 
 ## Changelog
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.md "更新日志 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.EN.md "Changelog - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.EN.md "Changelog - English")
 
 ## Feature
 - Support the changeDetection of components as `ChangeDetectionStrategy.OnPush`;

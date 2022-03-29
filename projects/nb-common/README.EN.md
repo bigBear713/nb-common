@@ -19,8 +19,8 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 <br>
 
 ## Changelog
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.md "更新日志 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.EN.md "Changelog - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.EN.md "Changelog - English")
 
 <br>
 
@@ -33,12 +33,16 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 ###### The nb-common's main version will keep up with the Angular's main version
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
 
+<br>
+
 ## Installation
 ```bash
 $ npm i @bigbear713/nb-common
 // or
 $ yarn add @bigbear713/nb-common
 ```
+
+<br>
 
 ### Module
 
@@ -50,6 +54,8 @@ $ yarn add @bigbear713/nb-common
 
 #### function getTplRefInstance(TestBed: TestBedStatic) {fixture:ComponentFixture<TemplateRefTestingComponent>;component: TemplateRefTestingComponent;tplRef: TemplateRef<any>}
 ###### Get templateRef's fixture, component, tplRef. You can get the instance of TemplateRef type directly, so it is more convenience for unit test. You should import the NbCommonTestingModule firstly.
+
+<br>
 
 ### Services
 
@@ -87,6 +93,8 @@ this.valueType.isTemplateRef({}); // false
 
 ```
 
+<br>
+
 ### Components
 
 #### `[nb-r-str]`
@@ -108,6 +116,8 @@ this.valueType.isTemplateRef({}); // false
 <span [nb-r-str]="promiseDemo"></span>
 ```
 
+<br>
+
 ### Directives
 #### `[nbPlaceholder]`
 ###### Set the value of placeholder attribute. Support `string` type and `Observable<string>` type
@@ -125,6 +135,8 @@ this.valueType.isTemplateRef({}); // false
 <input [nbPlaceholder]="placeholder$">
 
 ```
+
+<br>
 
 ### Pipes
 
@@ -149,6 +161,7 @@ this.valueType.isTemplateRef({}); // false
 </ng-container>
 ```
 
+<br>
 
 #### nbIsBoolean: `transform(value: any): value is boolean`
 ###### Check the value is boolean type
@@ -171,6 +184,7 @@ this.valueType.isTemplateRef({}); // false
 </ng-container>
 ```
 
+<br>
 
 #### nbIsNumber: `transform(value: any): value is number`
 ###### Check the value is number type
@@ -193,6 +207,7 @@ this.valueType.isTemplateRef({}); // false
 </ng-container>
 ```
 
+<br>
 
 #### nbIsObservable: `transform(value: any): value is Observable<any>`
 ###### Check the value is Observable
@@ -215,6 +230,7 @@ this.valueType.isTemplateRef({}); // false
 </ng-container>
 ```
 
+<br>
 
 #### nbIsString: `transform(value: any): value is string`
 ###### Check the value is string type
@@ -237,6 +253,7 @@ this.valueType.isTemplateRef({}); // false
 </ng-container>
 ```
 
+<br>
 
 #### nbTplContent: `transform(value: any): TemplateRef<any> | null`
 ###### Get the TemplateRef content 
@@ -256,10 +273,14 @@ this.valueType.isTemplateRef({}); // false
 <ng-container [ngTemplateOutlet]="content | nbTplContent"></ng-container>
 ```
 
+<br>
+
 ### 贡献
 > Feature and PR are welcome to make this project better together
 
 <a href="https://github.com/bigBear713" target="_blank"><img src="https://avatars.githubusercontent.com/u/12368900?v=4" alt="bigBear713" width="30px" height="30px"></a>
+
+<br>
 
 ### License
 MIT

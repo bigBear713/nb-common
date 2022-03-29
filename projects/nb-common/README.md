@@ -19,8 +19,8 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 </div>
 
 ## Changelog
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.md "更新日志 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/CHANGELOG.EN.md "Changelog - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.EN.md "Changelog - English")
 
 <br>
 
@@ -33,12 +33,16 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 ###### nb-common的大版本和Angular的大版本保持对应关系
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
 
+<br>
+
 ## Installation
 ```bash
 $ npm i @bigbear713/nb-common
 // or
 $ yarn add @bigbear713/nb-common
 ```
+
+<br>
 
 ### Module
 
@@ -50,6 +54,8 @@ $ yarn add @bigbear713/nb-common
 
 #### function getTplRefInstance(TestBed: TestBedStatic) {fixture:ComponentFixture<TemplateRefTestingComponent>;component: TemplateRefTestingComponent;tplRef: TemplateRef<any>}
 ###### 获取templateRef的fixture, component, tplRef等，可用于快速获取TemplateRef类型的实例，方便Unit Test. 需先引入NbCommonTestingModule
+
+<br>
 
 ### Services
 
@@ -98,6 +104,8 @@ this.valueType.isTemplateRef({}); // false
 
 ```
 
+<br>
+
 ### Components
 
 #### `[nb-r-str]`
@@ -119,6 +127,8 @@ this.valueType.isTemplateRef({}); // false
 <span [nb-r-str]="promiseDemo"></span>
 ```
 
+<br>
+
 ### Directives
 #### `[nbPlaceholder]`
 ###### 设置placeholder属性值。支持内容为`string`和`Observable<string>`类型
@@ -136,6 +146,8 @@ this.valueType.isTemplateRef({}); // false
 <input [nbPlaceholder]="placeholder$">
 
 ```
+
+<br>
 
 ### Pipes
 
@@ -160,6 +172,7 @@ this.valueType.isTemplateRef({}); // false
 </ng-container>
 ```
 
+<br>
 
 #### nbIsBoolean: `transform(value: any): value is boolean`
 ###### 判断值是否是boolean类型的管道
@@ -182,6 +195,7 @@ this.valueType.isTemplateRef({}); // false
 </ng-container>
 ```
 
+<br>
 
 #### nbIsNumber: `transform(value: any): value is number`
 ###### 判断值是否是数字的管道
@@ -204,6 +218,7 @@ this.valueType.isTemplateRef({}); // false
 </ng-container>
 ```
 
+<br>
 
 #### nbIsObservable: `transform(value: any): value is Observable<any>`
 ###### 判断值是否是可观察类型的管道
@@ -226,6 +241,7 @@ this.valueType.isTemplateRef({}); // false
 </ng-container>
 ```
 
+<br>
 
 #### nbIsString: `transform(value: any): value is string`
 ###### 判断值是否是字符串的管道
@@ -248,6 +264,7 @@ this.valueType.isTemplateRef({}); // false
 </ng-container>
 ```
 
+<br>
 
 #### nbTplContent: `transform(value: any): TemplateRef<any> | null`
 ###### 获取TemplateRef类型的内容
@@ -266,10 +283,14 @@ this.valueType.isTemplateRef({}); // false
 <ng-container [ngTemplateOutlet]="content | nbTplContent"></ng-container>
 ```
 
+<br>
+
 ### 贡献
 > 欢迎提feature和PR，一起使该项目更好
 
 <a href="https://github.com/bigBear713" target="_blank"><img src="https://avatars.githubusercontent.com/u/12368900?v=4" alt="bigBear713" width="30px" height="30px"></a>
+
+<br>
 
 ### License
 MIT
