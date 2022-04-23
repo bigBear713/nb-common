@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NbRStrComponent } from './components/r-str/r-str.component';
+import { NbImgDirective } from './directives/img.directive';
 import { NbPlaceholderDirective } from './directives/placeholder.directive';
 import { NbIsAsyncPipe } from './pipes/is-async.pipe';
 import { NbIsBooleanPipe } from './pipes/is-boolean.pipe';
@@ -15,6 +16,7 @@ const COMPONENTS = [
 
 const DIRECTIVES = [
   NbPlaceholderDirective,
+  NbImgDirective,
 ];
 
 const PIPES = [

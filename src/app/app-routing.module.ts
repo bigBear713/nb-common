@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'placeholder-str-demo',
     loadChildren: () => import('./placeholder-str-demo/placeholder-str-demo.module').then(m => m.PlaceholderStrDemoModule)
+  },
+  {
+    path: 'img-demo',
+    loadChildren: () => import('./img-demo/img-demo.module').then(m => m.ImgDemoModule)
   }
 ];
 
