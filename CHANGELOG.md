@@ -1,3 +1,9 @@
+# v12.2.0
+## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Directives "Directives")
+- feat: `img[nbImg]` - 在image加载完成前添加loading效果，当加载失败时会显示预设置好的图片;
+
+<br/>
+
 # v12.1.0
 ## [Pipes](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Pipes "Pipes")
 - feat: `nbIsBoolean` - 判断值是否是boolean类型

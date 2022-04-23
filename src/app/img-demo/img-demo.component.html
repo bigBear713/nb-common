@@ -10,7 +10,7 @@
   </pre>
 <hr>
 
-<h4>自定义loading</h4>
+<h4>自定义loading图片</h4>
 <img [nbImg]="bigImg" [loadingImg]="loadingImg">
 <h5>代码</h5>
 <pre>
@@ -21,21 +21,21 @@
 <hr>
 
 <h4>图片加载失败, 显示默认图片</h4>
-<img nbImg="errorImg">
+<img nbImg="invalidImg">
 <h5>代码</h5>
 <pre>
     <code>
-      {{"\<img nbImg=\"errorImg\"\>"}}
+      {{"\<img nbImg=\"invalidImg\"\>"}}
     </code>
   </pre>
 <hr>
 
 <h4>图片加载失败, 显示自定义图片</h4>
-<img nbImg="errorImg" [errImg]="errImg">
+<img nbImg="invalidImg" [errImg]="errImg">
 <h5>代码</h5>
 <pre>
     <code>
-      {{"\<img nbImg=\"errorImg\" [errImg]=\"errImg\" \>"}}
+      {{"\<img nbImg=\"invalidImg\" [errImg]=\"errImg\" \>"}}
     </code>
   </pre>
 <hr>
@@ -46,6 +46,15 @@
 <pre>
     <code>
       {{"\<img [src]=\"bigImg\" nbImg>"}}
+    </code>
+  </pre>
+<hr>
+<h4>当设置了无效的src，且nbImg没有设置值时，显示自定义图片</h4>
+<img src="invalidImg" nbImg [errImg]="errImg">
+<h5>代码</h5>
+<pre>
+    <code>
+      {{"\<img src=\"invalidImg\" nbImg [errImg]=\"errImg\">"}}
     </code>
   </pre>
 <hr>

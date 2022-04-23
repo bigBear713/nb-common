@@ -2,8 +2,8 @@ import { ChangeDetectorRef, Directive, ElementRef, HostBinding, Inject, Input, O
 import { SafeResourceUrl } from '@angular/platform-browser';
 import { NB_DEFAULT_ERR_IMG, NB_DEFAULT_LOADING_IMG } from '../constants';
 
-const DEFAULT_LOADING_IMG = './assets/nb-common/loading.svg';
-const DEFAULT_ERR_IMG = './assets/nb-common/picture.svg';
+const DEFAULT_LOADING_IMG = '/assets/nb-common/loading.svg';
+const DEFAULT_ERR_IMG = '/assets/nb-common/picture.svg';
 
 @Directive({
   selector: 'img[nbImg]'
@@ -42,19 +42,27 @@ export class NbImgDirective implements OnChanges {
 
   private loadImage(): void {
     if (!this.nbImg) {
+      this.loadImgFromSrc();
       return;
     }
 
+    this.loadImgFromNbImg();
+  }
+
+  private loadImgFromNbImg(): void {
     this.updateImgSrc(this.loadingImg);
 
     const image = new Image();
     image.src = this.nbImg;
-    image.onerror = () => {
-      const src = this.errImg || this.nbImg;
-      this.updateImgSrc(src);
-      image.onerror = null;
-    };
+    image.onerror = () => this.updateImgSrc(this.errImg);
     image.onload = () => this.updateImgSrc(this.nbImg);
+  }
+
+  private loadImgFromSrc(): void {
+    this.elementRef.nativeElement.onerror = () => {
+      this.updateImgSrc(this.errImg)
+      this.elementRef.nativeElement.onerror = null;
+    }
   }
 
   private updateImgSrc(src: string | SafeResourceUrl): void {
