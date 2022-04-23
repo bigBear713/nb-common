@@ -328,6 +328,7 @@ this.valueType.isTemplateRef({}); // false
 ```
 
 <br>
+
 ### Tokens
 
 #### NB_DEFAULT_LOADING_IMG: string | SafeResourceUrl
