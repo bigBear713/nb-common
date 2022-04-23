@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-r-str-demo',
   templateUrl: './r-str-demo.component.html',
-  styleUrls: ['./r-str-demo.component.scss']
+  styleUrls: ['./r-str-demo.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RStrDemoComponent implements OnInit {
 

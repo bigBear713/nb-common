@@ -1,12 +1,13 @@
 {
   "name": "@bigbear713/nb-common",
-  "version": "12.1.0",
+  "version": "12.2.0",
   "homepage": "https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md",
   "description": "An angular(2+) common component, pipe, service library.",
   "keywords": [
     "ng",
     "angular",
     "angular2+",
+    "angular12",
     "bigBear713"
   ],
   "license": "MIT",

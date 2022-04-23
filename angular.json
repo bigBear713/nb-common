@@ -28,7 +28,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./dist/nb-common/assets/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "src/styles.scss"
