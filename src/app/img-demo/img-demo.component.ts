@@ -10,9 +10,9 @@ export class ImgDemoComponent implements OnInit {
 
   bigImg = 'https://pic2.zhimg.com/v2-77be54b348b0168f3562f51404451aeb_r.jpg';
 
-  loadingImg = '/assets/loading.svg'
+  loadingImg = './assets/loading.svg'
 
-  errImg = '/assets/picture.svg';
+  errImg = './assets/picture.svg';
 
   constructor() { }
 
