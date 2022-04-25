@@ -126,8 +126,8 @@ this.valueType.isTemplateRef({}); // false
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 | nbImg  | `string` | `''` | The src of image you want to load. When you use the directive and not set the `nbImg` value, will diplay the content from `src` property (no loading effect). At this time, if failure the image from the `src` value, it will display the `errImg` content. | `v12.2.0` |
-| loadingImg  | `string ｜ SafeResourceUrl` | `'/assets/nb-common/loading.svg'` | The loading picture when loading the image. Support the url path and safe resource url(like base64 svg file). The default is `'/assets/nb-common/loading.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_LOADING_IMG` token via DI to set the project or a module's loading picture, so that does not need to set the picture everywhere. You can see the [tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md#nb_default_loading_img-string--saferesourceurl) defined below | `v12.2.0` |
-| errImg  | `string ｜ SafeResourceUrl` | `'/assets/nb-common/loading.svg'` | The picture which is displayed when failure to load the image. Support the url path and safe resource url(like base64 svg file). The default is `'/assets/nb-common/picture.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_ERR_IMG` token via DI to set the project or a module's errImg picture, so that does not need to set the picture everywhere. You can see the [tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md#nb_default_err_img-string--saferesourceurl) defined below | `v12.2.0` |
+| loadingImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The loading picture when loading the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/loading.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_LOADING_IMG` token via DI to set the project or a module's loading picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md#nb_default_loading_img) defined below | `v12.2.0` |
+| errImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The picture which is displayed when failure to load the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/picture.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_ERR_IMG` token via DI to set the project or a module's errImg picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md#nb_default_err_img) defined below | `v12.2.0` |
 
 ##### angular.json
 ```json
@@ -331,7 +331,8 @@ this.valueType.isTemplateRef({}); // false
 
 ### Tokens
 
-#### NB_DEFAULT_LOADING_IMG: string | SafeResourceUrl
+#### NB_DEFAULT_LOADING_IMG
+##### string | SafeResourceUrl
 ##### `v12.2.0`
 ###### Used to set the "default" loading picture which is displayed when loading the image, used with the `img[nbImg]` directive. Use it via DI, you don't need to set the `img[nbImg]`'s `loadingImg` everywhere.
 
@@ -357,7 +358,8 @@ this.valueType.isTemplateRef({}); // false
 
 <br>
 
-#### NB_DEFAULT_ERR_IMG: string | SafeResourceUrl
+#### NB_DEFAULT_ERR_IMG
+##### string | SafeResourceUrl
 ##### `v12.2.0`
 ###### Used to set the "default" picture which is displayed when failure to load the image, used with the `img[nbImg]` directive. Use it via DI, you don't need to set the `img[nbImg]`'s `errImg` everywhere.
 
