@@ -2,8 +2,8 @@ import { ChangeDetectorRef, Directive, ElementRef, HostBinding, Inject, Input, O
 import { SafeResourceUrl } from '@angular/platform-browser';
 import { NB_DEFAULT_ERR_IMG, NB_DEFAULT_LOADING_IMG } from '../constants';
 
-const DEFAULT_LOADING_IMG = '/assets/nb-common/loading.svg';
-const DEFAULT_ERR_IMG = '/assets/nb-common/picture.svg';
+const DEFAULT_LOADING_IMG = './assets/nb-common/loading.svg';
+const DEFAULT_ERR_IMG = './assets/nb-common/picture.svg';
 
 @Directive({ selector: 'img[nbImg]' })
 export class NbImgDirective implements OnChanges {

@@ -62,14 +62,14 @@ describe('Directive: Img', () => {
 
   describe('load image via nbImg', () => {
     [
-      { title: 'failure to load image', nbImg: 'nbImg', expect: '/assets/nb-common/picture.svg' },
+      { title: 'failure to load image', nbImg: 'nbImg', expect: './assets/nb-common/picture.svg' },
       { title: 'success to load image', nbImg: fineImg, expect: fineImg }
     ].forEach(item => {
       it(item.title, inject([NbImgDirective], async (imgDirective: NbImgDirective) => {
         const change = new SimpleChange(undefined, item.nbImg, true);
         onNbImgOnChange(imgDirective, change);
 
-        expect(imgDirective.src).toEqual('/assets/nb-common/loading.svg');
+        expect(imgDirective.src).toEqual('./assets/nb-common/loading.svg');
         await new Promise(resolve => setTimeout(resolve, 100));
         expect(imgDirective.src).toEqual(item.expect);
       }));

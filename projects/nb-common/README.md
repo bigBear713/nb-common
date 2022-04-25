@@ -137,8 +137,8 @@ this.valueType.isTemplateRef({}); // false
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 | nbImg  | `string` | `''` | 要加载的image的src。如果使用了该指令，但是没有设置`nbImg`的值，会显示`src`属性的内容(没有loaing效果)。如果此时`src`的内容加载失败，会显示`errImg`的内容 | `v12.2.0` |
-| loadingImg  | `string ｜ SafeResourceUrl` | `'/assets/nb-common/loading.svg'` | 加载image时的loading图片，支持图片路径和认证安全的url(比如svg的base64)。默认是`assets/nb-common`目录下的`loading.svg`文件，所以使用默认路径时，需要在`angular.json`中，项目的`assets`中配置，具体见下方配置。可通过DI，使用`NB_DEFAULT_LOADING_IMG` token, 统一设置项目中，或者某个模块中的loading图片，具体见下方[tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_loading_img-string--saferesourceurl)定义 | `v12.2.0` |
-| errImg  | `string ｜ SafeResourceUrl` | `'/assets/nb-common/loading.svg'` | 加载image失败后显示的图片，支持图片路径和认证安全的url(比如svg的base64)。默认是`assets/nb-common`目录下的`picture.svg`文件。所以使用默认路径时，需要在`angular.json`中，项目的`assets`中配置，具体见下方配置。可通过DI，使用`NB_DEFAULT_ERR_IMG` token, 统一设置项目中，或者某个模块中的加载失败后显示的图片，具体见下方[tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_err_img-string--saferesourceurl)定义 | `v12.2.0` |
+| loadingImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | 加载image时的loading图片，支持图片路径和认证安全的url(比如svg的base64)。默认是`assets/nb-common`目录下的`loading.svg`文件，所以使用默认路径时，需要在`angular.json`中，项目的`assets`中配置，具体见下方配置。可通过DI，使用`NB_DEFAULT_LOADING_IMG` token, 统一设置项目中，或者某个模块中的loading图片，具体见下方[Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_loading_img)定义 | `v12.2.0` |
+| errImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | 加载image失败后显示的图片，支持图片路径和认证安全的url(比如svg的base64)。默认是`assets/nb-common`目录下的`picture.svg`文件。所以使用默认路径时，需要在`angular.json`中，项目的`assets`中配置，具体见下方配置。可通过DI，使用`NB_DEFAULT_ERR_IMG` token, 统一设置项目中，或者某个模块中的加载失败后显示的图片，具体见下方[Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_err_img)定义 | `v12.2.0` |
 
 ##### angular.json
 ```json
@@ -341,7 +341,8 @@ this.valueType.isTemplateRef({}); // false
 
 ### Tokens
 
-#### NB_DEFAULT_LOADING_IMG: string | SafeResourceUrl
+#### NB_DEFAULT_LOADING_IMG
+##### string | SafeResourceUrl
 ##### `v12.2.0`
 ###### 用于设置加载image时“默认”显示的loading图片，配合`img[nbImg]`指令使用。结合DI，避免重复设置每个`img[nbImg]`的`loadingImg`。
 
@@ -367,7 +368,8 @@ this.valueType.isTemplateRef({}); // false
 
 <br>
 
-#### NB_DEFAULT_ERR_IMG: string | SafeResourceUrl
+#### NB_DEFAULT_ERR_IMG
+##### string | SafeResourceUrl
 ##### `v12.2.0`
 ###### 用于设置加载image失败后“默认”显示的图片，避免显示破碎图片，配合`img[nbImg]`指令使用。结合DI，避免重复设置每个`img[nbImg]`的`errImg`。
 
