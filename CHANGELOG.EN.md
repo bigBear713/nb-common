@@ -1,3 +1,9 @@
+# v13.0.0
+## Breaking Changes
+- feat: Upgrade `angular` to `v13`;
+
+<br/>
+
 # v12.2.0
 ## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md#Directives "Directives")
 - feat: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md#imgnbimg) - Add loading effect when loading image. When failure to load image, it will display the picture which is preset;

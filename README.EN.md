@@ -26,6 +26,7 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 ## Version
 ###### The nb-common's main version will keep up with the Angular's main version
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
+- "@bigbear713/nb-common":"^13.0.0" - "@angular/core": "^13.0.0"
 
 ## Installation
 ```bash
