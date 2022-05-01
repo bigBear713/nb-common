@@ -1,3 +1,9 @@
+# v13.0.0
+## 破坏性更新
+- feat: `angular`升级到`v13`;
+
+<br/>
+
 # v12.2.0
 ## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Directives "Directives")
 - feat: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#imgnbimg) - 在image加载完成前添加loading效果，当加载失败时会显示预设置好的图片;
