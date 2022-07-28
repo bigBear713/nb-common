@@ -1,13 +1,15 @@
 {
   "name": "@bigbear713/nb-common",
-  "version": "13.0.0",
+  "version": "14.0.0",
   "homepage": "https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md",
   "description": "An angular(2+) common component, pipe, service library.",
   "keywords": [
     "ng",
     "angular",
     "angular2+",
+    "angular12",
     "angular13",
+    "angular14",
     "bigBear713"
   ],
   "license": "MIT",
@@ -19,8 +21,8 @@
     "url": "https://github.com/bigBear713/nb-common/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^13.0.0",
-    "@angular/core": "^13.0.0"
+    "@angular/common": "^14.0.0",
+    "@angular/core": "^14.0.0"
   },
   "dependencies": {
     "lodash-es": "^4.17.21",
