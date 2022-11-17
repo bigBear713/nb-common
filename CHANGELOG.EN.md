@@ -1,6 +1,7 @@
 # v15.0.0
 ## Breaking Changes
 - feat: Upgrade `angular` to `v15`;
+- feat: Upgrade `tslib` to `v2.4.1`;
 
 <br/>
 
