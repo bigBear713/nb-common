@@ -1,4 +1,15 @@
-import { ChangeDetectorRef, Directive, ElementRef, HostBinding, Inject, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Directive,
+  ElementRef,
+  HostBinding,
+  Inject,
+  Input,
+  OnChanges,
+  Optional,
+  SimpleChange,
+  SimpleChanges
+} from '@angular/core';
 import { SafeResourceUrl } from '@angular/platform-browser';
 import { NB_DEFAULT_ERR_IMG, NB_DEFAULT_LOADING_IMG } from '../constants';
 
@@ -30,6 +41,10 @@ export class NbImgDirective implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     const { nbImg } = changes;
+    this.changeNbImg(nbImg);
+  }
+
+  private changeNbImg(nbImg: SimpleChange): void {
     if (nbImg?.firstChange) {
       this.src = this.elementRef.nativeElement.src;
     }
