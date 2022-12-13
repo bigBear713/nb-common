@@ -26,12 +26,15 @@ export class NbPlaceholderDirective implements OnChanges, OnDestroy {
   }
 
   private reRender(): void {
+    // end the last subscribe if exist
+    this.destroy$.next();
+
     if (this.valueTypeService.isString(this.nbPlaceholder)) {
       this.placeholder = this.nbPlaceholder;
       this.chageDR.markForCheck();
       return;
     }
-    this.destroy$.next();
+
     this.nbPlaceholder.pipe(
       takeUntil(this.destroy$)
     ).subscribe(content => this.updatePlaceholder(content));
