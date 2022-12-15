@@ -22,6 +22,7 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 ## Feature
 - 支持组件的更新策略为`ChangeDetectionStrategy.OnPush`;
+- 支持在`standalone component`中使用;
 
 ## Version
 ###### nb-common的大版本和Angular的大版本保持对应关系

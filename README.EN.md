@@ -22,6 +22,7 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 ## Feature
 - Support the changeDetection of components as `ChangeDetectionStrategy.OnPush`;
+- Support to used in `standalone component`;
 
 ## Version
 ###### The nb-common's main version will keep up with the Angular's main version
