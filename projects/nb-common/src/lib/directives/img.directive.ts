@@ -18,7 +18,6 @@ const DEFAULT_ERR_IMG = './assets/nb-common/picture.svg';
 
 @Directive({ selector: 'img[nbImg]' })
 export class NbImgDirective implements OnChanges {
-
   @Input() errImg: string | SafeResourceUrl;
 
   @Input() loadingImg: string | SafeResourceUrl;

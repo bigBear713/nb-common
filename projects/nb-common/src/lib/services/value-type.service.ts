@@ -2,9 +2,7 @@ import { Injectable, TemplateRef } from '@angular/core';
 import { isBoolean, isNumber, isString } from 'lodash-es';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class NbValueTypeService {
   constructor() { }
 

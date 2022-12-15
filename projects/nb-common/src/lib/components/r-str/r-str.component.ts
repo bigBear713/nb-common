@@ -14,6 +14,7 @@ type AsyncType = Observable<string> | Promise<string>;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NbRStrComponent {
+  
   @Input('nb-r-str') content: string | Observable<string> | Promise<string> = '';
 
   get asyncContent(): AsyncType {

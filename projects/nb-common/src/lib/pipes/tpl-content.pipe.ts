@@ -1,9 +1,7 @@
 import { Pipe, PipeTransform, TemplateRef } from '@angular/core';
 import { NbValueTypeService } from '../services/value-type.service';
 
-@Pipe({
-  name: 'nbTplContent'
-})
+@Pipe({ name: 'nbTplContent' })
 export class NbTplContentPipe implements PipeTransform {
   constructor(private valueTypeService: NbValueTypeService) { }
 

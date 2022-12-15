@@ -1,9 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { NbValueTypeService } from '../services/value-type.service';
 
-@Pipe({
-  name: 'nbIsBoolean'
-})
+@Pipe({ name: 'nbIsBoolean' })
 export class NbIsBooleanPipe implements PipeTransform {
   constructor(private valueTypeService: NbValueTypeService) { }
 
