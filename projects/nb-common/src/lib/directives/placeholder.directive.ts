@@ -3,12 +3,12 @@ import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NbValueTypeService } from '../services/value-type.service';
 
-@Directive({
-  selector: '[nbPlaceholder]'
-})
+@Directive({ selector: '[nbPlaceholder]' })
 export class NbPlaceholderDirective implements OnChanges, OnDestroy {
   @Input() nbPlaceholder: string | Observable<string> = '';
+
   @HostBinding('placeholder') placeholder: string = '';
+
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -31,6 +31,7 @@ export class NbPlaceholderDirective implements OnChanges, OnDestroy {
       this.chageDR.markForCheck();
       return;
     }
+    // end the prev subscribtion if it exists
     this.destroy$.next();
     this.nbPlaceholder.pipe(
       takeUntil(this.destroy$)

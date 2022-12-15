@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
-import { NbRStrComponent } from './r-str.component';
+import { NbCommonTestingModule } from '../../../testing/nb-common-testing.module';
+import { NbRStrComponent } from '../r-str.component';
 
 @Component({
   selector: 'nb-r-str-host',

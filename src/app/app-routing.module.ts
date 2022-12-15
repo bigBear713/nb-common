@@ -17,7 +17,11 @@ const routes: Routes = [
   {
     path: 'img-demo',
     loadChildren: () => import('./img-demo/img-demo.module').then(m => m.ImgDemoModule)
-  }
+  },
+  {
+    path: 'standalone-demo',
+    loadChildren: () => import('./standalone-demo/standalone-demo-routing').then(m => m.standaloneRoutes)
+  },
 ];
 
 @NgModule({
