@@ -66,21 +66,21 @@ describe('Directive: NbPlaceholder', () => {
       expect(getInputPlaceholder(fixture, hostEle)).toEqual('这是placeholder');
     }));
 
-    it('the placeholder is an Observable value, then change it as a string value', fakeAsync(() => {
+    it('the placeholder is an Observable value, then change it as a new observable value', fakeAsync(() => {
       const fixture = TestBed.createComponent(MockComponent);
       const component = fixture.componentInstance;
 
       const mockPlaceholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
-      component.placeholder = mockPlaceholder;
+      component.placeholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
       fixture.detectChanges();
       const hostEle: HTMLElement = fixture.debugElement.nativeElement;
       expect(getInputPlaceholder(fixture, hostEle)).toEqual(OBSERVABLE_PLACEHOLDER);
 
-      component.placeholder = STR_PLACEHOLDER;
+      component.placeholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
       fixture.detectChanges();
 
       expect(mockPlaceholder.observers.length).toBeFalsy();
-      expect(getInputPlaceholder(fixture, hostEle)).toEqual(STR_PLACEHOLDER);
+      expect(getInputPlaceholder(fixture, hostEle)).toEqual(OBSERVABLE_PLACEHOLDER);
     }));
 
   });
