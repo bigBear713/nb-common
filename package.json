@@ -31,7 +31,7 @@
     "@angular/router": "^15.0.3",
     "lodash-es": "^4.17.21",
     "rxjs": "~6.6.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.4.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
