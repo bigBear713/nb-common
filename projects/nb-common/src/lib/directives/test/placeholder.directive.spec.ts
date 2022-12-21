@@ -1,9 +1,12 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { NbValueTypeService } from '../../services/value-type.service';
 import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 import { NbPlaceholderDirective } from '../placeholder.directive';
+
+const STR_PLACEHOLDER = 'this is a string placeholder';
+const OBSERVABLE_PLACEHOLDER = 'this is a observable placeholder';
 
 @Component({
   selector: 'mock-component',
@@ -40,36 +43,56 @@ describe('Directive: NbPlaceholder', () => {
     it('when the placeholder is string value', () => {
       const fixture = TestBed.createComponent(MockComponent);
       const component = fixture.componentInstance;
-      const mockPlaceholder = 'this is placeholder';
-      component.placeholder = mockPlaceholder;
-      fixture.detectChanges();
 
+      component.placeholder = STR_PLACEHOLDER;
+      fixture.detectChanges();
       const hostEle: HTMLElement = fixture.debugElement.nativeElement;
       const inputEle: HTMLInputElement | null = hostEle.querySelector('input');
       const inputPlaceholder = inputEle?.placeholder;
-      expect(inputPlaceholder).toEqual(mockPlaceholder);
+      expect(inputPlaceholder).toEqual(STR_PLACEHOLDER);
     });
 
-    it('when the placeholder is Observable value', fakeAsync(() => {
+    it('when the placeholder is an Observable value', fakeAsync(() => {
       const fixture = TestBed.createComponent(MockComponent);
       const component = fixture.componentInstance;
-      const mockPlaceholder = new BehaviorSubject('this is placeholder');
+
+      const mockPlaceholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
       component.placeholder = mockPlaceholder;
       fixture.detectChanges();
-
       const hostEle: HTMLElement = fixture.debugElement.nativeElement;
-      const getInputPlaceholder = () => {
-        tick(10);
-        fixture.detectChanges();
-        const inputEle: HTMLInputElement | null = hostEle.querySelector('input');
-        return inputEle?.placeholder;
-      }
-
-      expect(getInputPlaceholder()).toEqual('this is placeholder');
+      expect(getInputPlaceholder(fixture, hostEle)).toEqual(OBSERVABLE_PLACEHOLDER);
 
       mockPlaceholder.next('这是placeholder');
-      expect(getInputPlaceholder()).toEqual('这是placeholder');
+      expect(getInputPlaceholder(fixture, hostEle)).toEqual('这是placeholder');
     }));
+
+    it('the placeholder is an Observable value, then change it as a new observable value', fakeAsync(() => {
+      const fixture = TestBed.createComponent(MockComponent);
+      const component = fixture.componentInstance;
+
+      const mockPlaceholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
+      component.placeholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
+      fixture.detectChanges();
+      const hostEle: HTMLElement = fixture.debugElement.nativeElement;
+      expect(getInputPlaceholder(fixture, hostEle)).toEqual(OBSERVABLE_PLACEHOLDER);
+
+      component.placeholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
+      fixture.detectChanges();
+
+      expect(mockPlaceholder.observers.length).toBeFalsy();
+      expect(getInputPlaceholder(fixture, hostEle)).toEqual(OBSERVABLE_PLACEHOLDER);
+    }));
+
   });
 
 });
+
+const getInputPlaceholder = (
+  fixture: ComponentFixture<MockComponent>,
+  hostEle: HTMLElement
+): string | undefined => {
+  tick(10);
+  fixture.detectChanges();
+  const inputEle: HTMLInputElement | null = hostEle.querySelector('input');
+  return inputEle?.placeholder;
+}

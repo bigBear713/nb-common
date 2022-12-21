@@ -26,6 +26,7 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 ## Feature
 - 支持组件的更新策略为`ChangeDetectionStrategy.OnPush`;
+- 支持在`standalone component`中使用;
 
 </div>
 
@@ -34,6 +35,7 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
 - "@bigbear713/nb-common":"^13.0.0" - "@angular/core": "^13.0.0"
 - "@bigbear713/nb-common":"^14.0.0" - "@angular/core": "^14.0.0"
+- "@bigbear713/nb-common":"^15.0.0" - "@angular/core": "^15.0.0"
 
 <br>
 

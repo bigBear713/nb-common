@@ -1,3 +1,9 @@
+# v15.0.0
+## Breaking Changes
+- feat: Upgrade `angular` to `v15`;
+
+<br/>
+
 # v14.0.0
 ## Breaking Changes
 - feat: Upgrade `angular` to `v14`;
