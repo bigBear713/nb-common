@@ -49,6 +49,11 @@ npm i
 npm run build:lib
 ```
 
+- Run ng-common unit test
+```bash
+npm run test:lib
+```
+
 - Start the demo
 ```bash
 npm start
