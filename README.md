@@ -49,6 +49,11 @@ npm i
 npm run build:lib
 ```
 
+- 运行ng-common单元测试
+```bash
+npm run test:lib
+```
+
 - 启动demo项目
 ```bash
 npm start
