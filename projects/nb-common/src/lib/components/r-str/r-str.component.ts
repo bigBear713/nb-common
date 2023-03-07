@@ -1,9 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
+import { NbIsAsyncPipe } from '../../pipes/is-async.pipe';
 
 type AsyncType = Observable<string> | Promise<string>;
 
 @Component({
+  standalone: true,
+  imports:[CommonModule, NbIsAsyncPipe],
   selector: '[nb-r-str]',
   template: `
     <ng-container [ngSwitch]="content | nbIsAsync">

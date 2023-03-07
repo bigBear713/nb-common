@@ -3,7 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NbValueTypeService } from '../services/value-type.service';
 
-@Directive({ selector: '[nbPlaceholder]' })
+@Directive({ standalone: true, selector: '[nbPlaceholder]' })
 export class NbPlaceholderDirective implements OnChanges, OnDestroy {
   @Input() nbPlaceholder: string | Observable<string> = '';
 

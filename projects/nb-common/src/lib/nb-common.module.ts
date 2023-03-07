@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NbRStrComponent } from './components/r-str/r-str.component';
 import { NbImgDirective } from './directives/img.directive';
@@ -29,8 +28,8 @@ const PIPES = [
 ];
 
 @NgModule({
-  declarations: [...COMPONENTS, ...DIRECTIVES, ...PIPES],
-  imports: [CommonModule],
+  declarations: [],
+  imports: [...COMPONENTS, ...DIRECTIVES, ...PIPES],
   exports: [...COMPONENTS, ...DIRECTIVES, ...PIPES]
 })
 export class NbCommonModule { }
