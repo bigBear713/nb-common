@@ -65,9 +65,11 @@ export class NbImgDirective implements OnChanges {
     this.updateImgSrc(this.loadingImg);
 
     const image = new Image();
-    image.src = this.nbImg;
     image.onerror = () => this.updateImgSrc(this.errImg);
     image.onload = () => this.updateImgSrc(this.nbImg);
+    // set src value after setting the onload/onerror function to avoid the problem that 
+    // the img has been loaded, but the onload/onerror function has not been mounted yet
+    image.src = this.nbImg;
   }
 
   private loadImgFromSrc(): void {
