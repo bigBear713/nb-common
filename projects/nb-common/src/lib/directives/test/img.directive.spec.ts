@@ -153,7 +153,5 @@ class StandaloneComponent {
   ...StandaloneCompConfig,
   imports: [NbCommonTestingModule],
 })
-class StandaloneComponentWithNgModule {
-  @ViewChild(NbImgDirective) nbImg!: NbImgDirective;
-  imgSrc = pictureLink;
+class StandaloneComponentWithNgModule extends StandaloneComponent {
 }

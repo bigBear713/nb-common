@@ -148,7 +148,5 @@ class StandaloneComponent {
   ...StandaloneCompConfig,
   imports: [NbCommonTestingModule],
 })
-class StandaloneComponentWithNgModule {
-  @ViewChild(NbPlaceholderDirective) directiveInstance!: NbPlaceholderDirective;
-  placeholderStr = 'placeholder';
+class StandaloneComponentWithNgModule extends StandaloneComponent {
 }

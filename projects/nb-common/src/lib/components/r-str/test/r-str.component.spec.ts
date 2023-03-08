@@ -121,7 +121,5 @@ class StandaloneComponent {
   ...StandaloneCompConfig,
   imports: [NbCommonTestingModule],
 })
-class StandaloneComponentWithNgModule {
-  @ViewChild(NbRStrComponent) compInstance!: NbRStrComponent;
-  content = 'str content';
+class StandaloneComponentWithNgModule extends StandaloneComponent {
 }
