@@ -1,11 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 import { NbValueTypeService } from '../../services/value-type.service';
 import { NbTplContentPipe } from '../tpl-content.pipe';
 import { getTplRefInstance } from '../../testing/templateRef/templateRef-testing.module';
 import { TemplateRef } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-
 
 describe('Pipe:  NbTplContente', () => {
   let pipe: NbTplContentPipe;
@@ -13,7 +11,7 @@ describe('Pipe:  NbTplContente', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NbCommonTestingModule],
+      providers: [NbValueTypeService]
     })
       .compileComponents();
   });

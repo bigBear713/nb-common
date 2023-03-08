@@ -4,9 +4,8 @@ import { NbValueTypeService } from "../services/value-type.service";
 import { TemplateRefTestingModule } from "./templateRef/templateRef-testing.module";
 
 @NgModule({
-  providers: [
-    NbValueTypeService,
-  ],
+  imports: [NbCommonModule, TemplateRefTestingModule],
+  providers: [NbValueTypeService],
   exports: [NbCommonModule, TemplateRefTestingModule]
 })
 export class NbCommonTestingModule { }

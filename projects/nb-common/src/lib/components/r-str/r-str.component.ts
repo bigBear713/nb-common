@@ -1,13 +1,16 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NbIsAsyncPipe } from '../../pipes/is-async.pipe';
 
 type AsyncType = Observable<string> | Promise<string>;
 
+const importsFromNgCommon = [NgSwitch, NgSwitchCase, NgSwitchDefault, AsyncPipe];
+const importsFromSelf = [NbIsAsyncPipe];
+
 @Component({
   standalone: true,
-  imports:[CommonModule, NbIsAsyncPipe],
+  imports: [...importsFromNgCommon, ...importsFromSelf],
   selector: '[nb-r-str]',
   template: `
     <ng-container [ngSwitch]="content | nbIsAsync">

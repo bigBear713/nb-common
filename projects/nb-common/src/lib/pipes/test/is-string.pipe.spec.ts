@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { Observable, Subject } from 'rxjs';
 import { NbValueTypeService } from '../../services/value-type.service';
-import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 import { NbIsStringPipe } from '../is-string.pipe';
 
 describe('Pipe: NbIsString', () => {
@@ -9,7 +8,7 @@ describe('Pipe: NbIsString', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NbCommonTestingModule]
+      providers: [NbValueTypeService]
     });
   });
 

@@ -12,7 +12,6 @@ describe('Directive: Img', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NbCommonTestingModule],
       providers: [
         NbImgDirective,
         { provide: ChangeDetectorRef, useValue: jasmine.createSpyObj(ChangeDetectorRef, ['markForCheck']) },
@@ -81,7 +80,6 @@ describe('Directive: Img', () => {
   describe('config the loadingImg and errImg via DI', () => {
     beforeEach(async () => {
       await TestBed.configureTestingModule({
-        imports: [NbCommonTestingModule],
         providers: [
           NbImgDirective,
           { provide: ChangeDetectorRef, useValue: jasmine.createSpyObj(ChangeDetectorRef, ['markForCheck']) },
@@ -102,13 +100,26 @@ describe('Directive: Img', () => {
     }));
   });
 
-  it('used in standalone component', () => {
-    const fixture = TestBed.createComponent(StandaloneComponent);
-    const component = fixture.componentInstance;
-    fixture.detectChanges();
+  describe('used in standalone component', () => {
+    [
+      {
+        title: 'imported by standalone component',
+        createComp: () => TestBed.createComponent(StandaloneComponent)
+      },
+      {
+        title: 'imported by ngModule',
+        createComp: () => TestBed.createComponent(StandaloneComponentWithNgModule)
+      }
+    ].forEach(item => {
+      it(item.title, () => {
+        const fixture = item.createComp();
+        const component = fixture.componentInstance;
+        fixture.detectChanges();
 
-    expect(component.nbImg.loadingImg).toEqual(pictureLink);
-    expect(component.nbImg.errImg).toEqual(loadingLink);
+        expect(component.nbImg.loadingImg).toEqual(pictureLink);
+        expect(component.nbImg.errImg).toEqual(loadingLink);
+      });
+    })
   });
 
 });
@@ -122,16 +133,27 @@ function onNbImgOnChange(imgDirective: NbImgDirective, change: { previousValue?:
   imgDirective.ngOnChanges(changes);
 }
 
-@Component({
+const StandaloneCompConfig = {
   standalone: true,
   template: ` <img [nbImg]="imgSrc"> `,
-  imports: [NbCommonTestingModule],
+  imports: [NbImgDirective],
   providers: [
     { provide: NB_DEFAULT_ERR_IMG, useValue: loadingLink },
     { provide: NB_DEFAULT_LOADING_IMG, useValue: pictureLink }
   ]
-})
+};
+
+@Component(StandaloneCompConfig)
 class StandaloneComponent {
+  @ViewChild(NbImgDirective) nbImg!: NbImgDirective;
+  imgSrc = pictureLink;
+}
+
+@Component({
+  ...StandaloneCompConfig,
+  imports: [NbCommonTestingModule],
+})
+class StandaloneComponentWithNgModule {
   @ViewChild(NbImgDirective) nbImg!: NbImgDirective;
   imgSrc = pictureLink;
 }
