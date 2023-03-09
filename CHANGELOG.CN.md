@@ -4,8 +4,8 @@
 
 ## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#Directives "Directives")
 - feat: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nbplaceholder) - 支持以`standalone component`的方式引入
-- feat: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#imgnbimg) - 支持以`standalone component`的方式引入
-- refactor: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#imgnbimg) - 优化图片的加载时机
+- feat: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#imgnbimg) - 支持以`standalone component`的方式引入
+- refactor: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#imgnbimg) - 优化图片的加载时机
 
 ## [Pipes](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#Pipes "Pipes")
 - feat: [`nbIsAsync`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nbisasync-transformvalue-any-value-is-observableany--promiseany) - 支持以`standalone component`的方式引入
@@ -37,7 +37,7 @@
 
 # v12.2.0
 ## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#Directives "Directives")
-- feat: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#imgnbimg) - 在image加载完成前添加loading效果，当加载失败时会显示预设置好的图片;
+- feat: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#imgnbimg) - 在image加载完成前添加loading效果，当加载失败时会显示预设置好的图片;
 ## [Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#tokens "Tokens")
 - feat: [NB_DEFAULT_LOADING_IMG](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nb_default_loading_img) - 在DI中设置加载image时的loading效果图片的token;
 - feat: [NB_DEFAULT_ERR_IMG](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nb_default_err_img) - 在DI中设置加载image失败时显示的图片的token;
