@@ -28,7 +28,7 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 - Support the changeDetection of components as `ChangeDetectionStrategy.OnPush`;
 - Support to be used in `standalone component`;
 - Support to be imported as a `standalone component`
-- 
+
 <br>
 
 ## Version

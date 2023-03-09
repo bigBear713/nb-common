@@ -50,7 +50,7 @@ npm i
 npm run build:lib
 ```
 
-- Run nb-common unit test
+- Run the nb-common unit test
 ```bash
 npm run test:lib
 ```
