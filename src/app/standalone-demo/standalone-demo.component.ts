@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { NbCommonModule, NB_DEFAULT_LOADING_IMG } from 'nb-common';
+import { NbImgDirective, NbPlaceholderDirective, NbRStrComponent, NbTplContentPipe, NB_DEFAULT_LOADING_IMG } from 'nb-common';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
   selector: 'app-standalone-demo',
   templateUrl: './standalone-demo.component.html',
   styleUrls: ['./standalone-demo.component.css'],
-  imports: [CommonModule, NbCommonModule],
+  imports: [CommonModule, NbRStrComponent, NbPlaceholderDirective, NbImgDirective, NbTplContentPipe],
   providers: [
     {
       provide: NB_DEFAULT_LOADING_IMG,
@@ -38,7 +38,7 @@ export class StandaloneDemoComponent implements OnInit {
     this.intervalUpdatePlaceholderStr();
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     clearInterval(this.intervalId);
   }
 
@@ -46,7 +46,7 @@ export class StandaloneDemoComponent implements OnInit {
     this.intervalId = setInterval(() => {
       const str = this.placeholder$.value === '这是placeholder' ? 'This is placeholder' : '这是placeholder';
       this.placeholder$.next(str);
-    },3000);
+    }, 3000);
   }
 
 }

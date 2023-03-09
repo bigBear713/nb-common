@@ -1,11 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 import { NbValueTypeService } from '../../services/value-type.service';
 import { NbTplContentPipe } from '../tpl-content.pipe';
 import { getTplRefInstance } from '../../testing/templateRef/templateRef-testing.module';
-import { TemplateRef } from '@angular/core';
+import { Component, TemplateRef, ElementRef } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-
+import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 
 describe('Pipe:  NbTplContente', () => {
   let pipe: NbTplContentPipe;
@@ -13,7 +12,7 @@ describe('Pipe:  NbTplContente', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NbCommonTestingModule],
+      providers: [NbValueTypeService]
     })
       .compileComponents();
   });
@@ -21,7 +20,7 @@ describe('Pipe:  NbTplContente', () => {
   beforeEach(() => {
     const valueTypeService = TestBed.inject(NbValueTypeService);
     pipe = new NbTplContentPipe(valueTypeService);
-    tplRef = tplRef = getTplRefInstance(TestBed).tplRef;;
+    tplRef = getTplRefInstance(TestBed).tplRef;
   });
 
   it('create an instance', () => {
@@ -49,5 +48,44 @@ describe('Pipe:  NbTplContente', () => {
       });
     });
   });
+  describe('used in standalone component', () => {
+    [
+      {
+        title: 'imported by standalone component',
+        createComp: () => TestBed.createComponent(StandaloneComponent)
+      },
+      {
+        title: 'imported by ngModule',
+        createComp: () => TestBed.createComponent(StandaloneComponentWithNgModule)
+      }
+    ].forEach(item => {
+      it(item.title, () => {
+        const fixture = item.createComp();
+        const component = fixture.componentInstance;
+        fixture.detectChanges();
+
+        expect(component.elementRef.nativeElement.textContent?.trim()).toEqual('true - false');
+      });
+    })
+  });
 
 });
+
+const StandaloneCompConfig = {
+  standalone: true,
+  template: `{{!!(tplValue|nbTplContent)}} - {{!!(strValue|nbTplContent)}}`,
+  imports: [NbTplContentPipe],
+};
+
+@Component(StandaloneCompConfig)
+class StandaloneComponent {
+  tplValue = getTplRefInstance(TestBed).tplRef;
+  strValue = 'string';
+  constructor(public elementRef: ElementRef<HTMLDivElement>) { }
+}
+
+@Component({
+  ...StandaloneCompConfig,
+  imports: [NbCommonTestingModule],
+})
+class StandaloneComponentWithNgModule extends StandaloneComponent { }

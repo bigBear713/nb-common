@@ -1,5 +1,6 @@
+import { Component, ElementRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { Observable, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { NbValueTypeService } from '../../services/value-type.service';
 import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 import { NbIsStringPipe } from '../is-string.pipe';
@@ -9,7 +10,7 @@ describe('Pipe: NbIsString', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NbCommonTestingModule]
+      providers: [NbValueTypeService]
     });
   });
 
@@ -44,4 +45,45 @@ describe('Pipe: NbIsString', () => {
       });
     });
   });
+
+  describe('used in standalone component', () => {
+    [
+      {
+        title: 'imported by standalone component',
+        createComp: () => TestBed.createComponent(StandaloneComponent)
+      },
+      {
+        title: 'imported by ngModule',
+        createComp: () => TestBed.createComponent(StandaloneComponentWithNgModule)
+      }
+    ].forEach(item => {
+      it(item.title, () => {
+        const fixture = item.createComp();
+        const component = fixture.componentInstance;
+        fixture.detectChanges();
+
+        expect(component.elementRef.nativeElement.textContent?.trim()).toEqual('true - false');
+      });
+    })
+  });
+
 });
+
+const StandaloneCompConfig = {
+  standalone: true,
+  template: `{{strValue|nbIsString}} - {{observableValue|nbIsString}}`,
+  imports: [NbIsStringPipe],
+};
+
+@Component(StandaloneCompConfig)
+class StandaloneComponent {
+  observableValue = of(null);
+  strValue = 'string';
+  constructor(public elementRef: ElementRef<HTMLDivElement>) { }
+}
+
+@Component({
+  ...StandaloneCompConfig,
+  imports: [NbCommonTestingModule],
+})
+class StandaloneComponentWithNgModule extends StandaloneComponent { }
