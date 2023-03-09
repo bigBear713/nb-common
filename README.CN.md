@@ -13,19 +13,20 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 </div>
 
 ## Document
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "文档 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "Document - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "Document - English")
 
 ## Changelog
-- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "更新日志 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.EN.md "Changelog - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.CN.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "Changelog - English")
 
 ## Feature
-- Support the changeDetection of components as `ChangeDetectionStrategy.OnPush`;
-- Support to used in `standalone component`;
+- 支持组件的更新策略为`ChangeDetectionStrategy.OnPush`;
+- 支持在`standalone component`中使用;
+- 支持以`standalone component`的方式引入;
 
 ## Version
-###### The nb-common's main version will keep up with the Angular's main version
+###### nb-common的大版本和Angular的大版本保持对应关系
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
 - "@bigbear713/nb-common":"^13.0.0" - "@angular/core": "^13.0.0"
 - "@bigbear713/nb-common":"^14.0.0" - "@angular/core": "^14.0.0"
@@ -38,34 +39,34 @@ $ npm i @bigbear713/nb-common
 $ yarn add @bigbear713/nb-common
 ```
 
-## Start the demo project
-- Install the dependencies:
+## 启动demo项目
+- 安装依赖：
 ```bash
 npm i
 ```
 
-- Build the nb-common lib
+- 编译nb-common库
 ```bash
 npm run build:lib
 ```
 
-- Run ng-common unit test
+- 运行nb-common单元测试
 ```bash
 npm run test:lib
 ```
 
-- Start the demo
+- 启动demo项目
 ```bash
 npm start
 ```
 
-- build the demo
+- 部署demo
 ```bash
 npm run build
 ```
 
-## Contribution
-> Feature and PR are welcome to make this project better together
+## 贡献者
+> 欢迎提feature和PR，一起使该项目更好
 
 <a href="https://github.com/bigBear713" target="_blank"><img src="https://avatars.githubusercontent.com/u/12368900?v=4" alt="bigBear713" width="30px" height="30px"></a>
 

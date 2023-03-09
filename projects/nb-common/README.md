@@ -13,25 +13,26 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 </div>
 
 ## Document
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "文档 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.EN.md "Document - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "Document - English")
 
-</div>
+<br>
 
 ## Changelog
-- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "更新日志 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.EN.md "Changelog - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.CN.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "Changelog - English")
 
 <br>
 
 ## Feature
-- 支持组件的更新策略为`ChangeDetectionStrategy.OnPush`;
-- 支持在`standalone component`中使用;
-
-</div>
+- Support the changeDetection of components as `ChangeDetectionStrategy.OnPush`;
+- Support to be used in `standalone component`;
+- Support to be imported as a `standalone component`
+- 
+<br>
 
 ## Version
-###### nb-common的大版本和Angular的大版本保持对应关系
+###### The nb-common's main version will keep up with the Angular's main version
 - "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
 - "@bigbear713/nb-common":"^13.0.0" - "@angular/core": "^13.0.0"
 - "@bigbear713/nb-common":"^14.0.0" - "@angular/core": "^14.0.0"
@@ -51,46 +52,35 @@ $ yarn add @bigbear713/nb-common
 ### Module
 
 #### NbCommonModule
-###### Common模块。引入该模块后，可使用`component`，`directive`，`pipe`。`service`不需要引入该模块也可使用，默认为全局。
+###### Common module. After importing the module, you can use `component`, `directive` and `pipe`. `service` can be used if you do not import the module, because they are provided in root
 
 #### NbCommonTestingModule
-###### Common测试模块。用于Unit Test。
+###### Common testing module, used for Unit Test.
 
 #### function getTplRefInstance(TestBed: TestBedStatic) {fixture:ComponentFixture<TemplateRefTestingComponent>;component: TemplateRefTestingComponent;tplRef: TemplateRef<any>}
-###### 获取templateRef的fixture, component, tplRef等，可用于快速获取TemplateRef类型的实例，方便Unit Test. 需先引入NbCommonTestingModule
+###### Get templateRef's fixture, component, tplRef. You can get the instance of TemplateRef type directly, so it is more convenience for unit test. You should import the NbCommonTestingModule firstly.
 
 <br>
 
 ### Services
 
 #### NbValueTypeService
-###### 提供值类型检测的功能的`service`。
+###### The `service` can provide the function to get the type of value
 ###### `v12.0.0`
 
 ##### Methods
 | Name  | Return  | Description  | Scenes  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| isBoolean(value: any)  | `value is boolean`  | value参数是否为`boolean`类型的值 | 想要保证值为`boolean`类型时  | `v12.1.0` |
-| isNumber(value: any)  | `value is number`  | value参数是否为`number`类型的值 | 想要保证值为`number`类型时  | `v12.1.0` |
-| isObservable(value: any)   | `value is Observable<any>`  | value参数是否为`Observable`类型的值。注：`Subject`等也属于`Observable`类型的一种 | 想要保证值为`Observable`类型时  | `v12.0.0` |
-| isPromise(value: any) | `value is Promise<any>`  | value参数是否为`Promise`类型的值。 | 想要保证值为`Promise`类型时  | `v12.0.0` |
-| isString(value: any)  | `value is string`  | value参数是否为`string`类型的值。注:`string`和`String`都会返回true | 想要保证值为`string`类型时 | `v12.0.0` |
-| isTemplateRef(value: any)  | `value is TemplateRef<any>`  | value参数是否为`TemplateRef`类型的值 | 想要保证值为`TemplateRef`类型时  | `v12.0.0` |
+| isBoolean(value: any)  | `value is boolean`  | Is the value `boolean` type. Attention: it is ture when the value is `boolean` or `Boolean` type | Want to ensure the value is `boolean` type | `v12.1.0` |
+| isNumber(value: any)  | `value is number`  | Is the value `number` type. Attention: it is ture when the value is `number` or `Number` type | Want to ensure the value is `number` type | `v12.1.0` |
+| isObservable(value: any)  | `value is Observable<any>`  | Is the value params `Observable` type. Attention: `Subject` and so on also are one of `Observable` | Want to ensure the value is `Observable` type | `v12.0.0` |
+| isPromise(value: any)  | `value is Promise<any>`  | Is the value params `Promise` type. | Want to ensure the value is `Promise` type | `v12.0.0` |
+| isString(value: any)  | `value is string`  | Is the value `string` type. Attention: it is ture when the value is `string` or `String` type | Want to ensure the value is `string` type | `v12.0.0` |
+| isTemplateRef(value: any)  | `value is TemplateRef<any>`  | Is the value `TemplateRef` type | Want to ensure the value is `TemplateRef` type | `v12.0.0` |
 
 ##### Usage
 ```ts
 constructor(private valueType: NbValueTypeService) {}
-
-this.valueType.isBoolean(new Boolean(false)); // true
-this.valueType.isBoolean(false); // true
-this.valueType.isObservable({}); // false
-
-this.valueType.isNumber(new Number(1)); // true
-this.valueType.isNumber(1); // true
-this.valueType.isObservable({}); // false
-
-this.valueType.isObservable(new Subject()); // true
-this.valueType.isObservable({}); // false
 
 this.valueType.isObservable(new Subject()); // true
 this.valueType.isObservable({}); // false
@@ -113,12 +103,13 @@ this.valueType.isTemplateRef({}); // false
 ### Components
 
 #### `[nb-r-str]`
-###### 字符串内容渲染，支持内容为string或者异步对象
+###### Render the string content, support the type of content is string or anync object. 
 ###### `v12.0.0`
+###### Be a `standalone component` from `v15.1.0`
 ##### Input
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| nb-r-str  | `string ｜ Observable<string> ｜ Promise<string>`  | `''`  | 要显示的文本内容。会自动根据内容类型，选择合适的方式渲染出来 | `v12.0.0` |
+| nb-r-str  | `string ｜ Observable<string> ｜ Promise<string>`  | `''`  | The content want to render. It will auto be rendered via right method according to the type of content | `v12.0.0` |
 
 ##### Usage
 ```html
@@ -135,14 +126,15 @@ this.valueType.isTemplateRef({}); // false
 
 ### Directives
 #### `img[nbImg]`
-###### 在image加载完成前添加loading效果，当加载失败时会显示预设置好的图片。适合加载image文件比较大时，或者加载图片失败时不想显示破碎图片的场景
+###### Add loading effect when loading image. When failure to load image, it will display the picture which is preset. It can be used when the image you want to load is so large or you don't want to display broken image when failure to load the image
 ###### `v12.2.0`
+###### Be a `standalone component` from `v15.1.0`
 ##### Input
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| nbImg  | `string` | `''` | 要加载的image的src。如果使用了该指令，但是没有设置`nbImg`的值，会显示`src`属性的内容(没有loaing效果)。如果此时`src`的内容加载失败，会显示`errImg`的内容 | `v12.2.0` |
-| loadingImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | 加载image时的loading图片，支持图片路径和认证安全的url(比如svg的base64)。默认是`assets/nb-common`目录下的`loading.svg`文件，所以使用默认路径时，需要在`angular.json`中，项目的`assets`中配置，具体见下方配置。可通过DI，使用`NB_DEFAULT_LOADING_IMG` token, 统一设置项目中，或者某个模块中的loading图片，具体见下方[Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_loading_img)定义 | `v12.2.0` |
-| errImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | 加载image失败后显示的图片，支持图片路径和认证安全的url(比如svg的base64)。默认是`assets/nb-common`目录下的`picture.svg`文件。所以使用默认路径时，需要在`angular.json`中，项目的`assets`中配置，具体见下方配置。可通过DI，使用`NB_DEFAULT_ERR_IMG` token, 统一设置项目中，或者某个模块中的加载失败后显示的图片，具体见下方[Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_err_img)定义 | `v12.2.0` |
+| nbImg  | `string` | `''` | The src of image you want to load. When you use the directive and not set the `nbImg` value, will diplay the content from `src` property (no loading effect). At this time, if failure the image from the `src` value, it will display the `errImg` content. | `v12.2.0` |
+| loadingImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The loading picture when loading the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/loading.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_LOADING_IMG` token via DI to set the project or a module's loading picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_loading_img) defined below | `v12.2.0` |
+| errImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The picture which is displayed when failure to load the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/picture.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_ERR_IMG` token via DI to set the project or a module's errImg picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_err_img) defined below | `v12.2.0` |
 
 ##### angular.json
 ```json
@@ -172,16 +164,16 @@ this.valueType.isTemplateRef({}); // false
 
 ##### Usage
 ```html
-<!-- 只设置"nbImg"，加载失败时会显示默认图片 -->
+<!-- only set "nbImg", will display default picture when failure to load the image -->
 <img [nbImg]="bigImg">
 
-<!-- 自定义loading图片 -->
+<!-- custom loading image -->
 <img [nbImg]="bigImg" [loadingImg]="loadingImg">
 
-<!-- 加载失败时显示自定义图片 -->
+<!-- custom the picture which is diplayed when failure to load the image -->
 <img nbImg="invalidImg" [errImg]="errImg">
 
-<!-- 只想要加载失败时，显示默认图片(如果想显示其他图片，可设置errImg属性)，不需要loading效果 -->
+<!-- Only display the picture when failure to load the image(you can use errImg to custom other picture), no loading effect -->
 <img src="invalidImg" nbImg [errImg]="errImg">
 
 ```
@@ -189,18 +181,19 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### `[nbPlaceholder]`
-###### 设置placeholder属性值。支持内容为`string`和`Observable<string>`类型
+###### Set the value of placeholder attribute. Support `string` type and `Observable<string>` type
 ###### `v12.0.0`
+###### Be a `standalone component` from `v15.1.0`
 ##### Input
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| nbPlaceholder  | `string ｜ Observable<string>`  | `''` | 要显示的placeholder的内容。如果是`string`，将直接绑定到placeholder属性。如果是`Observable<string>`,将订阅它；且当订阅到值改变时，自动更新placeholder属性值 | `v12.0.0` |
+| nbPlaceholder  | `string ｜ Observable<string>`  | `''` | The content want to be rendered. If the type is `string`, it will auto be set as the placeholder attribute. If the content is `Observable<string>`, will auto subscribe the value and auto update the value of placeholder attribute when the value has been changed | `v12.0.0` |
 
 ##### Usage
 ```html
-<input nbPlaceholder="这是placeholder">
+<input nbPlaceholder="This is placeholder">
 
-<!-- placeholder$ = new BehaviorSubject('这是placeholder'); -->
+<!-- placeholder$ = new BehaviorSubject('This is placeholder'); -->
 <input [nbPlaceholder]="placeholder$">
 
 ```
@@ -210,17 +203,18 @@ this.valueType.isTemplateRef({}); // false
 ### Pipes
 
 #### nbIsAsync: `transform(value: any): value is Observable<any> | Promise<any>`
-###### 判断值是否是异步的管道
+###### Check the value is async type
 ###### `v12.0.0`
+###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | 要判断类型的值  | `v12.0.0` |
+| value  | `any`  | true  | The value will be checked  | `v12.0.0` |
 
 ##### Return
 | Type  | Description  |
 | ------------ | ------------ |
-| `value is Observable<any> ｜ Promise<any>`  | value是否为`Observable<any>`或者`Promise<any>`类型 |
+| `value is Observable<any> ｜ Promise<any>`  | Is the value `Observable<any>` or `Promise<any>` |
 
 ##### Usage
 ```html
@@ -233,17 +227,18 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsBoolean: `transform(value: any): value is boolean`
-###### 判断值是否是boolean类型的管道
+###### Check the value is boolean type
 ###### `v12.1.0`
+###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | 要判断类型的值  | `v12.1.0` |
+| value  | `any`  | true  | The value will be checked  | `v12.1.0` |
 
 ##### Return
 | Type  | Description  |
 | ------------ | ------------ |
-| `value is boolean`  | value是否为`boolean`或者`Boolean`类型  |
+| `value is boolean`  | Is the value `boolean` or `Boolean`  |
 
 ##### Usage
 ```html
@@ -256,17 +251,18 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsNumber: `transform(value: any): value is number`
-###### 判断值是否是数字的管道
+###### Check the value is number type
 ###### `v12.1.0`
+###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | 要判断类型的值  | `v12.1.0` |
+| value  | `any`  | true  | The value will be checked  | `v12.1.0` |
 
 ##### Return
 | Type  | Description  |
 | ------------ | ------------ |
-| `value is number`  | value是否为`number`或者`Number`类型  |
+| `value is number`  | Is the value `number` or `Number` |
 
 ##### Usage
 ```html
@@ -279,17 +275,18 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsObservable: `transform(value: any): value is Observable<any>`
-###### 判断值是否是可观察类型的管道
+###### Check the value is Observable
 ###### `v12.0.0`
+###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | 要判断类型的值  | `v12.0.0` |
+| value  | `any`  | true  | The value will be checked | `v12.0.0` |
 
 ##### Return
 | Type  | Description  |
 | ------------ | ------------ |
-| `value is Observable<any> ｜ Promise<any>`  | value是否为`Observable<any>`类型  |
+| `value is Observable<any> ｜ Promise<any>`  | Is the value `Observable<any>` |
 
 ##### Usage
 ```html
@@ -302,17 +299,18 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsString: `transform(value: any): value is string`
-###### 判断值是否是字符串的管道
+###### Check the value is string type
 ###### `v12.1.0`
+###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | 要判断类型的值  | `v12.1.0` |
+| value  | `any`  | true  | The value will be checked  | `v12.1.0` |
 
 ##### Return
 | Type  | Description  |
 | ------------ | ------------ |
-| `value is string`  | value是否为`string`或者`String`类型  |
+| `value is string`  | Is the value `string` or `String`  |
 
 ##### Usage
 ```html
@@ -325,16 +323,18 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbTplContent: `transform(value: any): TemplateRef<any> | null`
-###### 获取TemplateRef类型的内容
+###### Get the TemplateRef content 
+###### `v12.0.0`
+###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| value  | `any`  | true  | 要判断的值  | `v12.0.0` |
+| value  | `any`  | true  | The value will be checked  | `v12.0.0` |
 
 ##### Return
 | Type  | Description  |
 | ------------ | ------------ |
-| `TemplateRef<any> ｜ null`  | value为`TemplateRef`类型的值时，返回改值。否则返回null  |
+| `TemplateRef<any> ｜ null`  | If the value is `TemplateRef` type, it will return the value, otherwise it will return null  |
 
 ##### Usage
 ```html
@@ -348,7 +348,7 @@ this.valueType.isTemplateRef({}); // false
 #### NB_DEFAULT_LOADING_IMG
 ##### string | SafeResourceUrl
 ##### `v12.2.0`
-###### 用于设置加载image时“默认”显示的loading图片，配合`img[nbImg]`指令使用。结合DI，避免重复设置每个`img[nbImg]`的`loadingImg`。
+###### Used to set the "default" loading picture which is displayed when loading the image, used with the `img[nbImg]` directive. Use it via DI, you don't need to set the `img[nbImg]`'s `loadingImg` everywhere.
 
 ##### Usage
 ```ts
@@ -375,7 +375,7 @@ this.valueType.isTemplateRef({}); // false
 #### NB_DEFAULT_ERR_IMG
 ##### string | SafeResourceUrl
 ##### `v12.2.0`
-###### 用于设置加载image失败后“默认”显示的图片，避免显示破碎图片，配合`img[nbImg]`指令使用。结合DI，避免重复设置每个`img[nbImg]`的`errImg`。
+###### Used to set the "default" picture which is displayed when failure to load the image, used with the `img[nbImg]` directive. Use it via DI, you don't need to set the `img[nbImg]`'s `errImg` everywhere.
 
 ##### Usage
 ```ts
@@ -399,8 +399,8 @@ this.valueType.isTemplateRef({}); // false
 
 <br>
 
-### 贡献
-> 欢迎提feature和PR，一起使该项目更好
+### Contribution
+> Feature and PR are welcome to make this project better together
 
 <a href="https://github.com/bigBear713" target="_blank"><img src="https://avatars.githubusercontent.com/u/12368900?v=4" alt="bigBear713" width="30px" height="30px"></a>
 

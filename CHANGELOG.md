@@ -1,68 +1,87 @@
+# v15.1.0
+## [Components](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Components "Components")
+- feat: [`[nb-r-str]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb-r-str) - Support to be imported as a `standalone component`
+
+## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Directives "Directives")
+- feat: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbplaceholder) - Support to be imported as a `standalone component`
+- feat: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#imgnbimg) - Support to be imported as a `standalone component`
+- refactor: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#imgnbimg) - Optimising the timing about loading images
+
+## [Pipes](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Pipes "Pipes")
+- feat: [`nbIsAsync`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisasync-transformvalue-any-value-is-observableany--promiseany) - Support to be imported as a `standalone component`
+- feat: [`nbIsBoolean`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisboolean-transformvalue-any-value-is-boolean) - Support to be imported as a `standalone component`
+- feat: [`nbIsNumber`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisnumber-transformvalue-any-value-is-number) - Support to be imported as a `standalone component`
+- feat: [`nbIsObservable`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisobservable-transformvalue-any-value-is-observableany) - Support to be imported as a `standalone component`
+- feat: [`nbIsString`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisstring-transformvalue-any-value-is-string) - Support to be imported as a `standalone component`
+- feat: [`nbTplContent`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbtplcontent-transformvalue-any-templaterefany--null) - Support to be imported as a `standalone component`
+
+<br/>
+
 # v15.0.0
-## 破坏性更新
-- feat: `angular`升级到`v15`;
+## Breaking Changes
+- feat: Upgrade `angular` to `v15`;
 
 <br/>
 
 # v14.0.0
-## 破坏性更新
-- feat: `angular`升级到`v14`;
+## Breaking Changes
+- feat: Upgrade `angular` to `v14`;
 
 <br/>
 
 # v13.0.0
-## 破坏性更新
-- feat: `angular`升级到`v13`;
+## Breaking Changes
+- feat: Upgrade `angular` to `v13`;
 
 <br/>
 
 # v12.2.0
 ## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Directives "Directives")
-- feat: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#imgnbimg) - 在image加载完成前添加loading效果，当加载失败时会显示预设置好的图片;
+- feat: [`img[nbImg]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#imgnbimg) - Add loading effect when loading image. When failure to load image, it will display the picture which is preset;
 ## [Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#tokens "Tokens")
-- feat: [NB_DEFAULT_LOADING_IMG](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_loading_img) - 在DI中设置加载image时的loading效果图片的token;
-- feat: [NB_DEFAULT_ERR_IMG](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_err_img) - 在DI中设置加载image失败时显示的图片的token;
+- feat: [NB_DEFAULT_LOADING_IMG](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_loading_img) - It is the token is used for presetting the loading effect picture via DI;
+- feat: [NB_DEFAULT_ERR_IMG](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_err_img) - It is the token is used for presetting the picture which is displayed when failure to load the image via DI;
 
 <br/>
 
 # v12.1.0
 ## [Pipes](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Pipes "Pipes")
-- feat: [`nbIsBoolean`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisboolean-transformvalue-any-value-is-boolean) - 判断值是否是boolean类型
-- feat: [`nbIsNumber`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisnumber-transformvalue-any-value-is-number) - 判断值是否是数字
-- feat: [`nbIsString`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisstring-transformvalue-any-value-is-string) - 判断值是否是字符串
+- feat: [`nbIsBoolean`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisboolean-transformvalue-any-value-is-boolean) - Check the value is boolean type
+- feat: [`nbIsNumber`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisnumber-transformvalue-any-value-is-number) - Check the value is number type
+- feat: [`nbIsString`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisstring-transformvalue-any-value-is-string) - Check the value is string type
 
 <br/>
 
 ## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Directives "Directives")
-### [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbplaceholder)
-- fix: 一些情况下，在`ChangeDetectionStrategy.OnPush`下不会更新
+### [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbplaceholder "nbPlaceholder")
+- fix: The placeholder attr value will auto be updated in some cases when the changeDetection is `ChangeDetectionStrategy.OnPush`
 
 <br/>
 
 # v12.0.0
 ## [Module](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Module "Module")
-- feat: [NbCommonModule](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbcommonmodule) - 提供可用的`component`, `directive`, `pipe`
-- feat: [NbCommonTestingModule](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbcommontestingmodule) - 提供单元测试环境
-- feat: [getTplRefInstance()](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#function-gettplrefinstancetestbed-testbedstatic-fixturecomponentfixturecomponent-templatereftestingcomponenttplref-templateref) - 快速获取templateRef的fixture, component, tplRef等
+- feat: [NbCommonModule](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbcommonmodule) - provide useful `component`, `directive`, `pipe`
+- feat: [NbCommonTestingModule](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbcommontestingmodule) - provide the env to unit test
+- feat: [getTplRefInstance()](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#function-gettplrefinstancetestbed-testbedstatic-fixturecomponentfixturecomponent-templatereftestingcomponenttplref-templateref) - Get templateRef's fixture, component, tplRef
 
 <br>
 
 ## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Services "Services")
-- feat: [NbValueTypeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbvaluetypeservice) - 提供值类型检测的功能
+- feat: [NbValueTypeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbvaluetypeservice) - provide the function to get the type of value
 
 <br>
 
 ## [Components](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Components "Components")
-- feat: [`[nb-r-str]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb-r-str) - 字符串内容渲染
+- feat: [`[nb-r-str]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb-r-str) - render the string content
 
 <br>
 
 ## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Directives "Directives")
-- feat: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbplaceholder) - 设置placeholder属性值
+- feat: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbplaceholder) - Set the value of placeholder attribute
 
 <br>
 
 ## [Pipes](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Pipes "Pipes")
-- feat: [`nbIsAsync`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisasync-transformvalue-any-value-is-observableany--promiseany) - 判断值是否是异步
-- feat: [`nbIsObservable`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisobservable-transformvalue-any-value-is-observableany) - 判断值是否是可观察类型
-- feat: [`nbTplContent`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbtplcontent-transformvalue-any-templaterefany--null) - 获取TemplateRef类型
+- feat: [`nbIsAsync`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisasync-transformvalue-any-value-is-observableany--promiseany) - check the value is async type
+- feat: [`nbIsObservable`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbisobservable-transformvalue-any-value-is-observableany) - check the value is Observable
+- feat: [`nbTplContent`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbtplcontent-transformvalue-any-templaterefany--null) - get the TemplateRef content 
