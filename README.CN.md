@@ -27,10 +27,12 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 ## Version
 ###### nb-common的大版本和Angular的大版本保持对应关系
-- "@bigbear713/nb-common":"^12.0.0" - "@angular/core": "^12.0.0"
-- "@bigbear713/nb-common":"^13.0.0" - "@angular/core": "^13.0.0"
-- "@bigbear713/nb-common":"^14.0.0" - "@angular/core": "^14.0.0"
-- "@bigbear713/nb-common":"^15.0.0" - "@angular/core": "^15.0.0"
+| @bigbear713/nb-common | @angular/core |
+| ---                   | ---           |
+| ^12.0.0               | ^12.0.0       |
+| ^13.0.0               | ^13.0.0       |
+| ^14.0.0               | ^14.0.0       |
+| ^15.0.0               | ^15.0.0       |
 
 ## Installation
 ```bash
