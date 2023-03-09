@@ -67,8 +67,8 @@ $ yarn add @bigbear713/nb-common
 ### Services
 
 #### NbValueTypeService
+##### `v12.0.0`
 ###### 提供值类型检测的功能的`service`。
-###### `v12.0.0`
 
 ##### Methods
 | Name  | Return  | Description  | Scenes  | Version |
@@ -116,9 +116,9 @@ this.valueType.isTemplateRef({}); // false
 ### Components
 
 #### `[nb-r-str]`
+##### `v12.0.0`
+##### 从`v15.1.0`开始为`standalone component`
 ###### 字符串内容渲染，支持内容为string或者异步对象
-###### `v12.0.0`
-###### 从`v15.1.0`开始为`standalone component`
 ##### Input
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -139,9 +139,9 @@ this.valueType.isTemplateRef({}); // false
 
 ### Directives
 #### `img[nbImg]`
+##### `v12.2.0`
+##### 从`v15.1.0`开始为`standalone component`
 ###### 在image加载完成前添加loading效果，当加载失败时会显示预设置好的图片。适合加载image文件比较大时，或者加载图片失败时不想显示破碎图片的场景
-###### `v12.2.0`
-###### 从`v15.1.0`开始为`standalone component`
 ##### Input
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -194,9 +194,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### `[nbPlaceholder]`
+##### `v12.0.0`
+##### 从`v15.1.0`开始为`standalone component`
 ###### 设置placeholder属性值。支持内容为`string`和`Observable<string>`类型
-###### `v12.0.0`
-###### 从`v15.1.0`开始为`standalone component`
 ##### Input
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -216,9 +216,9 @@ this.valueType.isTemplateRef({}); // false
 ### Pipes
 
 #### nbIsAsync: `transform(value: any): value is Observable<any> | Promise<any>`
+##### `v12.0.0`
+##### 从`v15.1.0`开始为`standalone component`
 ###### 判断值是否是异步的管道
-###### `v12.0.0`
-###### 从`v15.1.0`开始为`standalone component`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -240,9 +240,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsBoolean: `transform(value: any): value is boolean`
+##### `v12.1.0`
+##### 从`v15.1.0`开始为`standalone component`
 ###### 判断值是否是boolean类型的管道
-###### `v12.1.0`
-###### 从`v15.1.0`开始为`standalone component`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -264,9 +264,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsNumber: `transform(value: any): value is number`
+##### `v12.1.0`
+##### 从`v15.1.0`开始为`standalone component`
 ###### 判断值是否是数字的管道
-###### `v12.1.0`
-###### 从`v15.1.0`开始为`standalone component`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -288,9 +288,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsObservable: `transform(value: any): value is Observable<any>`
+##### `v12.0.0`
+##### 从`v15.1.0`开始为`standalone component`
 ###### 判断值是否是可观察类型的管道
-###### `v12.0.0`
-###### 从`v15.1.0`开始为`standalone component`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -312,9 +312,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsString: `transform(value: any): value is string`
+##### `v12.1.0`
+##### 从`v15.1.0`开始为`standalone component`
 ###### 判断值是否是字符串的管道
-###### `v12.1.0`
-###### 从`v15.1.0`开始为`standalone component`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -336,9 +336,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbTplContent: `transform(value: any): TemplateRef<any> | null`
+##### `v12.0.0`
+##### 从`v15.1.0`开始为`standalone component`
 ###### 获取TemplateRef类型的内容
-###### `v12.0.0`
-###### 从`v15.1.0`开始为`standalone component`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |

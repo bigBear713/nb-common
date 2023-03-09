@@ -27,7 +27,7 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 ## Feature
 - Support the changeDetection of components as `ChangeDetectionStrategy.OnPush`;
 - Support to be used in `standalone component`;
-- Support to be imported as a `standalone component`
+- Support to be imported as a `standalone component`;
 
 <br>
 
@@ -67,8 +67,8 @@ $ yarn add @bigbear713/nb-common
 ### Services
 
 #### NbValueTypeService
+##### `v12.0.0`
 ###### The `service` can provide the function to get the type of value
-###### `v12.0.0`
 
 ##### Methods
 | Name  | Return  | Description  | Scenes  | Version |
@@ -105,9 +105,9 @@ this.valueType.isTemplateRef({}); // false
 ### Components
 
 #### `[nb-r-str]`
+##### `v12.0.0`
+##### Be a `standalone component` from `v15.1.0`
 ###### Render the string content, support the type of content is string or anync object. 
-###### `v12.0.0`
-###### Be a `standalone component` from `v15.1.0`
 ##### Input
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -128,9 +128,9 @@ this.valueType.isTemplateRef({}); // false
 
 ### Directives
 #### `img[nbImg]`
+##### `v12.2.0`
+##### Be a `standalone component` from `v15.1.0`
 ###### Add loading effect when loading image. When failure to load image, it will display the picture which is preset. It can be used when the image you want to load is so large or you don't want to display broken image when failure to load the image
-###### `v12.2.0`
-###### Be a `standalone component` from `v15.1.0`
 ##### Input
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -183,9 +183,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### `[nbPlaceholder]`
+##### `v12.0.0`
+##### Be a `standalone component` from `v15.1.0`
 ###### Set the value of placeholder attribute. Support `string` type and `Observable<string>` type
-###### `v12.0.0`
-###### Be a `standalone component` from `v15.1.0`
 ##### Input
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -205,9 +205,9 @@ this.valueType.isTemplateRef({}); // false
 ### Pipes
 
 #### nbIsAsync: `transform(value: any): value is Observable<any> | Promise<any>`
+##### `v12.0.0`
+##### Be a `standalone component` from `v15.1.0`
 ###### Check the value is async type
-###### `v12.0.0`
-###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -229,9 +229,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsBoolean: `transform(value: any): value is boolean`
+##### `v12.1.0`
+##### Be a `standalone component` from `v15.1.0`
 ###### Check the value is boolean type
-###### `v12.1.0`
-###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -253,9 +253,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsNumber: `transform(value: any): value is number`
+##### `v12.1.0`
+##### Be a `standalone component` from `v15.1.0`
 ###### Check the value is number type
-###### `v12.1.0`
-###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -277,9 +277,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsObservable: `transform(value: any): value is Observable<any>`
+##### `v12.0.0`
+##### Be a `standalone component` from `v15.1.0`
 ###### Check the value is Observable
-###### `v12.0.0`
-###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -301,9 +301,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbIsString: `transform(value: any): value is string`
+##### `v12.1.0`
+##### Be a `standalone component` from `v15.1.0`
 ###### Check the value is string type
-###### `v12.1.0`
-###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -325,9 +325,9 @@ this.valueType.isTemplateRef({}); // false
 <br>
 
 #### nbTplContent: `transform(value: any): TemplateRef<any> | null`
+##### `v12.0.0`
+##### Be a `standalone component` from `v15.1.0`
 ###### Get the TemplateRef content 
-###### `v12.0.0`
-###### Be a `standalone component` from `v15.1.0`
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
