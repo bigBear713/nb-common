@@ -51,6 +51,7 @@ $ yarn add @bigbear713/nb-common
 
 <br>
 
+## API
 ### Module
 
 #### NbCommonModule
@@ -123,6 +124,23 @@ this.valueType.isTemplateRef({}); // false
 <!-- promiseDemo = Promise.resolve('1'); -->
 <span [nb-r-str]="promiseDemo"></span>
 ```
+```ts
+// New in the v15.1.0
+// imported in NgModule
+@NgModule({
+  imports:[NbRStrComponent],
+  // ...
+})
+export class XXXModule{}
+
+// imported in standalone component
+@Component({
+  standalone:true,
+  imports:[NbRStrComponent],
+  // ...
+})
+export class XXXComponent{}
+```
 
 <br>
 
@@ -177,7 +195,23 @@ this.valueType.isTemplateRef({}); // false
 
 <!-- Only display the picture when failure to load the image(you can use errImg to custom other picture), no loading effect -->
 <img src="invalidImg" nbImg [errImg]="errImg">
+```
+```ts
+// New in the v15.1.0
+// imported in NgModule
+@NgModule({
+  imports:[NbImgDirective],
+  // ...
+})
+export class XXXModule{}
 
+// imported in standalone component
+@Component({
+  standalone:true,
+  imports:[NbImgDirective],
+  // ...
+})
+export class XXXComponent{}
 ```
 
 <br>
@@ -197,7 +231,23 @@ this.valueType.isTemplateRef({}); // false
 
 <!-- placeholder$ = new BehaviorSubject('This is placeholder'); -->
 <input [nbPlaceholder]="placeholder$">
+```
+```ts
+// New in the v15.1.0
+// imported in NgModule
+@NgModule({
+  imports:[NbPlaceholderDirective],
+  // ...
+})
+export class XXXModule{}
 
+// imported in standalone component
+@Component({
+  standalone:true,
+  imports:[NbPlaceholderDirective],
+  // ...
+})
+export class XXXComponent{}
 ```
 
 <br>
@@ -225,6 +275,23 @@ this.valueType.isTemplateRef({}); // false
     <ng-container *ngSwitchDefault>{{content}}</ng-container>
 </ng-container>
 ```
+```ts
+// New in the v15.1.0
+// imported in NgModule
+@NgModule({
+  imports:[NbIsAsyncPipe],
+  // ...
+})
+export class XXXModule{}
+
+// imported in standalone component
+@Component({
+  standalone:true,
+  imports:[NbIsAsyncPipe],
+  // ...
+})
+export class XXXComponent{}
+```
 
 <br>
 
@@ -248,6 +315,23 @@ this.valueType.isTemplateRef({}); // false
     <ng-container *ngSwitchCase="true">{{!!content}}</ng-container>
     <ng-container *ngSwitchDefault>{{content}}</ng-container>
 </ng-container>
+```
+```ts
+// New in the v15.1.0
+// imported in NgModule
+@NgModule({
+  imports:[NbIsBooleanPipe],
+  // ...
+})
+export class XXXModule{}
+
+// imported in standalone component
+@Component({
+  standalone:true,
+  imports:[NbIsBooleanPipe],
+  // ...
+})
+export class XXXComponent{}
 ```
 
 <br>
@@ -273,6 +357,23 @@ this.valueType.isTemplateRef({}); // false
     <ng-container *ngSwitchDefault>{{+content+1}}</ng-container>
 </ng-container>
 ```
+```ts
+// New in the v15.1.0
+// imported in NgModule
+@NgModule({
+  imports:[NbIsNumberPipe],
+  // ...
+})
+export class XXXModule{}
+
+// imported in standalone component
+@Component({
+  standalone:true,
+  imports:[NbIsNumberPipe],
+  // ...
+})
+export class XXXComponent{}
+```
 
 <br>
 
@@ -296,6 +397,23 @@ this.valueType.isTemplateRef({}); // false
     <ng-container *ngSwitchCase="true">{{content | async}}</ng-container>
     <ng-container *ngSwitchDefault>{{content}}</ng-container>
 </ng-container>
+```
+```ts
+// New in the v15.1.0
+// imported in NgModule
+@NgModule({
+  imports:[NbIsObservablePipe],
+  // ...
+})
+export class XXXModule{}
+
+// imported in standalone component
+@Component({
+  standalone:true,
+  imports:[NbIsObservablePipe],
+  // ...
+})
+export class XXXComponent{}
 ```
 
 <br>
@@ -321,6 +439,23 @@ this.valueType.isTemplateRef({}); // false
     <ng-container *ngSwitchDefault>{{content}}</ng-container>
 </ng-container>
 ```
+```ts
+// New in the v15.1.0
+// imported in NgModule
+@NgModule({
+  imports:[NbIsStringPipe],
+  // ...
+})
+export class XXXModule{}
+
+// imported in standalone component
+@Component({
+  standalone:true,
+  imports:[NbIsStringPipe],
+  // ...
+})
+export class XXXComponent{}
+```
 
 <br>
 
@@ -341,6 +476,23 @@ this.valueType.isTemplateRef({}); // false
 ##### Usage
 ```html
 <ng-container [ngTemplateOutlet]="content | nbTplContent"></ng-container>
+```
+```ts
+// New in the v15.1.0
+// imported in NgModule
+@NgModule({
+  imports:[NbTplContentPipe],
+  // ...
+})
+export class XXXModule{}
+
+// imported in standalone component
+@Component({
+  standalone:true,
+  imports:[NbTplContentPipe],
+  // ...
+})
+export class XXXComponent{}
 ```
 
 <br>

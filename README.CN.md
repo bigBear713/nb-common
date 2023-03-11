@@ -20,6 +20,10 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 - [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.CN.md "更新日志 - 中文")
 - [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "Changelog - English")
 
+## Readme
+- [中文](https://github.com/bigBear713/nb-common/blob/master/README.CN.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/master/README.md "Document - English")
+
 ## Feature
 - 支持组件的更新策略为`ChangeDetectionStrategy.OnPush`;
 - 支持在`standalone component`中使用;
