@@ -134,6 +134,23 @@ this.valueType.isTemplateRef({}); // false
 <!-- promiseDemo = Promise.resolve('1'); -->
 <span [nb-r-str]="promiseDemo"></span>
 ```
+```ts
+// v15.1.0新增
+// 在NgModule中引入
+@NgModule({
+  imports:[NbRStrComponent],
+  // ...
+})
+export class XXXModule{}
+
+// 在standalone component中引入
+@Component({
+  standalone:true,
+  imports:[NbRStrComponent],
+  // ...
+})
+export class XXXComponent{}
+```
 
 <br>
 
@@ -188,7 +205,23 @@ this.valueType.isTemplateRef({}); // false
 
 <!-- 只想要加载失败时，显示默认图片(如果想显示其他图片，可设置errImg属性)，不需要loading效果 -->
 <img src="invalidImg" nbImg [errImg]="errImg">
+```
+```ts
+// v15.1.0新增
+// 在NgModule中引入
+@NgModule({
+  imports:[NbImgDirective],
+  // ...
+})
+export class XXXModule{}
 
+// 在standalone component中引入
+@Component({
+  standalone:true,
+  imports:[NbImgDirective],
+  // ...
+})
+export class XXXComponent{}
 ```
 
 <br>
@@ -208,7 +241,23 @@ this.valueType.isTemplateRef({}); // false
 
 <!-- placeholder$ = new BehaviorSubject('这是placeholder'); -->
 <input [nbPlaceholder]="placeholder$">
+```
+```ts
+// v15.1.0新增
+// 在NgModule中引入
+@NgModule({
+  imports:[NbPlaceholderDirective],
+  // ...
+})
+export class XXXModule{}
 
+// 在standalone component中引入
+@Component({
+  standalone:true,
+  imports:[NbPlaceholderDirective],
+  // ...
+})
+export class XXXComponent{}
 ```
 
 <br>
@@ -236,6 +285,23 @@ this.valueType.isTemplateRef({}); // false
     <ng-container *ngSwitchDefault>{{content}}</ng-container>
 </ng-container>
 ```
+```ts
+// v15.1.0新增
+// 在NgModule中引入
+@NgModule({
+  imports:[NbIsAsyncPipe],
+  // ...
+})
+export class XXXModule{}
+
+// 在standalone component中引入
+@Component({
+  standalone:true,
+  imports:[NbIsAsyncPipe],
+  // ...
+})
+export class XXXComponent{}
+```
 
 <br>
 
@@ -259,6 +325,23 @@ this.valueType.isTemplateRef({}); // false
     <ng-container *ngSwitchCase="true">{{!!content}}</ng-container>
     <ng-container *ngSwitchDefault>{{content}}</ng-container>
 </ng-container>
+```
+```ts
+// v15.1.0新增
+// 在NgModule中引入
+@NgModule({
+  imports:[NbIsBooleanPipe],
+  // ...
+})
+export class XXXModule{}
+
+// 在standalone component中引入
+@Component({
+  standalone:true,
+  imports:[NbIsBooleanPipe],
+  // ...
+})
+export class XXXComponent{}
 ```
 
 <br>
@@ -284,6 +367,23 @@ this.valueType.isTemplateRef({}); // false
     <ng-container *ngSwitchDefault>{{+content+1}}</ng-container>
 </ng-container>
 ```
+```ts
+// v15.1.0新增
+// 在NgModule中引入
+@NgModule({
+  imports:[NbIsNumberPipe],
+  // ...
+})
+export class XXXModule{}
+
+// 在standalone component中引入
+@Component({
+  standalone:true,
+  imports:[NbIsNumberPipe],
+  // ...
+})
+export class XXXComponent{}
+```
 
 <br>
 
@@ -307,6 +407,23 @@ this.valueType.isTemplateRef({}); // false
     <ng-container *ngSwitchCase="true">{{content | async}}</ng-container>
     <ng-container *ngSwitchDefault>{{content}}</ng-container>
 </ng-container>
+```
+```ts
+// v15.1.0新增
+// 在NgModule中引入
+@NgModule({
+  imports:[NbIsObservablePipe],
+  // ...
+})
+export class XXXModule{}
+
+// 在standalone component中引入
+@Component({
+  standalone:true,
+  imports:[NbIsObservablePipe],
+  // ...
+})
+export class XXXComponent{}
 ```
 
 <br>
@@ -332,6 +449,23 @@ this.valueType.isTemplateRef({}); // false
     <ng-container *ngSwitchDefault>{{content}}</ng-container>
 </ng-container>
 ```
+```ts
+// v15.1.0新增
+// 在NgModule中引入
+@NgModule({
+  imports:[NbIsStringPipe],
+  // ...
+})
+export class XXXModule{}
+
+// 在standalone component中引入
+@Component({
+  standalone:true,
+  imports:[NbIsStringPipe],
+  // ...
+})
+export class XXXComponent{}
+```
 
 <br>
 
@@ -352,6 +486,23 @@ this.valueType.isTemplateRef({}); // false
 ##### Usage
 ```html
 <ng-container [ngTemplateOutlet]="content | nbTplContent"></ng-container>
+```
+```ts
+// v15.1.0新增
+// 在NgModule中引入
+@NgModule({
+  imports:[NbTplContentPipe],
+  // ...
+})
+export class XXXModule{}
+
+// 在standalone component中引入
+@Component({
+  standalone:true,
+  imports:[NbTplContentPipe],
+  // ...
+})
+export class XXXComponent{}
 ```
 
 <br>
