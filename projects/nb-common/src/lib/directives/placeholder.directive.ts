@@ -1,28 +1,23 @@
 import { ChangeDetectorRef, Directive, HostBinding, Input, OnChanges, OnDestroy } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { UnsubscribeService } from '../services/unsubscribe.service';
 import { NbValueTypeService } from '../services/value-type.service';
 
-@Directive({ standalone: true, selector: '[nbPlaceholder]' })
-export class NbPlaceholderDirective implements OnChanges, OnDestroy {
+@Directive({ standalone: true, selector: '[nbPlaceholder]', providers: [UnsubscribeService] })
+export class NbPlaceholderDirective implements OnChanges {
+  
   @Input() nbPlaceholder: string | Observable<string> = '';
 
   @HostBinding('placeholder') placeholder: string = '';
 
-  private destroy$ = new Subject<void>();
-
   constructor(
     private chageDR: ChangeDetectorRef,
+    private unsubscribeService: UnsubscribeService,
     private valueTypeService: NbValueTypeService
   ) { }
 
   ngOnChanges() {
     this.reRender();
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 
   private reRender(): void {
@@ -31,11 +26,12 @@ export class NbPlaceholderDirective implements OnChanges, OnDestroy {
       this.chageDR.markForCheck();
       return;
     }
+
     // end the prev subscribtion if it exists
-    this.destroy$.next();
-    this.nbPlaceholder.pipe(
-      takeUntil(this.destroy$)
-    ).subscribe(content => this.updatePlaceholder(content));
+    const subscriptionKey = 'placeholder-content';
+    this.unsubscribeService.unsubscribeByKey(subscriptionKey);
+    const subscription = this.nbPlaceholder.subscribe(content => this.updatePlaceholder(content));
+    this.unsubscribeService.collectASubscriptionByKey(subscriptionKey, subscription);
   }
 
   private updatePlaceholder(content: string): void {
