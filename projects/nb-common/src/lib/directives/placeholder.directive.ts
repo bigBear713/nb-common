@@ -27,11 +27,8 @@ export class NbPlaceholderDirective implements OnChanges {
       return;
     }
 
-    // end the prev subscribtion if it exists
-    const subscriptionKey = 'placeholder-content';
-    this.unsubscribeService.unsubscribeByKey(subscriptionKey);
     const subscription = this.nbPlaceholder.subscribe(content => this.updatePlaceholder(content));
-    this.unsubscribeService.collectASubscriptionByKey(subscriptionKey, subscription);
+    this.unsubscribeService.collectASubscriptionByKey('placeholder-content', subscription);
   }
 
   private updatePlaceholder(content: string): void {
