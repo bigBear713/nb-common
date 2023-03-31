@@ -63,7 +63,7 @@ export class UnsubscribeService implements OnDestroy {
    * and you can unsubscribe it at any time via the key,
    * or they will auto be unsubscribed when the service instance is going to be destroyed.
    * If there is a subscription matching the key before adding the new subscription, 
-   * it will be unsubscribed first by default
+   * it will be unsubscribed firstly by default
    * @param key 
    * @param subscription 
    * @param unsubscribeIfExist whether to unsubscribe if there is a subscription matching the key. Default is true

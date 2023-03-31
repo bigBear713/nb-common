@@ -12,11 +12,15 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 </div>
 
+---
+
 ## Document
 - [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md "文档 - 中文")
 - [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "Document - English")
 
-</div>
+<br>
+
+---
 
 ## Changelog
 - [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.CN.md "更新日志 - 中文")
@@ -24,12 +28,16 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 <br>
 
+---
+
 ## Feature
 - 支持组件的更新策略为`ChangeDetectionStrategy.OnPush`;
 - 支持在`standalone component`中使用;
 - 支持以`standalone component`的方式引入;
 
-</div>
+<br>
+
+---
 
 ## Version
 ###### nb-common的大版本和Angular的大版本保持对应关系
@@ -42,6 +50,8 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 <br>
 
+---
+
 ## Installation
 ```bash
 $ npm i @bigbear713/nb-common
@@ -50,6 +60,8 @@ $ yarn add @bigbear713/nb-common
 ```
 
 <br>
+
+---
 
 ## API
 ### Module
@@ -64,6 +76,8 @@ $ yarn add @bigbear713/nb-common
 ###### 获取templateRef的fixture, component, tplRef等，可用于快速获取TemplateRef类型的实例，方便Unit Test. 需先引入NbCommonTestingModule
 
 <br>
+
+---
 
 ### Services
 
@@ -117,20 +131,20 @@ this.valueType.isTemplateRef({}); // false
 #### UnsubscribeService
 ##### `v15.2.0`
 ###### 提供取消订阅功能的`service`。
-##### <span style="color:red">请在component/directive的providers中提供，或者在实例销毁时，主动调用该服务实例的ngOnDestroy</span>
+##### <span style="color:red">请在component/directive的providers中使用；或者在实例销毁时，主动调用该服务实例的ngOnDestroy</span>
 ##### 将永远不通过构造函数引入依赖项
 
 ##### Methods
 | Name  | Return  | Description  | Scenes  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| addUnsubscribeOperator<T>(observable: Observable<T>)  | `Observable<T>` | 向所给的 observable 添加`takeUntil`操作符。以便在`ngOnDestroy`时对该observable的订阅进行取消操作 | 想要在实例被销毁时自动取消该observable的订阅  | `v15.2.0` |
-| getDestructionSignal()  | `Observable<void>` | 获取销毁信号，是一个observable。在服务实例被销毁时，通过它能收到销毁的信号。不用关心它的订阅事件，服务实例内部将自己处理 | 想要在服务实例被销毁时自定义一些行为  | `v15.2.0` |
-| collectASubscription(subscription: Subscription)  | `void` | 收集一个`Subscription`，以便在需要时或实例销毁时，自动取消该订阅 | 想要在一些场景下时能自动取消该订阅  | `v15.2.0` |
-| clearAllSubscriptions()  | `void`  | 取消订阅并清除当前为止收集到的`Subscription` | 想要取消订阅并清除目前位置收集到的`Subscription`时 | `v15.2.0` |
-| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true)  | `void`  | 根据`key`收集一个`Subscription`，以便在需要时或实例销毁时，自动取消该订阅。如果记录中，已经存在一个与`key`相对应的`Subscription`，通过设置`unsubscribeIfExist=true`可在收集前先取消。<span style="color:red">如果设置`unsubscribeIfExist=false`，则不会取消订阅，只会覆盖原有记录。</span>`unsubscribeIfExist`默认为`true` | 想要在需要时，能对某个`Subscription`进行取消订阅  | `v15.2.0` |
-| unsubscribeASubscriptionByKey(key: string)   | `boolean`  | 根据key取消已被收集的某个订阅。取消订阅后会将对应的subscription从记录中移除。如果根据key值取不到该订阅，会返回false | 想对之前存储的订阅事件执行取消订阅操作时  | `v15.2.0` |
-| clearAllSubscriptionsFromKeyRecord()   | `void`  | 从根据key存储订阅事件的记录中，取消所有订阅事件，并清除 | 想清除之前根据key值存储的所有订阅事件记录时  | `v15.2.0` |
-| ngOnDestroy() | `void`  | 清除当前服务实例中的所有订阅记录。通过DI,在该服务实例被销毁时会自动调用该方法。**请勿**在销毁前调用该方法。 | 想要手动清除服务实例中的所有订阅记录时，比如在pipe中使用，在被销毁时调用该方法  | `v12.0.0` |
+| addUnsubscribeOperator<T>(observable: Observable<T>) | `Observable<T>` | 向所给的 observable 添加`takeUntil`操作符。以便在`ngOnDestroy`时对该observable的订阅进行取消操作 | 想要在实例被销毁时自动取消该observable的订阅  | `v15.2.0` |
+| getDestructionSignal() | `Observable<void>` | 获取销毁信号，是一个observable。在服务实例被销毁时，通过它能收到销毁的信号。不用关心它的订阅事件，服务实例内部将自己处理 | 想要在服务实例被销毁时自定义一些行为  | `v15.2.0` |
+| collectASubscription(subscription: Subscription) | `void` | 收集一个`Subscription`，以便在需要时或实例销毁时，自动取消该订阅 | 想要在一些场景下时能自动取消该订阅  | `v15.2.0` |
+| clearAllSubscriptions() | `void` | 取消订阅并清除当前为止收集到的`Subscription`，不包含根据key存储的记录 | 想要取消订阅并清除目前位置收集到的`Subscription`时 | `v15.2.0` |
+| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true) | `void` | 根据`key`收集一个`Subscription`，以便在需要时或实例销毁时，自动取消该订阅。如果记录中，已经存在一个与`key`相对应的`Subscription`，通过设置`unsubscribeIfExist=true`可在收集前先取消。<span style="color:red">如果设置`unsubscribeIfExist=false`，则不会取消订阅，只会覆盖原有记录。</span>`unsubscribeIfExist`默认为`true` | 想要在需要时，能对某个`Subscription`进行取消订阅  | `v15.2.0` |
+| unsubscribeASubscriptionByKey(key: string) | `boolean` | 根据key取消已被收集的某个订阅。取消订阅后会将对应的subscription从记录中移除。如果根据key值取不到该订阅，会返回false | 想对之前存储的订阅事件执行取消订阅操作时  | `v15.2.0` |
+| clearAllSubscriptionsFromKeyRecord() | `void` | 从根据key存储订阅事件的记录中，取消所有订阅事件，并清除。只针对根据key存储的记录。 | 想清除之前根据key值存储的所有订阅事件记录时  | `v15.2.0` |
+| ngOnDestroy() | `void` | 清除当前服务实例中的所有订阅记录。通过DI,在该服务实例被销毁时会自动调用该方法。**请勿**在销毁前调用该方法。 | 想要手动清除服务实例中的所有订阅记录时，比如在pipe中使用，在被销毁时调用该方法  | `v15.2.0` |
 
 ##### Usage
 ```ts
@@ -158,6 +172,9 @@ constructor(private unsubscribeService: UnsubscribeService) {}
 const interval$ = this.unsubscribeService.addUnsubscribeOperator(interval(1000));
 
 const interval$ = interval(1000).pipe(takeUntil(this.unsubscribeService.getDestructionSignal()));
+this.unsubscribeService.getDestructionSignal().subscribe(()=>{
+  // ...
+});
 
 const subscription = interval(1000).subscribe();
 this.unsubscribeService.collectASubscription(subscription);
@@ -180,7 +197,9 @@ this.unsubscribeService.clearAllSubscriptionsFromKeyRecord();
 this.unsubscribeService.ngOnDestroy();
 ```
 
-<br/>
+<br>
+
+---
 
 ### Components
 
@@ -222,6 +241,8 @@ export class XXXComponent{}
 ```
 
 <br>
+
+---
 
 ### Directives
 #### `img[nbImg]`
@@ -330,6 +351,8 @@ export class XXXComponent{}
 ```
 
 <br>
+
+---
 
 ### Pipes
 
@@ -576,6 +599,8 @@ export class XXXComponent{}
 
 <br>
 
+---
+
 ### Tokens
 
 #### NB_DEFAULT_LOADING_IMG
@@ -631,6 +656,8 @@ export class XXXComponent{}
 ```
 
 <br>
+
+---
 
 ### 贡献
 > 欢迎提feature和PR，一起使该项目更好
