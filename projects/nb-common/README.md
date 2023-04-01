@@ -12,11 +12,15 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 </div>
 
+---
+
 ## Document
 - [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md "文档 - 中文")
 - [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "Document - English")
 
 <br>
+
+---
 
 ## Changelog
 - [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.CN.md "更新日志 - 中文")
@@ -24,12 +28,16 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 <br>
 
+---
+
 ## Feature
 - Support the changeDetection of components as `ChangeDetectionStrategy.OnPush`;
 - Support to be used in `standalone component`;
 - Support to be imported as a `standalone component`;
 
 <br>
+
+---
 
 ## Version
 ###### The nb-common's main version will keep up with the Angular's main version
@@ -42,6 +50,8 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 <br>
 
+---
+
 ## Installation
 ```bash
 $ npm i @bigbear713/nb-common
@@ -50,6 +60,8 @@ $ yarn add @bigbear713/nb-common
 ```
 
 <br>
+
+---
 
 ## API
 ### Module
@@ -64,6 +76,8 @@ $ yarn add @bigbear713/nb-common
 ###### Get templateRef's fixture, component, tplRef. You can get the instance of TemplateRef type directly, so it is more convenience for unit test. You should import the NbCommonTestingModule firstly.
 
 <br>
+
+---
 
 ### Services
 
@@ -98,10 +112,86 @@ this.valueType.isString({}); // false
 @ViewChild('tplRef') tplRef!: TemplateRef<any>;
 this.valueType.isTemplateRef(tplRef); // true
 this.valueType.isTemplateRef({}); // false
-
 ```
 
 <br>
+
+#### UnsubscribeService
+##### `v15.2.0`
+###### The `service` can provide the function to unsubscribe
+##### <span style="color:red">Please used in component/directive's providers; or when the instance is going to be destroyed, call the service instance's ngOnDestroy function </span>
+##### Would always not import dependencies via constructor
+
+##### Methods
+| Name  | Return  | Description  | Scenes  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| addUnsubscribeOperator<T>(observable: Observable<T>) | `Observable<T>` | Add `takeUntil` operator to the observable, so can auto unsubscribe the observable when calling `ngOnDestroy` | Auto unsubscribe when the service instance is going to be destroyed | `v15.2.0` |
+| getDestructionSignal() | `Observable<void>` | Get a signal about destruction, it is an observable. When the service instance is going to be destroyed, you can get the notification via it. Don't need to care about the subscriptions, because it will be handled in service instance | When you want to do something when the service instance is going to be destroyed | `v15.2.0` |
+| collectASubscription(subscription: Subscription) | `void` | Collect a `Subscription`, so can auto unsubscribe it when necessary or the instance is going to be destroyed | When want to auto unsubscribe in some scenes | `v15.2.0` |
+| clearAllSubscriptions() | `void` | Unsubscribe and clear all `Subscription` which were collected so far. Excluding the record which added by key | When you want to ubsubscribe and clear all subscriptions which were collected so far. | `v15.2.0` |
+| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true)  | `void` | Collect a `Subscription` by key, so can auto unsubscribe it when necessary or the instance is going to be destroyed. If there is a data before you save a new one by key, the existing one will be unsubscribed before saving new one when set `unsubscribeIfExist=true`.<span style="color:red">If you set `unsubscribeIfExist=false`, the existing one  will not be unsubscribed, and the data will only be overwrited.</span> The `unsubscribeIfExist` is `true` by default. | Can unsubscribe a `Subscription` when necessary | `v15.2.0` |
+| unsubscribeASubscriptionByKey(key: string) | `boolean` | Unsubscribe a subscription accroding to a key. The subscription data will be removed from records after unsubscribing. If can't get the data by the key, the functiton will return false | When you want to unsubscribe the subscription which is saved before | `v15.2.0` |
+| clearAllSubscriptionsFromKeyRecord() | `void` | Unsubscribe all subscriptions and clear them from the record which save data by key. Only for the record which added via key | When you want to clear the previous subscriptions which are saved by key | `v15.2.0` |
+| ngOnDestroy() | `void` | Clear all subscribing records of current service instance. The function will auto to be called when the service instance is going to be destroyed via DI. **Don't** call it before destroying the service instance. | When you want to clear all records manually, like using in pipe, you should call the function when going to destroy the pipe instance | `v15.2.0` |
+
+##### Usage
+```ts
+// Creation and destruction of the service instance
+// Set as component/directive level service, so when component/directive is going to be destroyed, 
+// the service instance will auto be destroyed and auto call ngOnDestroy function, then unsubscribe all subscriptions
+@Component({template:'',providers:[UnsubscribeService]}) export class XXXComponent{}
+@Directive({providers:[UnsubscribeService]}) export class XXXDirective{}
+
+// If can't set as component/directive level service, create it manually, 
+// and call ngOnDestroy function when is going to be destroyed, such as in pipe instance.
+// would always not import dependencies via constructor
+@Pipe() export class XXXPipe(){
+  private unsubscribeService:UnsubscribeService;
+  constructor(){
+    this.unsubscribeService = new UnsubscribeService();
+  }
+
+  ngOnDestroy(){
+    this.unsubscribeService.ngOnDestroy();
+  }
+}
+
+// used
+constructor(private unsubscribeService: UnsubscribeService) {}
+
+const interval$ = this.unsubscribeService.addUnsubscribeOperator(interval(1000));
+
+const interval$ = interval(1000).pipe(takeUntil(this.unsubscribeService.getDestructionSignal()));
+this.unsubscribeService.getDestructionSignal().subscribe(()=>{
+  // ...
+});
+
+const subscription = interval(1000).subscribe();
+this.unsubscribeService.collectASubscription(subscription);
+
+this.unsubscribeService.clearAllSubscriptions();
+
+const subscription = interval(1000).subscribe();
+const subKey = 'interval subscription';
+// When the data corresponding to the key exists, will auto unsubscribe the existing one by default
+this.unsubscribeService.collectASubscriptionByKey(subKey,subscription);
+// equals to 
+this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,true);
+// If you set the params unsubscribeIfExist = false, it will be overwrited when the data corresponding to the key exists,
+// and will not unsubscribe the existing one, so you should take care to unsubscribe the one by yourself
+this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,false);
+
+this.unsubscribeService.unsubscribeASubscriptionByKey(subKey);
+
+this.unsubscribeService.clearAllSubscriptionsFromKeyRecord();
+
+// when necessary, call the function to unsubscribe all subscriptions
+this.unsubscribeService.ngOnDestroy();
+```
+
+<br>
+
+---
 
 ### Components
 
@@ -143,6 +233,8 @@ export class XXXComponent{}
 ```
 
 <br>
+
+---
 
 ### Directives
 #### `img[nbImg]`
@@ -251,6 +343,8 @@ export class XXXComponent{}
 ```
 
 <br>
+
+---
 
 ### Pipes
 
@@ -497,6 +591,8 @@ export class XXXComponent{}
 
 <br>
 
+---
+
 ### Tokens
 
 #### NB_DEFAULT_LOADING_IMG
@@ -553,12 +649,16 @@ export class XXXComponent{}
 
 <br>
 
+---
+
 ### Contribution
 > Feature and PR are welcome to make this project better together
 
 <a href="https://github.com/bigBear713" target="_blank"><img src="https://avatars.githubusercontent.com/u/12368900?v=4" alt="bigBear713" width="30px" height="30px"></a>
 
 <br>
+
+---
 
 ### License
 MIT
