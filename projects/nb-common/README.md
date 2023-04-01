@@ -177,7 +177,7 @@ const subKey = 'interval subscription';
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription);
 // equals to 
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,true);
-// If you set the params as false, it will be overwrited when the data corresponding to the key exists,
+// If you set the params unsubscribeIfExist = false, it will be overwrited when the data corresponding to the key exists,
 // and will not unsubscribe the existing one, so you should take care to unsubscribe the one by yourself
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,false);
 
@@ -656,6 +656,8 @@ export class XXXComponent{}
 <a href="https://github.com/bigBear713" target="_blank"><img src="https://avatars.githubusercontent.com/u/12368900?v=4" alt="bigBear713" width="30px" height="30px"></a>
 
 <br>
+
+---
 
 ### License
 MIT

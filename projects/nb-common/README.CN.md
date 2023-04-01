@@ -187,7 +187,8 @@ const subKey = 'interval subscription';
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription);
 // 等价于
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,true);
-// 如果显式传入false，则当key对应的记录已经存在时，会直接覆盖存储，不会先对之前的订阅事件进行取消操作。此时应注意自己控制订阅事件的取消
+// 如果显式设置unsubscribeIfExist = false，则当key对应的记录已经存在时，会直接覆盖存储，不会先对之前的订阅事件进行取消操作。
+// 此时应注意自己控制订阅事件的取消
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,false);
 
 this.unsubscribeService.unsubscribeASubscriptionByKey(subKey);
@@ -665,6 +666,8 @@ export class XXXComponent{}
 <a href="https://github.com/bigBear713" target="_blank"><img src="https://avatars.githubusercontent.com/u/12368900?v=4" alt="bigBear713" width="30px" height="30px"></a>
 
 <br>
+
+---
 
 ### License
 MIT
