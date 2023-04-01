@@ -136,14 +136,14 @@ this.valueType.isTemplateRef({}); // false
 
 ##### Usage
 ```ts
-// Creation and destruction of rhe service instance
+// Creation and destruction of the service instance
 // Set as component/directive level service, so when component/directive is going to be destroyed, 
-// the service instance will auto be destroyed and auto unsubscribe all subscriptions
+// the service instance will auto be destroyed and auto call ngOnDestroy function, then unsubscribe all subscriptions
 @Component({template:'',providers:[UnsubscribeService]}) export class XXXComponent{}
 @Directive({providers:[UnsubscribeService]}) export class XXXDirective{}
 
-// If can't set as component/directive level service, can be instantiated manually, 
-// and call ngOnDestroy function when is going to be destroyed, such as in pipe instance
+// If can't set as component/directive level service, create it manually, 
+// and call ngOnDestroy function when is going to be destroyed, such as in pipe instance.
 // would always not import dependencies via constructor
 @Pipe() export class XXXPipe(){
   private unsubscribeService:UnsubscribeService;
@@ -185,6 +185,7 @@ this.unsubscribeService.unsubscribeASubscriptionByKey(subKey);
 
 this.unsubscribeService.clearAllSubscriptionsFromKeyRecord();
 
+// when necessary, call the function to unsubscribe all subscriptions
 this.unsubscribeService.ngOnDestroy();
 ```
 

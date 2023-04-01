@@ -12,6 +12,8 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 
 </div>
 
+---
+
 ## Document
 - [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md "文档 - 中文")
 - [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "Document - English")

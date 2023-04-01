@@ -132,7 +132,7 @@ this.valueType.isTemplateRef({}); // false
 ##### `v15.2.0`
 ###### 提供取消订阅功能的`service`。
 ##### <span style="color:red">请在component/directive的providers中使用；或者在实例销毁时，主动调用该服务实例的ngOnDestroy</span>
-##### 将永远不通过构造函数引入依赖项
+##### 将永远不会通过构造函数引入依赖项
 
 ##### Methods
 | Name  | Return  | Description  | Scenes  | Version |
@@ -153,8 +153,8 @@ this.valueType.isTemplateRef({}); // false
 @Component({template:'',providers:[UnsubscribeService]}) export class XXXComponent{}
 @Directive({providers:[UnsubscribeService]}) export class XXXDirective{}
 
-// 如果无法设置为component/directive级的服务，可手动实例化，并在需要时手动取消所有订阅事件，比如在pipe中
-// 将永远不通过构造函数引入依赖项
+// 如果无法设置为component/directive级的服务，可手动实例化，并在需要时手动取消所有订阅事件，比如在pipe中。
+// 将永远不会通过构造函数引入依赖项
 @Pipe() export class XXXPipe(){
   private unsubscribeService:UnsubscribeService;
   constructor(){
@@ -195,6 +195,7 @@ this.unsubscribeService.unsubscribeASubscriptionByKey(subKey);
 
 this.unsubscribeService.clearAllSubscriptionsFromKeyRecord();
 
+// 在需要的时候，调用ngOnDestroy()来取消所有订阅事件
 this.unsubscribeService.ngOnDestroy();
 ```
 
