@@ -5,6 +5,9 @@
 ## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Services "Services")
 - feat: [UnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#unsubscribeService) - Provide the function to unsubscribe rxjs
 
+## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Directives "Directives")
+- refactor: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbplaceholder) - Using UnsubscribeService to manage rxjs subscriptions
+
 ---
 
 # v15.1.0
