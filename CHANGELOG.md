@@ -1,5 +1,6 @@
-## 破坏性更新
-- feat: Upgrade `angular` to `v15`;
+# v16.0.0
+## Breaking Changes
+- feat: Upgrade `angular` to `v16`;
 
 ## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Services "Services")
 - feat: [UnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#unsubscribeService) - Provide the function to unsubscribe rxjs
