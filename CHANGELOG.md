@@ -1,3 +1,11 @@
+## 破坏性更新
+- feat: Upgrade `angular` to `v15`;
+
+## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Services "Services")
+- feat: [UnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#unsubscribeService) - Provide the function to unsubscribe rxjs
+
+---
+
 # v15.1.0
 ## [Components](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Components "Components")
 - feat: [`[nb-r-str]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb-r-str) - Support to be imported as a `standalone component`

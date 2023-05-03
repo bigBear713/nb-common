@@ -1,3 +1,11 @@
+## 破坏性更新
+- feat: `angular`升级到`v16`;
+- 
+## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#Services "Services")
+- feat: [UnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#unsubscribeService) - 提供取消rxjs订阅的功能
+
+---
+
 # v15.1.0
 ## [Components](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#Components "Components")
 - feat: [`[nb-r-str]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nb-r-str) - 支持以`standalone component`的方式引入
