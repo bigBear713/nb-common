@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { interval, Observable, Subject, Subscription } from 'rxjs';
 import { NbUnsubscribeService } from '../unsubscribe.service';
+import { nbTick } from '../../utils/nb-tick';
 
 class PublicUnsubscribeService extends NbUnsubscribeService {
   public destroy$ = new Subject<void>();
@@ -134,11 +135,11 @@ describe('Service: Unsubscribe / ', () => {
 
         service.collectASubscriptionByKey(key, subscription1, item.unsubscribeIfExist);
 
-        await myTick(400);
+        await nbTick(400);
         service.collectASubscriptionByKey(key, subscription2, item.unsubscribeIfExist);
         expect(subscription1.closed).toEqual(item.expectResult.isClosed);
 
-        await myTick(200);
+        await nbTick(200);
         expect(spyOn1.next).toHaveBeenCalledTimes(item.expectResult.calledTimes);
 
         subscription1.unsubscribe();
@@ -192,8 +193,4 @@ describe('Service: Unsubscribe / ', () => {
 })
 export class TestComponent {
   constructor(public unsubscribeService: NbUnsubscribeService) { }
-}
-
-async function myTick(time: number) {
-  return await new Promise(resolve => setTimeout(() => resolve(null), time));
 }
