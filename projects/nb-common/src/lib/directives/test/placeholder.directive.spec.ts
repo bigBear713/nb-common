@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { NbUnsubscribeService } from '../../services/unsubscribe.service';
 import { NbValueTypeService } from '../../services/value-type.service';
 import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 import { NbPlaceholderDirective } from '../placeholder.directive';
@@ -28,7 +29,6 @@ describe('Directive: NbPlaceholder', () => {
     },
   ].forEach(item => {
     describe(item.title, () => {
-      let directive: NbPlaceholderDirective;
 
       beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -40,13 +40,11 @@ describe('Directive: NbPlaceholder', () => {
         });
       });
 
-      beforeEach(() => {
-        const service = TestBed.inject(NbValueTypeService);
-        const changeDR = TestBed.inject(ChangeDetectorRef);
-        directive = new NbPlaceholderDirective(changeDR, service);
-      });
-
       it('create an instance', () => {
+        const service = TestBed.inject(NbValueTypeService);
+        const unsubscribeService = new NbUnsubscribeService();
+        const changeDR = TestBed.inject(ChangeDetectorRef);
+        const directive = new NbPlaceholderDirective(changeDR, unsubscribeService, service);
         expect(directive).toBeTruthy();
       });
 
@@ -67,31 +65,39 @@ describe('Directive: NbPlaceholder', () => {
           const fixture = TestBed.createComponent(MockComponent);
           const component = fixture.componentInstance;
 
-          const mockPlaceholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
-          component.placeholder = mockPlaceholder;
+          const placeholder$ = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
+          component.placeholder = placeholder$;
           fixture.detectChanges();
           const hostEle: HTMLElement = fixture.debugElement.nativeElement;
           expect(getInputPlaceholder(fixture, hostEle)).toEqual(OBSERVABLE_PLACEHOLDER);
 
-          mockPlaceholder.next('这是placeholder');
-          expect(getInputPlaceholder(fixture, hostEle)).toEqual('这是placeholder');
+          const newPlaceholderContent = `new one: ${OBSERVABLE_PLACEHOLDER}`;
+          placeholder$.next(newPlaceholderContent);
+          expect(getInputPlaceholder(fixture, hostEle)).toEqual(newPlaceholderContent);
         }));
 
         it('the placeholder is an Observable value, then change it as a new observable value', fakeAsync(() => {
           const fixture = TestBed.createComponent(MockComponent);
           const component = fixture.componentInstance;
 
-          const mockPlaceholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
-          component.placeholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
+          const firstObservable = new BehaviorSubject('');
+          component.placeholder = firstObservable;
           fixture.detectChanges();
+
+          // update placeholder content via observable
+          firstObservable.next(OBSERVABLE_PLACEHOLDER);
           const hostEle: HTMLElement = fixture.debugElement.nativeElement;
           expect(getInputPlaceholder(fixture, hostEle)).toEqual(OBSERVABLE_PLACEHOLDER);
 
-          component.placeholder = new BehaviorSubject(OBSERVABLE_PLACEHOLDER);
+          // update as another observable value
+          const newPlaceholderContent = `new ${OBSERVABLE_PLACEHOLDER}`;
+          component.placeholder = new BehaviorSubject(newPlaceholderContent);
+          // try to update placeholder content via first observable
+          firstObservable.next(`old:${OBSERVABLE_PLACEHOLDER}`)
           fixture.detectChanges();
 
-          expect(mockPlaceholder.observers.length).toBeFalsy();
-          expect(getInputPlaceholder(fixture, hostEle)).toEqual(OBSERVABLE_PLACEHOLDER);
+          // the placeholder content should be new one
+          expect(getInputPlaceholder(fixture, hostEle)).toEqual(newPlaceholderContent);
         }));
 
       });

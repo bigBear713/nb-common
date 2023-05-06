@@ -15,5 +15,8 @@ export * from './lib/pipes/is-observable.pipe';
 export * from './lib/pipes/is-string.pipe';
 
 export * from './lib/services/value-type.service';
+export * from './lib/services/unsubscribe.service';
 
 export * from './lib/constants';
+
+export * from './lib/utils/nb-tick';
