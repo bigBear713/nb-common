@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { interval, Observable, Subject, Subscription } from 'rxjs';
-import { UnsubscribeService } from '../unsubscribe.service';
+import { NbUnsubscribeService } from '../unsubscribe.service';
 
-class PublicUnsubscribeService extends UnsubscribeService {
+class PublicUnsubscribeService extends NbUnsubscribeService {
   public destroy$ = new Subject<void>();
   public subscriptionList: Subscription[] = [];
   public subscriptionMap: Map<string, Subscription> = new Map();
@@ -188,10 +188,10 @@ describe('Service: Unsubscribe / ', () => {
 @Component({
   standalone: true,
   template: '',
-  providers: [UnsubscribeService]
+  providers: [NbUnsubscribeService]
 })
 export class TestComponent {
-  constructor(public unsubscribeService: UnsubscribeService) { }
+  constructor(public unsubscribeService: NbUnsubscribeService) { }
 }
 
 async function myTick(time: number) {

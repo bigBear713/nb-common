@@ -3,10 +3,10 @@
 - feat: Upgrade `angular` to `v16`;
 
 ## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Services "Services")
-- feat: [UnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#unsubscribeService) - Provide the function to unsubscribe rxjs
+- feat: [NbUnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbunsubscribeService) - Provide the function to unsubscribe rxjs
 
 ## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Directives "Directives")
-- refactor: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbplaceholder) - Using UnsubscribeService to manage rxjs subscriptions
+- refactor: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbplaceholder) - Using NbUnsubscribeService to manage rxjs subscriptions
 
 ---
 

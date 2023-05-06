@@ -3,10 +3,10 @@
 - feat: `angular`升级到`v16`;
  
 ## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#Services "Services")
-- feat: [UnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#unsubscribeService) - 提供取消rxjs订阅的功能
+- feat: [NbUnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nbunsubscribeService) - 提供取消rxjs订阅的功能
  
 ## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#Directives "Directives")
-- refactor: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nbplaceholder) - 使用UnsubscribeService管理rxjs的订阅
+- refactor: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nbplaceholder) - 使用NbUnsubscribeService管理rxjs的订阅
 
 ---
 

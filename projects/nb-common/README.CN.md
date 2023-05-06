@@ -129,7 +129,7 @@ this.valueType.isTemplateRef({}); // false
 
 <br>
 
-#### UnsubscribeService
+#### NbUnsubscribeService
 ##### `v16.0.0`
 ###### 提供取消rxjs订阅的功能的`service`。
 ##### <span style="color:red">请在component/directive的providers中使用；或者在实例销毁时，主动调用该服务实例的ngOnDestroy</span>
@@ -151,15 +151,15 @@ this.valueType.isTemplateRef({}); // false
 ```ts
 // 服务实例的创建和销毁
 // 设为component/directive级的服务，在component/directive实例被销毁时，也会自动销毁该服务实例，取消所有订阅事件
-@Component({template:'',providers:[UnsubscribeService]}) export class XXXComponent{}
-@Directive({providers:[UnsubscribeService]}) export class XXXDirective{}
+@Component({template:'',providers:[NbUnsubscribeService]}) export class XXXComponent{}
+@Directive({providers:[NbUnsubscribeService]}) export class XXXDirective{}
 
 // 如果无法设置为component/directive级的服务，可手动实例化，并在需要时手动取消所有订阅事件，比如在pipe中。
 // 将永远不会通过构造函数引入依赖项
 @Pipe() export class XXXPipe(){
-  private unsubscribeService:UnsubscribeService;
+  private unsubscribeService:NbUnsubscribeService;
   constructor(){
-    this.unsubscribeService = new UnsubscribeService();
+    this.unsubscribeService = new NbUnsubscribeService();
   }
 
   ngOnDestroy(){
@@ -168,7 +168,7 @@ this.valueType.isTemplateRef({}); // false
 }
 
 // 使用
-constructor(private unsubscribeService: UnsubscribeService) {}
+constructor(private unsubscribeService: NbUnsubscribeService) {}
 
 const interval$ = this.unsubscribeService.addUnsubscribeOperator(interval(1000));
 

@@ -117,7 +117,7 @@ this.valueType.isTemplateRef({}); // false
 
 <br>
 
-#### UnsubscribeService
+#### NbUnsubscribeService
 ##### `v16.0.0`
 ###### The `service` can provide the function to unsubscribe rxjs
 ##### <span style="color:red">Please used in component/directive's providers; or when the instance is going to be destroyed, call the service instance's ngOnDestroy function </span>
@@ -140,16 +140,16 @@ this.valueType.isTemplateRef({}); // false
 // Creation and destruction of the service instance
 // Set as component/directive level service, so when component/directive is going to be destroyed, 
 // the service instance will auto be destroyed and auto call ngOnDestroy function, then unsubscribe all subscriptions
-@Component({template:'',providers:[UnsubscribeService]}) export class XXXComponent{}
-@Directive({providers:[UnsubscribeService]}) export class XXXDirective{}
+@Component({template:'',providers:[NbUnsubscribeService]}) export class XXXComponent{}
+@Directive({providers:[NbUnsubscribeService]}) export class XXXDirective{}
 
 // If can't set as component/directive level service, create it manually, 
 // and call ngOnDestroy function when is going to be destroyed, such as in pipe instance.
 // would always not import dependencies via constructor
 @Pipe() export class XXXPipe(){
-  private unsubscribeService:UnsubscribeService;
+  private unsubscribeService:NbUnsubscribeService;
   constructor(){
-    this.unsubscribeService = new UnsubscribeService();
+    this.unsubscribeService = new NbUnsubscribeService();
   }
 
   ngOnDestroy(){
@@ -158,7 +158,7 @@ this.valueType.isTemplateRef({}); // false
 }
 
 // used
-constructor(private unsubscribeService: UnsubscribeService) {}
+constructor(private unsubscribeService: NbUnsubscribeService) {}
 
 const interval$ = this.unsubscribeService.addUnsubscribeOperator(interval(1000));
 

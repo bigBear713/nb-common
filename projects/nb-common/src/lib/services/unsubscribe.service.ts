@@ -3,7 +3,7 @@ import { Observable, Subject, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Injectable()
-export class UnsubscribeService implements OnDestroy {
+export class NbUnsubscribeService implements OnDestroy {
 
   protected destroy$ = new Subject<void>();
 

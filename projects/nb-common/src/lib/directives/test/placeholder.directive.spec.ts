@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { UnsubscribeService } from '../../services/unsubscribe.service';
+import { NbUnsubscribeService } from '../../services/unsubscribe.service';
 import { NbValueTypeService } from '../../services/value-type.service';
 import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 import { NbPlaceholderDirective } from '../placeholder.directive';
@@ -42,7 +42,7 @@ describe('Directive: NbPlaceholder', () => {
 
       it('create an instance', () => {
         const service = TestBed.inject(NbValueTypeService);
-        const unsubscribeService = new UnsubscribeService();
+        const unsubscribeService = new NbUnsubscribeService();
         const changeDR = TestBed.inject(ChangeDetectorRef);
         const directive = new NbPlaceholderDirective(changeDR, unsubscribeService, service);
         expect(directive).toBeTruthy();

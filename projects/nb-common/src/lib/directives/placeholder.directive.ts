@@ -1,9 +1,9 @@
 import { ChangeDetectorRef, Directive, HostBinding, Input, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UnsubscribeService } from '../services/unsubscribe.service';
+import { NbUnsubscribeService } from '../services/unsubscribe.service';
 import { NbValueTypeService } from '../services/value-type.service';
 
-@Directive({ standalone: true, selector: '[nbPlaceholder]', providers: [UnsubscribeService] })
+@Directive({ standalone: true, selector: '[nbPlaceholder]', providers: [NbUnsubscribeService] })
 export class NbPlaceholderDirective implements OnChanges {
   
   @Input() nbPlaceholder: string | Observable<string> = '';
@@ -12,7 +12,7 @@ export class NbPlaceholderDirective implements OnChanges {
 
   constructor(
     private chageDR: ChangeDetectorRef,
-    private unsubscribeService: UnsubscribeService,
+    private unsubscribeService: NbUnsubscribeService,
     private valueTypeService: NbValueTypeService
   ) { }
 
