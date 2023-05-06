@@ -6,7 +6,7 @@
 - feat: [UnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#unsubscribeService) - 提供取消rxjs订阅的功能
  
 ## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#Directives "Directives")
-- refactor: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nbplaceholder) - 使用UnsubscribeService来管理rxjs的订阅
+- refactor: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nbplaceholder) - 使用UnsubscribeService管理rxjs的订阅
 
 ---
 
