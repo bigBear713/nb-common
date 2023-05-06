@@ -1,3 +1,15 @@
+# v16.0.0
+## Breaking Changes
+- feat: Upgrade `angular` to `v16`;
+
+## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Services "Services")
+- feat: [UnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#unsubscribeService) - Provide the function to unsubscribe rxjs
+
+## [Directives](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Directives "Directives")
+- refactor: [`[nbPlaceholder]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbplaceholder) - Using UnsubscribeService to manage rxjs subscriptions
+
+---
+
 # v15.1.0
 ## [Components](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Components "Components")
 - feat: [`[nb-r-str]`](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb-r-str) - Support to be imported as a `standalone component`
