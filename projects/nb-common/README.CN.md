@@ -132,8 +132,8 @@ this.valueType.isTemplateRef({}); // false
 #### NbUnsubscribeService
 ##### `v16.0.0`
 ###### 提供取消rxjs订阅的功能的`service`。
-##### <span style="color:red">请在component/directive的providers中使用；或者在实例销毁时，主动调用该服务实例的ngOnDestroy</span>
-##### 将永远不会通过构造函数引入依赖项
+- <font color="red">请在component/directive的providers中使用；或者在实例销毁时，主动调用该服务实例的ngOnDestroy</font>
+- 将永远不会通过构造函数引入依赖项
 
 ##### Methods
 | Name  | Return  | Description  | Scenes  | Version |
@@ -142,7 +142,7 @@ this.valueType.isTemplateRef({}); // false
 | getDestructionSignal() | `Observable<void>` | 获取销毁信号，是一个observable。在服务实例被销毁时，通过它能收到销毁的信号。不用关心它的订阅事件，服务实例内部将自己处理 | 想要在服务实例被销毁时自定义一些行为  | `v16.0.0` |
 | collectASubscription(subscription: Subscription) | `void` | 收集一个`Subscription`，以便在需要时或实例销毁时，自动取消该订阅 | 想要在一些场景下时能自动取消该订阅  | `v16.0.0` |
 | clearAllSubscriptions() | `void` | 取消订阅并清除当前为止收集到的`Subscription`，不包含根据key存储的记录 | 想要取消订阅并清除目前位置收集到的`Subscription`时 | `v16.0.0` |
-| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true) | `void` | 根据`key`收集一个`Subscription`，以便在需要时或实例销毁时，自动取消该订阅。如果记录中，已经存在一个与`key`相对应的`Subscription`，通过设置`unsubscribeIfExist=true`可在收集前先取消。<span style="color:red">如果设置`unsubscribeIfExist=false`，则不会取消订阅，只会覆盖原有记录。</span>`unsubscribeIfExist`默认为`true` | 想要在需要时，能对某个`Subscription`进行取消订阅  | `v16.0.0` |
+| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true) | `void` | 根据`key`收集一个`Subscription`，以便在需要时或实例销毁时，自动取消该订阅。如果记录中，已经存在一个与`key`相对应的`Subscription`，通过设置`unsubscribeIfExist=true`可在收集前先自动取消。<font color="red">如果设置`unsubscribeIfExist=false`，则不会取消订阅，只会覆盖原有记录。</font>`unsubscribeIfExist`默认为`true` | 想要在需要时，能对某个`Subscription`进行取消订阅  | `v16.0.0` |
 | unsubscribeASubscriptionByKey(key: string) | `boolean` | 根据key取消已被收集的某个订阅。取消订阅后会将对应的subscription从记录中移除。如果根据key值取不到该订阅，会返回false | 想对之前存储的订阅事件执行取消订阅操作时  | `v16.0.0` |
 | clearAllSubscriptionsFromKeyRecord() | `void` | 从根据key存储订阅事件的记录中，取消所有订阅事件，并清除。只针对根据key存储的记录。 | 想清除之前根据key值存储的所有订阅事件记录时  | `v16.0.0` |
 | ngOnDestroy() | `void` | 清除当前服务实例中的所有订阅记录。通过DI,在该服务实例被销毁时会自动调用该方法。**请勿**在销毁前调用该方法。 | 想要手动清除服务实例中的所有订阅记录时，比如在pipe中使用，在被销毁时调用该方法  | `v16.0.0` |
@@ -184,7 +184,7 @@ this.unsubscribeService.clearAllSubscriptions();
 
 const subscription = interval(1000).subscribe();
 const subKey = 'interval subscription';
-// 当key对应的记录已经存在时，默认会对之前存储的订阅事件进行取消订阅操作
+// 当key对应的记录已经存在时，默认会先对之前存储的订阅事件进行取消订阅操作
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription);
 // 等价于
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,true);
