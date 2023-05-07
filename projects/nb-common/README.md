@@ -119,9 +119,9 @@ this.valueType.isTemplateRef({}); // false
 
 #### NbUnsubscribeService
 ##### `v16.0.0`
-###### The `service` can provide the function to unsubscribe rxjs
-##### <span style="color:red">Please used in component/directive's providers; or when the instance is going to be destroyed, call the service instance's ngOnDestroy function </span>
-##### Would always not import dependencies via constructor
+###### The `service` can provide the functions to unsubscribe rxjs
+- <font color="red">Please used in component/directive's providers; or when the instance is going to be destroyed, call the service instance's ngOnDestroy function </font>
+- Would always not import dependencies via constructor
 
 ##### Methods
 | Name  | Return  | Description  | Scenes  | Version |
@@ -130,10 +130,10 @@ this.valueType.isTemplateRef({}); // false
 | getDestructionSignal() | `Observable<void>` | Get a signal about destruction, it is an observable. When the service instance is going to be destroyed, you can get the notification via it. Don't need to care about the subscriptions, because it will be handled in service instance | When you want to do something when the service instance is going to be destroyed | `v16.0.0` |
 | collectASubscription(subscription: Subscription) | `void` | Collect a `Subscription`, so can auto unsubscribe it when necessary or the instance is going to be destroyed | When want to auto unsubscribe in some scenes | `v16.0.0` |
 | clearAllSubscriptions() | `void` | Unsubscribe and clear all `Subscription` which were collected so far. Excluding the record which added by key | When you want to ubsubscribe and clear all subscriptions which were collected so far. | `v16.0.0` |
-| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true)  | `void` | Collect a `Subscription` by key, so can auto unsubscribe it when necessary or the instance is going to be destroyed. If there is a data before you save a new one by key, the existing one will be unsubscribed before saving new one when set `unsubscribeIfExist=true`.<span style="color:red">If you set `unsubscribeIfExist=false`, the existing one  will not be unsubscribed, and the data will only be overwrited.</span> The `unsubscribeIfExist` is `true` by default. | Can unsubscribe a `Subscription` when necessary | `v16.0.0` |
+| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true)  | `void` | Collect a `Subscription` by key, so can auto unsubscribe it when necessary or the instance is going to be destroyed. If there is a data before you save a new one by key, the existing one will auto be unsubscribed before saving new one when set `unsubscribeIfExist=true`. <font color="red">If you set `unsubscribeIfExist=false`, the existing one  will not be unsubscribed, and the data will only be overwrited.</font> The `unsubscribeIfExist` is `true` by default. | Can unsubscribe a `Subscription` when necessary | `v16.0.0` |
 | unsubscribeASubscriptionByKey(key: string) | `boolean` | Unsubscribe a subscription accroding to a key. The subscription data will be removed from records after unsubscribing. If can't get the data by the key, the functiton will return false | When you want to unsubscribe the subscription which is saved before | `v16.0.0` |
 | clearAllSubscriptionsFromKeyRecord() | `void` | Unsubscribe all subscriptions and clear them from the record which save data by key. Only for the record which added via key | When you want to clear the previous subscriptions which are saved by key | `v16.0.0` |
-| ngOnDestroy() | `void` | Clear all subscribing records of current service instance. The function will auto to be called when the service instance is going to be destroyed via DI. **Don't** call it before destroying the service instance. | When you want to clear all records manually, like using in pipe, you should call the function when going to destroy the pipe instance | `v16.0.0` |
+| ngOnDestroy() | `void` | Clear all subscribing records of current service instance. The function will auto to be called when the service instance is going to be destroyed via DI. **Don't** call it before destroying the service instance. | When you want to clear all records manually, like used in pipe, you should call the function when going to destroy the pipe instance | `v16.0.0` |
 
 ##### Usage
 ```ts
@@ -174,7 +174,7 @@ this.unsubscribeService.clearAllSubscriptions();
 
 const subscription = interval(1000).subscribe();
 const subKey = 'interval subscription';
-// When the data corresponding to the key exists, will auto unsubscribe the existing one by default
+// When the data corresponding to the key exists, will auto unsubscribe the existing one firstly by default
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription);
 // equals to 
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,true);
