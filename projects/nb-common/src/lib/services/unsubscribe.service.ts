@@ -67,10 +67,14 @@ export class NbUnsubscribeService implements OnDestroy {
    * @param key 
    * @param subscription 
    * @param unsubscribeIfExist whether to unsubscribe if there is a subscription matching the key. Default is true
+   * @returns If the subscription exist, will return it.
    */
-  collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true): void {
-    if (unsubscribeIfExist) this.unsubscribeASubscriptionByKey(key);
+  collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true): Subscription | undefined {
+    const oldSubscription = this.subscriptionMap.get(key);
+    if (oldSubscription && unsubscribeIfExist) oldSubscription.unsubscribe();
+
     this.subscriptionMap.set(key, subscription);
+    return oldSubscription;
   }
 
   /**

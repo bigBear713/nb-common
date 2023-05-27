@@ -136,8 +136,9 @@ describe('Service: Unsubscribe / ', () => {
         service.collectASubscriptionByKey(key, subscription1, item.unsubscribeIfExist);
 
         await nbTick(400);
-        service.collectASubscriptionByKey(key, subscription2, item.unsubscribeIfExist);
+        const oldSubscription = service.collectASubscriptionByKey(key, subscription2, item.unsubscribeIfExist);
         expect(subscription1.closed).toEqual(item.expectResult.isClosed);
+        expect(oldSubscription).toEqual(subscription1);
 
         await nbTick(200);
         expect(spyOn1.next).toHaveBeenCalledTimes(item.expectResult.calledTimes);

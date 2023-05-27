@@ -1,3 +1,9 @@
+# v16.1.0
+## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#Services "Services")
+- feat: [NbUnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nbunsubscribeService) - 调整`collectASubscriptionByKey()`的返回值
+
+---
+
 # v16.0.0
 ## 破坏性更新
 - feat: `angular`升级到`v16`;
