@@ -1,9 +1,6 @@
 <h2>
-  <a href="https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md" target="_blank">
-    Document
-  </a>
-  <a href="https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md" target="_blank">
-    Changelog
+  <a *ngFor="let item of links" [href]="item.link" target="_blank" (click)="go2Link(item)">
+    {{item.title}}
   </a>
 </h2>
 <hr>

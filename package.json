@@ -29,6 +29,7 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "dayjs": "^1.11.7",
     "lodash-es": "^4.17.21",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
