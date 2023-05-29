@@ -1,6 +1,6 @@
 # v16.1.0
 ## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#Services "Services")
-- feat: [NbUnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nbunsubscribeService) - 调整`collectASubscriptionByKey()`的返回值
+- feat: [NbUnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nbunsubscribeService) - 调整`collectASubscriptionByKey()`的返回值:[issues/30](https://github.com/bigBear713/nb-common/issues/30)
 
 ---
 

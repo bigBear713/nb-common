@@ -192,6 +192,9 @@ this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,true);
 // 此时应注意自己控制订阅事件的取消
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,false);
 
+// 当key对应的记录已经存在时，function最终会返回这个记录数据
+const subscription = this.unsubscribeService.collectASubscriptionByKey(subKey,subscription);
+
 this.unsubscribeService.unsubscribeASubscriptionByKey(subKey);
 
 this.unsubscribeService.clearAllSubscriptionsFromKeyRecord();

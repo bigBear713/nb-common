@@ -182,6 +182,9 @@ this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,true);
 // and will not unsubscribe the existing one, so you should take care to unsubscribe the one by yourself
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,false);
 
+// When the data corresponding to the key exists, the function will return it eventually
+const subscription = this.unsubscribeService.collectASubscriptionByKey(subKey,subscription);
+
 this.unsubscribeService.unsubscribeASubscriptionByKey(subKey);
 
 this.unsubscribeService.clearAllSubscriptionsFromKeyRecord();
