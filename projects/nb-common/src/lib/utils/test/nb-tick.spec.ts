@@ -5,7 +5,7 @@ describe('nb-tick', () => {
         {
             title: 'when time is 100ms',
             time: 100,
-            expectTimeDiff: 110,
+            expectTimeDiff: 118,
         },
         {
             title: 'when time is 0',

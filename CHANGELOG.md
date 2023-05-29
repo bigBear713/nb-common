@@ -1,3 +1,9 @@
+# v16.1.0
+## [Services](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#Services "Services")
+- feat: [NbUnsubscribeService](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nbunsubscribeService) - Update the return valud of the `collectASubscriptionByKey()` function:[issues/30](https://github.com/bigBear713/nb-common/issues/30)
+
+---
+
 # v16.0.0
 ## Breaking Changes
 - feat: Upgrade `angular` to `v16`;
