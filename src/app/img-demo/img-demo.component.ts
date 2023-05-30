@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { GTagService } from '../g-tag.service';
 
 @Component({
   selector: 'app-img-demo',
@@ -14,7 +15,13 @@ export class ImgDemoComponent implements OnInit {
 
   errImg = './assets/picture.svg';
 
-  constructor() { }
+  constructor(
+    private gtagService: GTagService
+  ) {
+    this.gtagService.trackPage({
+      page_name: 'img Director',
+    });
+  }
 
   ngOnInit() {
   }

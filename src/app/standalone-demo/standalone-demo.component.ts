@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NbImgDirective, NbPlaceholderDirective, NbRStrComponent, NbTplContentPipe, NB_DEFAULT_LOADING_IMG } from 'nb-common';
 import { BehaviorSubject } from 'rxjs';
+import { GTagService } from '../g-tag.service';
 
 @Component({
   standalone: true,
@@ -32,7 +33,13 @@ export class StandaloneDemoComponent implements OnInit {
 
   intervalId!: any;
 
-  constructor() { }
+  constructor(
+    private gtagService: GTagService
+  ) {
+    this.gtagService.trackPage({
+      page_name: 'standalone component',
+    });
+  }
 
   ngOnInit() {
     this.intervalUpdatePlaceholderStr();
