@@ -13,11 +13,11 @@ export class AppComponent {
   links = [
     {
       title: 'Document',
-      link: 'https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md',
+      link: 'https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md',
     },
     {
       title: 'Changelog',
-      link: 'https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md',
+      link: 'https://github.com/bigBear713/nb-common/blob/main/CHANGELOG.md',
     },
   ];
 
