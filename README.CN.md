@@ -15,20 +15,20 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 ---
 
 ## Document
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md "文档 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "Document - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md "Document - English")
 
 ---
 
 ## Changelog
-- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.CN.md "更新日志 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "Changelog - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/main/CHANGELOG.CN.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/main/CHANGELOG.md "Changelog - English")
 
 ---
 
 ## Readme
-- [中文](https://github.com/bigBear713/nb-common/blob/master/README.CN.md "文档 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/README.md "Document - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/main/README.CN.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/main/README.md "Document - English")
 
 ---
 

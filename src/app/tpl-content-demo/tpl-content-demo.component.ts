@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { GTagService } from '../g-tag.service';
 
 @Component({
   selector: 'app-tpl-content-demo',
@@ -8,7 +9,13 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class TplContentDemoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private gtagService: GTagService
+  ) {
+    this.gtagService.trackPage({
+      page_name: 'tpl content pipe',
+    });
+  }
 
   ngOnInit() {
   }

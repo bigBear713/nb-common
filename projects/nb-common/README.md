@@ -15,16 +15,16 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 ---
 
 ## Document
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md "文档 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "Document - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md "Document - English")
 
 <br>
 
 ---
 
 ## Changelog
-- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.CN.md "更新日志 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "Changelog - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/main/CHANGELOG.CN.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/main/CHANGELOG.md "Changelog - English")
 
 <br>
 
@@ -130,7 +130,7 @@ this.valueType.isTemplateRef({}); // false
 | getDestructionSignal() | `Observable<void>` | Get a signal about destruction, it is an observable. When the service instance is going to be destroyed, you can get the notification via it. Don't need to care about the subscriptions, because it will be handled in service instance | When you want to do something when the service instance is going to be destroyed | `v16.0.0` |
 | collectASubscription(subscription: Subscription) | `void` | Collect a `Subscription`, so can auto unsubscribe it when necessary or the instance is going to be destroyed | When want to auto unsubscribe in some scenes | `v16.0.0` |
 | clearAllSubscriptions() | `void` | Unsubscribe and clear all `Subscription` which were collected so far. Excluding the record which added by key | When you want to ubsubscribe and clear all subscriptions which were collected so far. | `v16.0.0` |
-| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true)  | `void` | Collect a `Subscription` by key, so can auto unsubscribe it when necessary or the instance is going to be destroyed. If there is a data before you save a new one by key, the existing one will auto be unsubscribed before saving new one when set `unsubscribeIfExist=true`. <font color="red">If you set `unsubscribeIfExist=false`, the existing one  will not be unsubscribed, and the data will only be overwrited.</font> The `unsubscribeIfExist` is `true` by default. | Can unsubscribe a `Subscription` when necessary | `v16.0.0` |
+| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true)  | `Subscription｜undefined` | Collect a `Subscription` by key, so can auto unsubscribe it when necessary or the instance is going to be destroyed. If there is a data before you save a new one by key, the existing one will auto be unsubscribed before saving new one when set `unsubscribeIfExist=true`. <font color="red">If you set `unsubscribeIfExist=false`, the existing one  will not be unsubscribed, and the data will only be overwrited.</font> The `unsubscribeIfExist` is `true` by default. If there is a data before you save a new one by key, the existing `Subscription` will be returned(`v16.1.0`) | Can unsubscribe a `Subscription` when necessary | `v16.0.0` |
 | unsubscribeASubscriptionByKey(key: string) | `boolean` | Unsubscribe a subscription accroding to a key. The subscription data will be removed from records after unsubscribing. If can't get the data by the key, the functiton will return false | When you want to unsubscribe the subscription which is saved before | `v16.0.0` |
 | clearAllSubscriptionsFromKeyRecord() | `void` | Unsubscribe all subscriptions and clear them from the record which save data by key. Only for the record which added via key | When you want to clear the previous subscriptions which are saved by key | `v16.0.0` |
 | ngOnDestroy() | `void` | Clear all subscribing records of current service instance. The function will auto to be called when the service instance is going to be destroyed via DI. **Don't** call it before destroying the service instance. | When you want to clear all records manually, like used in pipe, you should call the function when going to destroy the pipe instance | `v16.0.0` |
@@ -181,6 +181,9 @@ this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,true);
 // If you set the params unsubscribeIfExist = false, it will be overwrited when the data corresponding to the key exists,
 // and will not unsubscribe the existing one, so you should take care to unsubscribe the one by yourself
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,false);
+
+// When the data corresponding to the key exists, the function will return it eventually
+const subscription = this.unsubscribeService.collectASubscriptionByKey(subKey,subscription);
 
 this.unsubscribeService.unsubscribeASubscriptionByKey(subKey);
 
@@ -246,8 +249,8 @@ export class XXXComponent{}
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 | nbImg  | `string` | `''` | The src of image you want to load. When you use the directive and not set the `nbImg` value, will diplay the content from `src` property (no loading effect). At this time, if failure the image from the `src` value, it will display the `errImg` content. | `v12.2.0` |
-| loadingImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The loading picture when loading the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/loading.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_LOADING_IMG` token via DI to set the project or a module's loading picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_loading_img) defined below | `v12.2.0` |
-| errImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The picture which is displayed when failure to load the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/picture.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_ERR_IMG` token via DI to set the project or a module's errImg picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_err_img) defined below | `v12.2.0` |
+| loadingImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The loading picture when loading the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/loading.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_LOADING_IMG` token via DI to set the project or a module's loading picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md#nb_default_loading_img) defined below | `v12.2.0` |
+| errImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The picture which is displayed when failure to load the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/picture.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_ERR_IMG` token via DI to set the project or a module's errImg picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md#nb_default_err_img) defined below | `v12.2.0` |
 
 ##### angular.json
 ```json

@@ -15,16 +15,16 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 ---
 
 ## Document
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md "文档 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "Document - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md "Document - English")
 
 <br>
 
 ---
 
 ## Changelog
-- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.CN.md "更新日志 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "Changelog - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/main/CHANGELOG.CN.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/main/CHANGELOG.md "Changelog - English")
 
 <br>
 
@@ -142,7 +142,7 @@ this.valueType.isTemplateRef({}); // false
 | getDestructionSignal() | `Observable<void>` | 获取销毁信号，是一个observable。在服务实例被销毁时，通过它能收到销毁的信号。不用关心它的订阅事件，服务实例内部将自己处理 | 想要在服务实例被销毁时自定义一些行为  | `v16.0.0` |
 | collectASubscription(subscription: Subscription) | `void` | 收集一个`Subscription`，以便在需要时或实例销毁时，自动取消该订阅 | 想要在一些场景下时能自动取消该订阅  | `v16.0.0` |
 | clearAllSubscriptions() | `void` | 取消订阅并清除当前为止收集到的`Subscription`，不包含根据key存储的记录 | 想要取消订阅并清除目前位置收集到的`Subscription`时 | `v16.0.0` |
-| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true) | `void` | 根据`key`收集一个`Subscription`，以便在需要时或实例销毁时，自动取消该订阅。如果记录中，已经存在一个与`key`相对应的`Subscription`，通过设置`unsubscribeIfExist=true`可在收集前先自动取消。<font color="red">如果设置`unsubscribeIfExist=false`，则不会取消订阅，只会覆盖原有记录。</font>`unsubscribeIfExist`默认为`true` | 想要在需要时，能对某个`Subscription`进行取消订阅  | `v16.0.0` |
+| collectASubscriptionByKey(key: string, subscription: Subscription, unsubscribeIfExist: boolean = true) | `Subscription｜undefined` | 根据`key`收集一个`Subscription`，以便在需要时或实例销毁时，自动取消该订阅。如果记录中，已经存在一个与`key`相对应的`Subscription`，通过设置`unsubscribeIfExist=true`可在收集前先自动取消。<font color="red">如果设置`unsubscribeIfExist=false`，则不会取消订阅，只会覆盖原有记录。</font>`unsubscribeIfExist`默认为`true`。 当记录中已经存在一个与`key`相对应的`Subscription`时，会返回这个`Subscription`(`v16.1.0`) | 想要在需要时，能对某个`Subscription`进行取消订阅  | `v16.0.0` |
 | unsubscribeASubscriptionByKey(key: string) | `boolean` | 根据key取消已被收集的某个订阅。取消订阅后会将对应的subscription从记录中移除。如果根据key值取不到该订阅，会返回false | 想对之前存储的订阅事件执行取消订阅操作时  | `v16.0.0` |
 | clearAllSubscriptionsFromKeyRecord() | `void` | 从根据key存储订阅事件的记录中，取消所有订阅事件，并清除。只针对根据key存储的记录。 | 想清除之前根据key值存储的所有订阅事件记录时  | `v16.0.0` |
 | ngOnDestroy() | `void` | 清除当前服务实例中的所有订阅记录。通过DI,在该服务实例被销毁时会自动调用该方法。**请勿**在销毁前调用该方法。 | 想要手动清除服务实例中的所有订阅记录时，比如在pipe中使用，在被销毁时调用该方法  | `v16.0.0` |
@@ -191,6 +191,9 @@ this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,true);
 // 如果显式设置unsubscribeIfExist = false，则当key对应的记录已经存在时，会直接覆盖存储，不会先对之前的订阅事件进行取消操作。
 // 此时应注意自己控制订阅事件的取消
 this.unsubscribeService.collectASubscriptionByKey(subKey,subscription,false);
+
+// 当key对应的记录已经存在时，function最终会返回这个记录数据
+const subscription = this.unsubscribeService.collectASubscriptionByKey(subKey,subscription);
 
 this.unsubscribeService.unsubscribeASubscriptionByKey(subKey);
 
@@ -256,8 +259,8 @@ export class XXXComponent{}
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 | nbImg  | `string` | `''` | 要加载的image的src。如果使用了该指令，但是没有设置`nbImg`的值，会显示`src`属性的内容(没有loaing效果)。如果此时`src`的内容加载失败，会显示`errImg`的内容 | `v12.2.0` |
-| loadingImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | 加载image时的loading图片，支持图片路径和认证安全的url(比如svg的base64)。默认是`assets/nb-common`目录下的`loading.svg`文件，所以使用默认路径时，需要在`angular.json`中，项目的`assets`中配置，具体见下方配置。可通过DI，使用`NB_DEFAULT_LOADING_IMG` token, 统一设置项目中，或者某个模块中的loading图片，具体见下方[Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nb_default_loading_img)定义 | `v12.2.0` |
-| errImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | 加载image失败后显示的图片，支持图片路径和认证安全的url(比如svg的base64)。默认是`assets/nb-common`目录下的`picture.svg`文件。所以使用默认路径时，需要在`angular.json`中，项目的`assets`中配置，具体见下方配置。可通过DI，使用`NB_DEFAULT_ERR_IMG` token, 统一设置项目中，或者某个模块中的加载失败后显示的图片，具体见下方[Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md#nb_default_err_img)定义 | `v12.2.0` |
+| loadingImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | 加载image时的loading图片，支持图片路径和认证安全的url(比如svg的base64)。默认是`assets/nb-common`目录下的`loading.svg`文件，所以使用默认路径时，需要在`angular.json`中，项目的`assets`中配置，具体见下方配置。可通过DI，使用`NB_DEFAULT_LOADING_IMG` token, 统一设置项目中，或者某个模块中的loading图片，具体见下方[Tokens](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md#nb_default_loading_img)定义 | `v12.2.0` |
+| errImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | 加载image失败后显示的图片，支持图片路径和认证安全的url(比如svg的base64)。默认是`assets/nb-common`目录下的`picture.svg`文件。所以使用默认路径时，需要在`angular.json`中，项目的`assets`中配置，具体见下方配置。可通过DI，使用`NB_DEFAULT_ERR_IMG` token, 统一设置项目中，或者某个模块中的加载失败后显示的图片，具体见下方[Tokens](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md#nb_default_err_img)定义 | `v12.2.0` |
 
 ##### angular.json
 ```json
