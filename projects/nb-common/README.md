@@ -15,16 +15,16 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 ---
 
 ## Document
-- [中文](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.CN.md "文档 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md "Document - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md "文档 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md "Document - English")
 
 <br>
 
 ---
 
 ## Changelog
-- [中文](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.CN.md "更新日志 - 中文")
-- [English](https://github.com/bigBear713/nb-common/blob/master/CHANGELOG.md "Changelog - English")
+- [中文](https://github.com/bigBear713/nb-common/blob/main/CHANGELOG.CN.md "更新日志 - 中文")
+- [English](https://github.com/bigBear713/nb-common/blob/main/CHANGELOG.md "Changelog - English")
 
 <br>
 
@@ -249,8 +249,8 @@ export class XXXComponent{}
 | Name  | Type  | Default  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 | nbImg  | `string` | `''` | The src of image you want to load. When you use the directive and not set the `nbImg` value, will diplay the content from `src` property (no loading effect). At this time, if failure the image from the `src` value, it will display the `errImg` content. | `v12.2.0` |
-| loadingImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The loading picture when loading the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/loading.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_LOADING_IMG` token via DI to set the project or a module's loading picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_loading_img) defined below | `v12.2.0` |
-| errImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The picture which is displayed when failure to load the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/picture.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_ERR_IMG` token via DI to set the project or a module's errImg picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/master/projects/nb-common/README.md#nb_default_err_img) defined below | `v12.2.0` |
+| loadingImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The loading picture when loading the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/loading.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_LOADING_IMG` token via DI to set the project or a module's loading picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md#nb_default_loading_img) defined below | `v12.2.0` |
+| errImg  | `string ｜ SafeResourceUrl` | `'./assets/nb-common/loading.svg'` | The picture which is displayed when failure to load the image. Support the url path and safe resource url(like base64 svg file). The default is `'./assets/nb-common/picture.svg'`, so when you use the default value, you should set the config which is in `assets` of `angular.json` file, you can see the demo below. You can use the `NB_DEFAULT_ERR_IMG` token via DI to set the project or a module's errImg picture, so that does not need to set the picture everywhere. You can see the [Tokens](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md#nb_default_err_img) defined below | `v12.2.0` |
 
 ##### angular.json
 ```json
