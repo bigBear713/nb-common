@@ -1,0 +1,31 @@
+<label>val1:<input type="number" [(ngModel)]="val1" (ngModelChange)="onValueChange(val1,0)"></label>
+<label>val2:<input type="number" [(ngModel)]="val2" (ngModelChange)="onValueChange(val2,1)"></label>
+
+<h4>调用multiplyBy函数</h4>
+<div>{{multiplyBy|nbCallFn:val1:val2}}</div>
+<h5>代码</h5>
+<pre>
+    <code>
+      {{code3}}
+    </code>
+  </pre>
+<hr>
+
+<h4>调用sum函数</h4>
+<div>{{sum|nbCallFn:[val1,val2]}}</div>
+<h5>代码</h5>
+<pre>
+    <code>
+      {{code1}}
+    </code>
+</pre>
+<button (click)="updateValArr()">update valArr</button>
+<h5>需要手动更新valArr数组，pipe才会检测到参数变化，从而执行</h5>
+<div>{{sum|nbCallFn:valArr}}</div>
+<h5>代码</h5>
+<pre>
+    <code>
+      {{code2}}
+    </code>
+  </pre>
+<hr>
