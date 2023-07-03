@@ -8,6 +8,7 @@ import { NbIsNumberPipe } from './pipes/is-number.pipe';
 import { NbIsObservablePipe } from './pipes/is-observable.pipe';
 import { NbIsStringPipe } from './pipes/is-string.pipe';
 import { NbTplContentPipe } from './pipes/tpl-content.pipe';
+import { NbCallFnPipe } from './pipes/nb-call-fn.pipe';
 
 const COMPONENTS = [
   NbRStrComponent,
@@ -25,6 +26,7 @@ const PIPES = [
   NbIsAsyncPipe,
   NbIsObservablePipe,
   NbIsStringPipe,
+  NbCallFnPipe,
 ];
 
 @NgModule({

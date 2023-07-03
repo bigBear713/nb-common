@@ -595,6 +595,76 @@ export class XXXComponent{}
 
 <br>
 
+#### nbCallFn: `transform(fn: Function, ...args: any): any|undefined`
+##### `v16.2.0`
+###### Call the function you want by pipe
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `Function` | true  | The function you want to call  | `v16.2.0` |
+| ...args  | `any` | false  | The params for the function you want to call. You can set 0 or many params according to the function. We **recommend passing the value which the type is primitive**, so the angular can detected value change and re-call the function. If you passing a value which the type is object, limited by the defects of js，create and assign the value please, refer to the example below | `v16.2.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `any|undefined`  | The result type of the function you want to call. If the function doesn't exist, will return undefined. |
+
+##### Usage
+```ts
+// template content
+`<div>{{testFn:nbCallFn:val1:val2}}</div>`
+
+  val1 = 1;
+  val2 = 2;
+
+  testFn(val1,val2){
+    return val1+val2;
+  }
+
+// template content
+`
+<button (click)="addItem()">Add a item</button>
+<div>{{toStr:nbCallFn:arr}}</div>
+`
+
+  arr = [1,2,3];
+
+  toStr(arr){
+    return arr.join();
+  }
+  addItem(){
+    this.arr.push(this.arr.length+1);
+    // need to create a new value, and assign the value
+    this.arr = [...this.arr];
+  }
+```
+```ts
+// imported in NgModule
+@NgModule({
+  imports:[NbCallFnPipe],
+  // ...
+})
+export class XXXModule{}
+
+// imported in standalone component
+@Component({
+  standalone:true,
+  imports:[NbCallFnPipe],
+  // ...
+})
+export class XXXComponent{}
+
+// import the NbCommonModule to use it
+@NgModule({
+  imports:[NbCommonModule],
+  // ...
+})
+export class XXXModule{}
+```
+
+<br>
+
+
 ---
 
 ### Tokens

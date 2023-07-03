@@ -13,6 +13,7 @@ export * from './lib/pipes/is-boolean.pipe';
 export * from './lib/pipes/is-number.pipe';
 export * from './lib/pipes/is-observable.pipe';
 export * from './lib/pipes/is-string.pipe';
+export * from './lib/pipes/nb-call-fn.pipe';
 
 export * from './lib/services/value-type.service';
 export * from './lib/services/unsubscribe.service';
