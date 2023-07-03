@@ -667,7 +667,7 @@ export class XXXComponent{}
 
 // 也可通过引入NbCommonModule使用
 @NgModule({
-  imports:[NbCallFnPipe],
+  imports:[NbCommonModule],
   // ...
 })
 export class XXXModule{}

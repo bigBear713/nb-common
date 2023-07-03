@@ -656,7 +656,7 @@ export class XXXComponent{}
 
 // import the NbCommonModule to use it
 @NgModule({
-  imports:[NbCallFnPipe],
+  imports:[NbCommonModule],
   // ...
 })
 export class XXXModule{}
