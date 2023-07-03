@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'standalone-demo',
     loadChildren: () => import('./standalone-demo/standalone-demo-routing').then(m => m.standaloneRoutes)
   },
+  {
+    path: 'call-fn-demo',
+    loadChildren: () => import('./call-fn-demo/call-fn-demo.component').then(m => m.callFnDemoRoutes)
+  },
 ];
 
 @NgModule({

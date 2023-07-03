@@ -1,3 +1,9 @@
+# v16.2.0
+## [Pipes](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md#Pipes "Pipes")
+- feat: [`nbCallFn `](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md#nbcallfn-transformfn-function-args-any-anyundefined) - Call the function you want by pipe:[issues/36](https://github.com/bigBear713/nb-common/issues/36)
+
+---
+
 # v16.1.0
 ## [Services](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md#Services "Services")
 - feat: [NbUnsubscribeService](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md#nbunsubscribeService) - Update the return valud of the `collectASubscriptionByKey()` function:[issues/30](https://github.com/bigBear713/nb-common/issues/30)

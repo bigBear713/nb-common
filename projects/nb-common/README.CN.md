@@ -605,6 +605,76 @@ export class XXXComponent{}
 
 <br>
 
+#### nbCallFn: `transform(fn: Function, ...args: any): any|undefined`
+##### `v16.2.0`
+###### 调用指定的function的管道
+##### Params
+| Name  | Type  | Mandatory  | Description  | Version |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| value  | `Function` | true  | 要调用的function  | `v16.2.0` |
+| ...args  | `any` | false  | 要调用的function所需的参数。根据function需求，可不传，或者传多个。**参数建议传基本类型**，以便angular能检测到值的改变，进而调用function重新计算。如果传对象类型的值，受限于js的缺陷，请重新创建并赋值，详见下方示例。 | `v16.2.0` |
+
+##### Return
+| Type  | Description  |
+| ------------ | ------------ |
+| `any|undefined`  | 要调用的function的返回值类型。如果function不存在，则返回undefined |
+
+##### Usage
+```ts
+// template content
+`<div>{{testFn:nbCallFn:val1:val2}}</div>`
+
+  val1 = 1;
+  val2 = 2;
+
+  testFn(val1,val2){
+    return val1+val2;
+  }
+
+  
+// template content
+`
+<button (click)="addItem()">Add a item</button>
+<div>{{toStr:nbCallFn:arr}}</div>
+`
+
+  arr = [1,2,3];
+
+  toStr(arr){
+    return arr.join();
+  }
+  addItem(){
+    this.arr.push(this.arr.length+1);
+    // 需要创建一个新的值，并赋值
+    this.arr = [...this.arr];
+  }
+```
+```ts
+// 在NgModule中引入
+@NgModule({
+  imports:[NbCallFnPipe],
+  // ...
+})
+export class XXXModule{}
+
+// 在standalone component中引入
+@Component({
+  standalone:true,
+  imports:[NbCallFnPipe],
+  // ...
+})
+export class XXXComponent{}
+
+// 也可通过引入NbCommonModule使用
+@NgModule({
+  imports:[NbCommonModule],
+  // ...
+})
+export class XXXModule{}
+```
+
+<br>
+
 ---
 
 ### Tokens
