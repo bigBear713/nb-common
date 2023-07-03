@@ -605,7 +605,7 @@ export class XXXComponent{}
 
 <br>
 
-#### nbCallFn: `transform(fn: Function, ...args: any): any|undefined`
+#### nbCallFn: `transform(fn: Function, ...args: any): any｜undefined`
 ##### `v16.2.0`
 ###### 调用指定的function的管道
 ##### Params
@@ -617,7 +617,7 @@ export class XXXComponent{}
 ##### Return
 | Type  | Description  |
 | ------------ | ------------ |
-| `any|undefined`  | 要调用的function的返回值类型。如果function不存在，则返回undefined |
+| `any｜undefined`  | 要调用的function的返回值类型。如果function不存在，则返回undefined |
 
 ##### Usage
 ```ts
