@@ -25,9 +25,13 @@ describe('Pipe: CallFn ', () => {
   });
 
   it('verify the fu result type', () => {
-    const fn = () => 123;
-    const result = pipe.transform(fn);
-    expect(valueTypeService.isNumber(result)).toBeTrue();
+    const fn1 = () => 123;
+    const result1 = pipe.transform(fn1);
+    expect(valueTypeService.isNumber(result1)).toBeTrue();
+
+    const fn2 = () => 'str';
+    const result2 = pipe.transform(fn2);
+    expect(valueTypeService.isString(result2)).toBeTrue();
   });
 
   describe('when there are some params', () => {
