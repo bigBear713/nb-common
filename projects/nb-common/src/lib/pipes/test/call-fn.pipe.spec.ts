@@ -2,10 +2,49 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { NbCallFnPipe } from '../nb-call-fn.pipe';
+import { NbValueTypeService } from 'nb-common';
 
 describe('Pipe: CallFn ', () => {
+  let pipe: NbCallFnPipe;
+  let valueTypeService: NbValueTypeService;
+
+  beforeEach(() => {
+    pipe = new NbCallFnPipe();
+    TestBed.configureTestingModule({
+      providers: [NbValueTypeService]
+    });
+    valueTypeService = TestBed.inject(NbValueTypeService);
+  });
+
   it('create an instance', () => {
-    let pipe = new NbCallFnPipe();
     expect(pipe).toBeTruthy();
   });
+
+  it('when fn is undefined', () => {
+    expect(pipe.transform(undefined as any)).toBeUndefined();
+  });
+
+  it('verify the fu result type', () => {
+    const fn = () => 123;
+    const result = pipe.transform(fn);
+    expect(valueTypeService.isNumber(result)).toBeTrue();
+  });
+
+  describe('when there are some params', () => {
+    [
+      { title: 'empty param', params: [] },
+      { title: '1 param', params: [1] },
+      { title: '2 param', params: [1, '2'] },
+    ].forEach(item => {
+      it(item.title, () => {
+        const testObj = {
+          fn: function () { }
+        };
+        const spyFn = spyOn(testObj, 'fn').and.callThrough();
+        pipe.transform(testObj.fn, ...item.params);
+        expect(spyFn).toHaveBeenCalledWith(...(item.params as []));
+      });
+    });
+  });
+
 });
