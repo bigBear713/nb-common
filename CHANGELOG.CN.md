@@ -1,3 +1,9 @@
+# v16.2.0
+## [Pipes](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md#Pipes "Pipes")
+- feat: [`nbCallFn `](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md#nbcallfn-transformfn-function-args-any-anyundefined) - 调用指定的function的管道:[issues/36](https://github.com/bigBear713/nb-common/issues/36)
+
+---
+
 # v16.1.0
 ## [Services](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md#Services "Services")
 - feat: [NbUnsubscribeService](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md#nbunsubscribeService) - 调整`collectASubscriptionByKey()`的返回值:[issues/30](https://github.com/bigBear713/nb-common/issues/30)

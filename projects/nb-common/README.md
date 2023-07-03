@@ -597,7 +597,7 @@ export class XXXComponent{}
 
 #### nbCallFn: `transform(fn: Function, ...args: any): any|undefined`
 ##### `v16.2.0`
-###### Call the function you want
+###### Call the function you want by pipe
 ##### Params
 | Name  | Type  | Mandatory  | Description  | Version |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
