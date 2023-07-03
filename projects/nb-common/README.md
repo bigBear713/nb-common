@@ -595,7 +595,7 @@ export class XXXComponent{}
 
 <br>
 
-#### nbCallFn: `transform(fn: Function, ...args: any): any|undefined`
+#### nbCallFn: `transform(fn: Function, ...args: any): any｜undefined`
 ##### `v16.2.0`
 ###### Call the function you want by pipe
 ##### Params
@@ -605,9 +605,9 @@ export class XXXComponent{}
 | ...args  | `any` | false  | The params for the function you want to call. You can set 0 or many params according to the function. We **recommend passing the value which the type is primitive**, so the angular can detected value change and re-call the function. If you passing a value which the type is object, limited by the defects of js，create and assign the value please, refer to the example below | `v16.2.0` |
 
 ##### Return
-| Type  | Description  |
+| Type | Description  |
 | ------------ | ------------ |
-| `any|undefined`  | The result type of the function you want to call. If the function doesn't exist, will return undefined. |
+| `any｜undefined`  | The result type of the function you want to call. If the function doesn't exist, will return undefined. |
 
 ##### Usage
 ```ts
