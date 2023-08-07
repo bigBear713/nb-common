@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes } from '@angular/router';
 import { NbCallFnPipe } from 'nb-common';
+import { GTagService } from '../g-tag.service';
 
 
 @Component({
@@ -52,7 +53,13 @@ export class CallFnDemoComponent implements OnInit {
   }
   `;
 
-  constructor() { }
+  constructor(
+    private gtagService: GTagService
+  ) {
+    this.gtagService.trackPage({
+      page_name: 'callFn Pipe',
+    });
+  }
 
   ngOnInit() {
   }
