@@ -1,3 +1,9 @@
+# v177.0.0
+## Breaking Changes
+- feat: Upgrade `angular` to `v17`;
+
+---
+
 # v16.2.0
 ## [Pipes](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md#Pipes "Pipes")
 - feat: [`nbCallFn `](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.md#nbcallfn-transformfn-function-args-any-anyundefined) - Call the function you want by pipe:[issues/36](https://github.com/bigBear713/nb-common/issues/36)
