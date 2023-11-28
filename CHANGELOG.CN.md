@@ -1,3 +1,9 @@
+# v17.0.0
+## 破坏性更新
+- feat: `angular`升级到`v17`;
+
+---
+
 # v16.2.0
 ## [Pipes](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md#Pipes "Pipes")
 - feat: [`nbCallFn `](https://github.com/bigBear713/nb-common/blob/main/projects/nb-common/README.CN.md#nbcallfn-transformfn-function-args-any-anyundefined) - 调用指定的function的管道:[issues/36](https://github.com/bigBear713/nb-common/issues/36)
