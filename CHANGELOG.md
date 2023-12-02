@@ -1,4 +1,4 @@
-# v177.0.0
+# v17.0.0
 ## Breaking Changes
 - feat: Upgrade `angular` to `v17`;
 
