@@ -48,6 +48,7 @@ Angular common lib by bigBear713, include some common `component`, `directive`, 
 | ^14.0.0               | ^14.0.0       |
 | ^15.0.0               | ^15.0.0       |
 | ^16.0.0               | ^16.0.0       |
+| ^17.0.0               | ^17.0.0       |
 
 <br>
 
