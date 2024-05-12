@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import * as dayjs from 'dayjs';
 import * as utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
 
-const defaultGtag = () => { };
+const defaultGtag = () => {};
 const gtag = (window as any).gtag || defaultGtag;
 
 const website_id = '@bigbear713/nb-common';
@@ -12,13 +13,10 @@ const website_ga_id = (window as any).website_ga_id;
 const libs_ga_id = (window as any).libs_ga_id;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GTagService {
-
-  constructor(
-    private router: Router,
-  ) { }
+  constructor(private router: Router) {}
 
   trackPage(props: object): void {
     this.trackEvent('View_Page', props);
@@ -48,5 +46,4 @@ export class GTagService {
     gtag('event', eventName, trackCurrProps);
     gtag('event', eventName, trackLibsProps);
   }
-
 }
