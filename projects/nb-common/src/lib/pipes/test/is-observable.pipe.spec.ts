@@ -10,7 +10,7 @@ describe('Pipe: NbIsObservablee', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [NbValueTypeService]
+      providers: [NbValueTypeService],
     });
   });
 
@@ -34,8 +34,12 @@ describe('Pipe: NbIsObservablee', () => {
       { title: 'the value is null type', getValue: () => null, expect: false },
       { title: 'the value is undefined type', getValue: () => undefined, expect: false },
       { title: 'the value is array type', getValue: () => [], expect: false },
-      { title: 'the value is object type', getValue: () => { }, expect: false },
-      { title: 'the value is Observable type', getValue: () => new Observable<string>(), expect: true },
+      { title: 'the value is object type', getValue: () => {}, expect: false },
+      {
+        title: 'the value is Observable type',
+        getValue: () => new Observable<string>(),
+        expect: true,
+      },
       { title: 'the value is Subject type', getValue: () => new Subject<string>(), expect: true },
       { title: 'the value is Promise type', getValue: () => Promise.resolve(), expect: false },
     ].forEach(item => {
@@ -50,12 +54,12 @@ describe('Pipe: NbIsObservablee', () => {
     [
       {
         title: 'imported by standalone component',
-        createComp: () => TestBed.createComponent(StandaloneComponent)
+        createComp: () => TestBed.createComponent(StandaloneComponent),
       },
       {
         title: 'imported by ngModule',
-        createComp: () => TestBed.createComponent(StandaloneComponentWithNgModule)
-      }
+        createComp: () => TestBed.createComponent(StandaloneComponentWithNgModule),
+      },
     ].forEach(item => {
       it(item.title, () => {
         const fixture = item.createComp();
@@ -64,9 +68,8 @@ describe('Pipe: NbIsObservablee', () => {
 
         expect(component.elementRef.nativeElement.textContent?.trim()).toEqual('true - false');
       });
-    })
+    });
   });
-
 });
 
 const StandaloneCompConfig = {
@@ -79,11 +82,12 @@ const StandaloneCompConfig = {
 class StandaloneComponent {
   observableValue = of(null);
   strValue = 'string';
-  constructor(public elementRef: ElementRef<HTMLDivElement>) { }
+  constructor(public elementRef: ElementRef<HTMLDivElement>) {}
 }
 
 @Component({
   ...StandaloneCompConfig,
   imports: [NbCommonTestingModule],
 })
-class StandaloneComponentWithNgModule extends StandaloneComponent { }
+// eslint-disable-next-line @angular-eslint/component-class-suffix
+class StandaloneComponentWithNgModule extends StandaloneComponent {}
