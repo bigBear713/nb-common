@@ -10,14 +10,9 @@ import { NbIsStringPipe } from './pipes/is-string.pipe';
 import { NbTplContentPipe } from './pipes/tpl-content.pipe';
 import { NbCallFnPipe } from './pipes/nb-call-fn.pipe';
 
-const COMPONENTS = [
-  NbRStrComponent,
-];
+const COMPONENTS = [NbRStrComponent];
 
-const DIRECTIVES = [
-  NbPlaceholderDirective,
-  NbImgDirective,
-];
+const DIRECTIVES = [NbPlaceholderDirective, NbImgDirective];
 
 const PIPES = [
   NbTplContentPipe,
@@ -32,6 +27,6 @@ const PIPES = [
 @NgModule({
   declarations: [],
   imports: [...COMPONENTS, ...DIRECTIVES, ...PIPES],
-  exports: [...COMPONENTS, ...DIRECTIVES, ...PIPES]
+  exports: [...COMPONENTS, ...DIRECTIVES, ...PIPES],
 })
-export class NbCommonModule { }
+export class NbCommonModule {}

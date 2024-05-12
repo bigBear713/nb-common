@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable, TemplateRef } from '@angular/core';
 import { isBoolean, isNumber, isString } from 'lodash-es';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class NbValueTypeService {
-  constructor() { }
+  constructor() {}
 
   isBoolean(value: any): value is boolean {
     return isBoolean(value);

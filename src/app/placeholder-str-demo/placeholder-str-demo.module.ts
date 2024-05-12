@@ -7,16 +7,12 @@ import { NbCommonModule } from 'nb-common';
 const routes: Routes = [
   {
     path: '',
-    component: PlaceholderStrDemoComponent
-  }
+    component: PlaceholderStrDemoComponent,
+  },
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    NbCommonModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [PlaceholderStrDemoComponent]
+  imports: [CommonModule, NbCommonModule, RouterModule.forChild(routes)],
+  declarations: [PlaceholderStrDemoComponent],
 })
-export class PlaceholderStrDemoModule { }
+export class PlaceholderStrDemoModule {}

@@ -4,10 +4,9 @@ import { NbValueTypeService } from '../services/value-type.service';
 
 @Pipe({ standalone: true, name: 'nbIsAsync' })
 export class NbIsAsyncPipe implements PipeTransform {
-  constructor(private valueTypeService: NbValueTypeService) { }
+  constructor(private valueTypeService: NbValueTypeService) {}
 
-  transform(value: any): value is Observable<any> | Promise<any> {
-    return this.valueTypeService.isObservable(value)
-      || this.valueTypeService.isPromise(value);
+  transform(value: unknown): value is Observable<unknown> | Promise<unknown> {
+    return this.valueTypeService.isObservable(value) || this.valueTypeService.isPromise(value);
   }
 }

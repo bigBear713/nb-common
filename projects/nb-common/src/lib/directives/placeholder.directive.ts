@@ -5,7 +5,6 @@ import { NbValueTypeService } from '../services/value-type.service';
 
 @Directive({ standalone: true, selector: '[nbPlaceholder]', providers: [NbUnsubscribeService] })
 export class NbPlaceholderDirective implements OnChanges {
-  
   @Input() nbPlaceholder: string | Observable<string> = '';
 
   @HostBinding('placeholder') placeholder: string = '';
@@ -14,7 +13,7 @@ export class NbPlaceholderDirective implements OnChanges {
     private chageDR: ChangeDetectorRef,
     private unsubscribeService: NbUnsubscribeService,
     private valueTypeService: NbValueTypeService
-  ) { }
+  ) {}
 
   ngOnChanges() {
     this.reRender();
@@ -36,4 +35,3 @@ export class NbPlaceholderDirective implements OnChanges {
     this.chageDR.markForCheck();
   }
 }
-
