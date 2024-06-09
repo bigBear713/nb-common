@@ -4,9 +4,9 @@ import { NbValueTypeService } from '../services/value-type.service';
 
 @Pipe({ standalone: true, name: 'nbIsObservable' })
 export class NbIsObservablePipe implements PipeTransform {
-  constructor(private valueTypeService: NbValueTypeService) {}
+  constructor(private valueTypeService: NbValueTypeService) { }
 
-  transform(value: unknown): value is Observable<unknown> {
+  transform(value: any): value is Observable<any> {
     return this.valueTypeService.isObservable(value);
   }
 }

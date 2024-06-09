@@ -5,20 +5,25 @@ import { GTagService } from '../g-tag.service';
   selector: 'app-img-demo',
   templateUrl: './img-demo.component.html',
   styleUrls: ['./img-demo.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImgDemoComponent implements OnInit {
+
   bigImg = 'https://pic2.zhimg.com/v2-77be54b348b0168f3562f51404451aeb_r.jpg';
 
-  loadingImg = './assets/loading.svg';
+  loadingImg = './assets/loading.svg'
 
   errImg = './assets/picture.svg';
 
-  constructor(private gtagService: GTagService) {
+  constructor(
+    private gtagService: GTagService
+  ) {
     this.gtagService.trackPage({
       page_name: 'img Director',
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
 }

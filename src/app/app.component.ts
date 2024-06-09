@@ -21,12 +21,15 @@ export class AppComponent {
     },
   ];
 
-  constructor(private gtagService: GTagService) {}
+  constructor(
+    private gtagService: GTagService
+  ) { }
 
-  go2Link(target: { title: string; link: string }): void {
+  go2Link(target: { title: string, link: string }): void {
     this.gtagService.trackLink({
       link_name: target.title,
       link: target.link,
     });
   }
+
 }

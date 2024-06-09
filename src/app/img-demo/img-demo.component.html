@@ -1,60 +1,60 @@
 <h2>适用于加载大图片的场景，加载过程中会有loading效果</h2>
 
 <h4>只设置"nbImg"</h4>
-<img [nbImg]="bigImg" alt="只设置nbImg" />
+<img [nbImg]="bigImg">
 <h5>代码</h5>
 <pre>
     <code>
       {{"\<img [nbImg]=\"bigImg\"\>"}}
     </code>
   </pre>
-<hr />
+<hr>
 
 <h4>自定义loading图片</h4>
-<img [nbImg]="bigImg" [loadingImg]="loadingImg" alt="自定义loading图片" />
+<img [nbImg]="bigImg" [loadingImg]="loadingImg">
 <h5>代码</h5>
 <pre>
     <code>
       {{"\<img [nbImg]=\"bigImg\"\>"}}
     </code>
   </pre>
-<hr />
+<hr>
 
 <h4>图片加载失败, 显示默认图片</h4>
-<img nbImg="invalidImg" alt="失败时显示默认图片" />
+<img nbImg="invalidImg">
 <h5>代码</h5>
 <pre>
     <code>
       {{"\<img nbImg=\"invalidImg\"\>"}}
     </code>
   </pre>
-<hr />
+<hr>
 
 <h4>图片加载失败, 显示自定义图片</h4>
-<img nbImg="invalidImg" [errImg]="errImg" alt="失败时显示自定义图片" />
+<img nbImg="invalidImg" [errImg]="errImg">
 <h5>代码</h5>
 <pre>
     <code>
       {{"\<img nbImg=\"invalidImg\" [errImg]=\"errImg\" \>"}}
     </code>
   </pre>
-<hr />
+<hr>
 
 <h4>当设置了src，且nbImg没有设置值时，仍显示src的内容</h4>
-<img [src]="bigImg" nbImg alt="仍显示src内容" />
+<img [src]="bigImg" nbImg>
 <h5>代码</h5>
 <pre>
     <code>
       {{"\<img [src]=\"bigImg\" nbImg>"}}
     </code>
   </pre>
-<hr />
+<hr>
 <h4>当设置了无效的src，且nbImg没有设置值时，显示自定义图片</h4>
-<img src="invalidImg" nbImg [errImg]="errImg" alt="显示自定义图片" />
+<img src="invalidImg" nbImg [errImg]="errImg">
 <h5>代码</h5>
 <pre>
     <code>
       {{"\<img src=\"invalidImg\" nbImg [errImg]=\"errImg\">"}}
     </code>
   </pre>
-<hr />
+<hr>

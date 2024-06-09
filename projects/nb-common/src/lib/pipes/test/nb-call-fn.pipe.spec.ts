@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* tslint:disable:no-unused-variable */
 
-import { TestBed } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 import { NbCallFnPipe } from '../nb-call-fn.pipe';
 import { NbValueTypeService } from 'nb-common';
 
@@ -12,7 +11,7 @@ describe('Pipe: CallFn ', () => {
   beforeEach(() => {
     pipe = new NbCallFnPipe();
     TestBed.configureTestingModule({
-      providers: [NbValueTypeService],
+      providers: [NbValueTypeService]
     });
     valueTypeService = TestBed.inject(NbValueTypeService);
   });
@@ -43,7 +42,7 @@ describe('Pipe: CallFn ', () => {
     ].forEach(item => {
       it(item.title, () => {
         const testObj = {
-          fn: function () {},
+          fn: function () { }
         };
         const spyFn = spyOn(testObj, 'fn').and.callThrough();
         pipe.transform(testObj.fn, ...item.params);
@@ -51,4 +50,5 @@ describe('Pipe: CallFn ', () => {
       });
     });
   });
+
 });

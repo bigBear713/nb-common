@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImgDemoComponent } from './img-demo.component';
@@ -9,12 +8,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 const routes: Routes = [
   {
     path: '',
-    component: ImgDemoComponent,
-  },
+    component: ImgDemoComponent
+  }
 ];
 
 @NgModule({
-  imports: [CommonModule, NbCommonModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    NbCommonModule,
+    RouterModule.forChild(routes),
+  ],
   declarations: [ImgDemoComponent],
   providers: [
     // {
@@ -32,6 +35,6 @@ const routes: Routes = [
     //   },
     //   deps: [DomSanitizer]
     // }
-  ],
+  ]
 })
-export class ImgDemoModule {}
+export class ImgDemoModule { }

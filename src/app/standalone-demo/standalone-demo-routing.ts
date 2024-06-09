@@ -1,3 +1,5 @@
-import { StandaloneDemoComponent } from './standalone-demo.component';
+import { StandaloneDemoComponent } from "./standalone-demo.component";
 
-export const standaloneRoutes = [{ path: '', component: StandaloneDemoComponent }];
+export const standaloneRoutes = [
+    { path: '', component: StandaloneDemoComponent }
+];

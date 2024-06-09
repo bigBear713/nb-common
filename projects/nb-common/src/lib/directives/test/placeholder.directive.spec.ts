@@ -11,7 +11,7 @@ const OBSERVABLE_PLACEHOLDER = 'this is a observable placeholder';
 
 @Component({
   selector: 'mock-component',
-  template: `<input [nbPlaceholder]="placeholder" />`,
+  template: `<input [nbPlaceholder]="placeholder">`
 })
 class MockComponent {
   placeholder: string | Observable<string> = '';
@@ -21,24 +21,22 @@ describe('Directive: NbPlaceholder', () => {
   [
     {
       title: 'imported by ngModule',
-      imports: [NbCommonTestingModule],
+      imports: [NbCommonTestingModule]
     },
     {
       title: 'imported by standalone component',
-      imports: [NbPlaceholderDirective],
+      imports: [NbPlaceholderDirective]
     },
   ].forEach(item => {
     describe(item.title, () => {
+
       beforeEach(async () => {
         await TestBed.configureTestingModule({
           imports: [...item.imports],
           declarations: [MockComponent],
           providers: [
-            {
-              provide: ChangeDetectorRef,
-              useValue: jasmine.createSpyObj(ChangeDetectorRef, ['markForCheck']),
-            },
-          ],
+            { provide: ChangeDetectorRef, useValue: jasmine.createSpyObj(ChangeDetectorRef, ['markForCheck']) }
+          ]
         });
       });
 
@@ -95,26 +93,28 @@ describe('Directive: NbPlaceholder', () => {
           const newPlaceholderContent = `new ${OBSERVABLE_PLACEHOLDER}`;
           component.placeholder = new BehaviorSubject(newPlaceholderContent);
           // try to update placeholder content via first observable
-          firstObservable.next(`old:${OBSERVABLE_PLACEHOLDER}`);
+          firstObservable.next(`old:${OBSERVABLE_PLACEHOLDER}`)
           fixture.detectChanges();
 
           // the placeholder content should be new one
           expect(getInputPlaceholder(fixture, hostEle)).toEqual(newPlaceholderContent);
         }));
+
       });
+
     });
-  });
+  })
 
   describe('used in standalone component', () => {
     [
       {
         title: 'imported by standalone component',
-        createComp: () => TestBed.createComponent(StandaloneComponent),
+        createComp: () => TestBed.createComponent(StandaloneComponent)
       },
       {
         title: 'imported by ngModule',
-        createComp: () => TestBed.createComponent(StandaloneComponentWithNgModule),
-      },
+        createComp: () => TestBed.createComponent(StandaloneComponentWithNgModule)
+      }
     ].forEach(item => {
       it(item.title, () => {
         const fixture = item.createComp();
@@ -123,8 +123,9 @@ describe('Directive: NbPlaceholder', () => {
 
         expect(component.directiveInstance).toBeTruthy();
       });
-    });
+    })
   });
+
 });
 
 const getInputPlaceholder = (
@@ -135,7 +136,7 @@ const getInputPlaceholder = (
   fixture.detectChanges();
   const inputEle: HTMLInputElement | null = hostEle.querySelector('input');
   return inputEle?.placeholder;
-};
+}
 
 const StandaloneCompConfig = {
   standalone: true,
@@ -153,5 +154,5 @@ class StandaloneComponent {
   ...StandaloneCompConfig,
   imports: [NbCommonTestingModule],
 })
-// eslint-disable-next-line @angular-eslint/component-class-suffix
-class StandaloneComponentWithNgModule extends StandaloneComponent {}
+class StandaloneComponentWithNgModule extends StandaloneComponent {
+}
