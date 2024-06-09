@@ -3,9 +3,9 @@ import { NbValueTypeService } from '../services/value-type.service';
 
 @Pipe({ standalone: true, name: 'nbIsNumber' })
 export class NbIsNumberPipe implements PipeTransform {
-  constructor(private valueTypeService: NbValueTypeService) { }
+  constructor(private valueTypeService: NbValueTypeService) {}
 
-  transform(value: any): value is number {
+  transform(value: unknown): value is number {
     return this.valueTypeService.isNumber(value);
   }
 }

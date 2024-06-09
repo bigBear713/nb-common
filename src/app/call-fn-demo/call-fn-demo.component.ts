@@ -4,16 +4,14 @@ import { Routes } from '@angular/router';
 import { NbCallFnPipe } from 'nb-common';
 import { GTagService } from '../g-tag.service';
 
-
 @Component({
   selector: 'app-call-fn-demo',
   standalone: true,
   imports: [NbCallFnPipe, FormsModule],
   templateUrl: './call-fn-demo.component.html',
-  styleUrls: ['./call-fn-demo.component.css']
+  styleUrls: ['./call-fn-demo.component.css'],
 })
 export class CallFnDemoComponent implements OnInit {
-
   val1 = 0;
   val2 = 0;
 
@@ -53,16 +51,13 @@ export class CallFnDemoComponent implements OnInit {
   }
   `;
 
-  constructor(
-    private gtagService: GTagService
-  ) {
+  constructor(private gtagService: GTagService) {
     this.gtagService.trackPage({
       page_name: 'callFn Pipe',
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   sum(valArr: number[]) {
     return valArr.reduce((result, cur) => {
@@ -82,9 +77,6 @@ export class CallFnDemoComponent implements OnInit {
   updateValArr() {
     this.valArr = [...this.valArr];
   }
-
 }
 
-export const callFnDemoRoutes: Routes = [
-  { path: '', component: CallFnDemoComponent }
-];
+export const callFnDemoRoutes: Routes = [{ path: '', component: CallFnDemoComponent }];

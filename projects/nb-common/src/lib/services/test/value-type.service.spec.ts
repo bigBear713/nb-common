@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TemplateRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Observable, Subject } from 'rxjs';
@@ -11,7 +12,7 @@ describe('Service: NbValueType', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NbCommonTestingModule]
+      imports: [NbCommonTestingModule],
     });
   });
 
@@ -35,8 +36,12 @@ describe('Service: NbValueType', () => {
       { title: 'the value is null type', getValue: () => null, expect: false },
       { title: 'the value is undefined type', getValue: () => undefined, expect: false },
       { title: 'the value is array type', getValue: () => [], expect: false },
-      { title: 'the value is object type', getValue: () => { }, expect: false },
-      { title: 'the value is Observable type', getValue: () => new Observable<string>(), expect: false },
+      { title: 'the value is object type', getValue: () => {}, expect: false },
+      {
+        title: 'the value is Observable type',
+        getValue: () => new Observable<string>(),
+        expect: false,
+      },
       { title: 'the value is Subject type', getValue: () => new Subject<string>(), expect: false },
       { title: 'the value is Promise type', getValue: () => Promise.resolve(), expect: false },
       { title: 'the value is templateRef type', getValue: () => tplRef, expect: false },
@@ -60,8 +65,12 @@ describe('Service: NbValueType', () => {
       { title: 'the value is null type', getValue: () => null, expect: false },
       { title: 'the value is undefined type', getValue: () => undefined, expect: false },
       { title: 'the value is array type', getValue: () => [], expect: false },
-      { title: 'the value is object type', getValue: () => { }, expect: false },
-      { title: 'the value is Observable type', getValue: () => new Observable<string>(), expect: false },
+      { title: 'the value is object type', getValue: () => {}, expect: false },
+      {
+        title: 'the value is Observable type',
+        getValue: () => new Observable<string>(),
+        expect: false,
+      },
       { title: 'the value is Subject type', getValue: () => new Subject<string>(), expect: false },
       { title: 'the value is Promise type', getValue: () => Promise.resolve(), expect: false },
       { title: 'the value is templateRef type', getValue: () => tplRef, expect: false },
@@ -84,8 +93,12 @@ describe('Service: NbValueType', () => {
       { title: 'the value is null type', getValue: () => null, expect: false },
       { title: 'the value is undefined type', getValue: () => undefined, expect: false },
       { title: 'the value is array type', getValue: () => [], expect: false },
-      { title: 'the value is object type', getValue: () => { }, expect: false },
-      { title: 'the value is Observable type', getValue: () => new Observable<string>(), expect: true },
+      { title: 'the value is object type', getValue: () => {}, expect: false },
+      {
+        title: 'the value is Observable type',
+        getValue: () => new Observable<string>(),
+        expect: true,
+      },
       { title: 'the value is Subject type', getValue: () => new Subject<string>(), expect: true },
       { title: 'the value is Promise type', getValue: () => Promise.resolve(), expect: false },
       { title: 'the value is templateRef type', getValue: () => tplRef, expect: false },
@@ -108,8 +121,12 @@ describe('Service: NbValueType', () => {
       { title: 'the value is null type', getValue: () => null, expect: false },
       { title: 'the value is undefined type', getValue: () => undefined, expect: false },
       { title: 'the value is array type', getValue: () => [], expect: false },
-      { title: 'the value is object type', getValue: () => { }, expect: false },
-      { title: 'the value is Observable type', getValue: () => new Observable<string>(), expect: false },
+      { title: 'the value is object type', getValue: () => {}, expect: false },
+      {
+        title: 'the value is Observable type',
+        getValue: () => new Observable<string>(),
+        expect: false,
+      },
       { title: 'the value is Subject type', getValue: () => new Subject<string>(), expect: false },
       { title: 'the value is Promise type', getValue: () => Promise.resolve(), expect: true },
       { title: 'the value is templateRef type', getValue: () => tplRef, expect: false },
@@ -132,8 +149,12 @@ describe('Service: NbValueType', () => {
       { title: 'the value is null type', getValue: () => null, expect: false },
       { title: 'the value is undefined type', getValue: () => undefined, expect: false },
       { title: 'the value is array type', getValue: () => [], expect: false },
-      { title: 'the value is object type', getValue: () => { }, expect: false },
-      { title: 'the value is Observable type', getValue: () => new Observable<string>(), expect: false },
+      { title: 'the value is object type', getValue: () => {}, expect: false },
+      {
+        title: 'the value is Observable type',
+        getValue: () => new Observable<string>(),
+        expect: false,
+      },
       { title: 'the value is Subject type', getValue: () => new Subject<string>(), expect: false },
       { title: 'the value is Promise type', getValue: () => Promise.resolve(), expect: false },
       { title: 'the value is templateRef type', getValue: () => tplRef, expect: false },
@@ -156,8 +177,12 @@ describe('Service: NbValueType', () => {
       { title: 'the value is null type', getValue: () => null, expect: false },
       { title: 'the value is undefined type', getValue: () => undefined, expect: false },
       { title: 'the value is array type', getValue: () => [], expect: false },
-      { title: 'the value is object type', getValue: () => { }, expect: false },
-      { title: 'the value is Observable type', getValue: () => new Observable<string>(), expect: false },
+      { title: 'the value is object type', getValue: () => {}, expect: false },
+      {
+        title: 'the value is Observable type',
+        getValue: () => new Observable<string>(),
+        expect: false,
+      },
       { title: 'the value is Subject type', getValue: () => new Subject<string>(), expect: false },
       { title: 'the value is Promise type', getValue: () => Promise.resolve(), expect: false },
       { title: 'the value is templateRef type', getValue: () => tplRef, expect: true },
@@ -168,5 +193,4 @@ describe('Service: NbValueType', () => {
       });
     });
   });
-
 });

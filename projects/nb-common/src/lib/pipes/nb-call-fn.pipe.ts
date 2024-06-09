@@ -2,10 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ standalone: true, name: 'nbCallFn' })
 export class NbCallFnPipe implements PipeTransform {
-
-  transform(fn: Function, ...args: any): undefined | any {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
+  transform(fn: Function, ...args: any): undefined | unknown {
     if (!fn) return;
     return fn(...args);
   }
-
 }
