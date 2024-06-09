@@ -8,7 +8,7 @@ import {
   OnChanges,
   Optional,
   SimpleChange,
-  SimpleChanges,
+  SimpleChanges
 } from '@angular/core';
 import { SafeResourceUrl } from '@angular/platform-browser';
 import { NB_DEFAULT_ERR_IMG, NB_DEFAULT_LOADING_IMG } from '../constants';
@@ -28,11 +28,9 @@ export class NbImgDirective implements OnChanges {
 
   constructor(
     private changeDR: ChangeDetectorRef,
-    @Inject(NB_DEFAULT_ERR_IMG)
-    @Optional()
+    @Inject(NB_DEFAULT_ERR_IMG) @Optional()
     private defaultErrImg: string | SafeResourceUrl,
-    @Inject(NB_DEFAULT_LOADING_IMG)
-    @Optional()
+    @Inject(NB_DEFAULT_LOADING_IMG) @Optional()
     private defaultLoadingImg: string | SafeResourceUrl,
     private elementRef: ElementRef<HTMLImageElement>
   ) {
@@ -69,20 +67,21 @@ export class NbImgDirective implements OnChanges {
     const image = new Image();
     image.onerror = () => this.updateImgSrc(this.errImg);
     image.onload = () => this.updateImgSrc(this.nbImg);
-    // set src value after setting the onload/onerror function to avoid the problem that
+    // set src value after setting the onload/onerror function to avoid the problem that 
     // the img has been loaded, but the onload/onerror function has not been mounted yet
     image.src = this.nbImg;
   }
 
   private loadImgFromSrc(): void {
     this.elementRef.nativeElement.onerror = () => {
-      this.updateImgSrc(this.errImg);
+      this.updateImgSrc(this.errImg)
       this.elementRef.nativeElement.onerror = null;
-    };
+    }
   }
 
   private updateImgSrc(src: string | SafeResourceUrl): void {
     this.src = src;
     this.changeDR.markForCheck();
   }
+
 }

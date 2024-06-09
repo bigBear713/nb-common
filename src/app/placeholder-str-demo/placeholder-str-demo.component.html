@@ -1,18 +1,18 @@
 <h2>适用于placeholder的值会改变，又不想刷新的场景的场景</h2>
 
 <h4>当内容是字符串时，正常显示</h4>
-<input nbPlaceholder="这是placeholder" />
+<input nbPlaceholder="这是placeholder">
 <h5>代码</h5>
 <pre>
     <code>
       {{"\<input nbPlaceholder=\"这是placeholder\">"}}
     </code>
   </pre>
-<hr />
+<hr>
 
-<h4>当内容是Observable{{ "\<string>" }}</h4>
+<h4>当内容是Observable{{"\<string>"}}</h4>
 <button (click)="changeObservableContent()">更改观察者对象的内容</button>
-<input [nbPlaceholder]="placeholder$" />
+<input [nbPlaceholder]="placeholder$">
 <h5>代码</h5>
 <pre>
     <code>
@@ -22,4 +22,4 @@
       {{"\<input [nbPlaceholder]=\"placeholder$\">"}}
     </code>
   </pre>
-<hr />
+<hr>

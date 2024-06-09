@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { NbCommonModule } from '../nb-common.module';
-import { NbValueTypeService } from '../services/value-type.service';
-import { TemplateRefTestingModule } from './templateRef/templateRef-testing.module';
+import { NgModule } from "@angular/core";
+import { NbCommonModule } from "../nb-common.module";
+import { NbValueTypeService } from "../services/value-type.service";
+import { TemplateRefTestingModule } from "./templateRef/templateRef-testing.module";
 
 @NgModule({
   imports: [NbCommonModule, TemplateRefTestingModule],
   providers: [NbValueTypeService],
-  exports: [NbCommonModule, TemplateRefTestingModule],
+  exports: [NbCommonModule, TemplateRefTestingModule]
 })
-export class NbCommonTestingModule {}
+export class NbCommonTestingModule { }

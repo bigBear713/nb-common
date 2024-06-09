@@ -8,11 +8,15 @@ const routes: Routes = [
   {
     path: '',
     component: RStrDemoComponent,
-  },
+  }
 ];
 
 @NgModule({
-  imports: [CommonModule, NbCommonModule, RouterModule.forChild(routes)],
-  declarations: [RStrDemoComponent],
+  imports: [
+    CommonModule,
+    NbCommonModule,
+    RouterModule.forChild(routes),
+  ],
+  declarations: [RStrDemoComponent]
 })
-export class RStrDemoModule {}
+export class RStrDemoModule { }

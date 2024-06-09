@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { interval, Observable, Subject, Subscription } from 'rxjs';
@@ -23,7 +22,7 @@ describe('Service: Unsubscribe / ', () => {
 
   it('should be created', () => {
     TestBed.configureTestingModule({
-      imports: [TestComponent],
+      imports: [TestComponent]
     });
     const fixture = TestBed.createComponent(TestComponent);
     const component = fixture.componentInstance;
@@ -32,7 +31,7 @@ describe('Service: Unsubscribe / ', () => {
   });
 
   it('#addUnsubscribeOperator() - will add an auto unsubscribing operator for observable', fakeAsync(() => {
-    const subscriber = { next: () => {} };
+    const subscriber = { next: () => { } };
     const spyOn = spyOnAllFunctions(subscriber);
     service.addUnsubscribeOperator(interval(100)).subscribe(subscriber);
 
@@ -52,7 +51,7 @@ describe('Service: Unsubscribe / ', () => {
           collectFn: (...args: any[]) => service.collectASubscription(args[0]),
           clearAllFn: () => service.clearAllSubscriptions(),
         },
-        getRecordSizeProp: () => service.subscriptionList.length,
+        getRecordSizeProp: () => service.subscriptionList.length
       },
       {
         title: '#collectASubscriptionByKey() and #clearAllSubscriptionsFromKeyRecord()',
@@ -69,37 +68,34 @@ describe('Service: Unsubscribe / ', () => {
           },
           clearAllFn: () => service.clearAllSubscriptionsFromKeyRecord(),
         },
-        getRecordSizeProp: () => service.subscriptionMap.size,
+        getRecordSizeProp: () => service.subscriptionMap.size
       },
     ].forEach(item => {
-      it(
-        item.title,
-        fakeAsync(() => {
-          const interval1$ = interval(100);
-          const interval2$ = interval(200);
-          const subscriber1 = { next: () => {} };
-          const spyOn1 = spyOnAllFunctions(subscriber1);
-          const subscriber2 = { next: () => {} };
-          const spyOn2 = spyOnAllFunctions(subscriber2);
+      it(item.title, fakeAsync(() => {
+        const interval1$ = interval(100);
+        const interval2$ = interval(200);
+        const subscriber1 = { next: () => { } };
+        const spyOn1 = spyOnAllFunctions(subscriber1);
+        const subscriber2 = { next: () => { } };
+        const spyOn2 = spyOnAllFunctions(subscriber2);
 
-          // verify the #collectFn()
-          item.funcs.collectFn(interval1$.subscribe(subscriber1));
-          item.funcs.collectFn(interval2$.subscribe(subscriber2));
-          expect(item.getRecordSizeProp()).toEqual(2);
+        // verify the #collectFn()
+        item.funcs.collectFn(interval1$.subscribe(subscriber1));
+        item.funcs.collectFn(interval2$.subscribe(subscriber2))
+        expect(item.getRecordSizeProp()).toEqual(2);
 
-          tick(400);
-          expect(spyOn1.next).toHaveBeenCalledTimes(4);
-          expect(spyOn2.next).toHaveBeenCalledTimes(2);
+        tick(400);
+        expect(spyOn1.next).toHaveBeenCalledTimes(4);
+        expect(spyOn2.next).toHaveBeenCalledTimes(2);
 
-          // verify the #clearAllFn()
-          item.funcs.clearAllFn();
-          tick(400);
-          expect(spyOn1.next).toHaveBeenCalledTimes(4);
-          expect(spyOn2.next).toHaveBeenCalledTimes(2);
-          expect(item.getRecordSizeProp()).toEqual(0);
-        })
-      );
-    });
+        // verify the #clearAllFn()
+        item.funcs.clearAllFn();
+        tick(400);
+        expect(spyOn1.next).toHaveBeenCalledTimes(4);
+        expect(spyOn2.next).toHaveBeenCalledTimes(2);
+        expect(item.getRecordSizeProp()).toEqual(0);
+      }));
+    })
   });
 
   describe('#collectASubscriptionByKey() - using a old key to collect a new subscription / ', () => {
@@ -110,7 +106,7 @@ describe('Service: Unsubscribe / ', () => {
         expectResult: {
           isClosed: true,
           calledTimes: 4,
-        },
+        }
       },
       {
         title: 'unsubscribeIfExist is true',
@@ -118,7 +114,7 @@ describe('Service: Unsubscribe / ', () => {
         expectResult: {
           isClosed: true,
           calledTimes: 4,
-        },
+        }
       },
       {
         title: 'unsubscribeIfExist is false',
@@ -126,12 +122,12 @@ describe('Service: Unsubscribe / ', () => {
         expectResult: {
           isClosed: false,
           calledTimes: 6,
-        },
-      },
+        }
+      }
     ].forEach(item => {
       it(item.title, async () => {
         const interval$ = interval(100);
-        const subscriber1 = { next: () => {} };
+        const subscriber1 = { next: () => { } };
         const spyOn1 = spyOnAllFunctions(subscriber1);
         const subscription1 = interval$.subscribe(subscriber1);
         const subscription2 = interval$.subscribe();
@@ -140,11 +136,7 @@ describe('Service: Unsubscribe / ', () => {
         service.collectASubscriptionByKey(key, subscription1, item.unsubscribeIfExist);
 
         await nbTick(400);
-        const oldSubscription = service.collectASubscriptionByKey(
-          key,
-          subscription2,
-          item.unsubscribeIfExist
-        );
+        const oldSubscription = service.collectASubscriptionByKey(key, subscription2, item.unsubscribeIfExist);
         expect(subscription1.closed).toEqual(item.expectResult.isClosed);
         expect(oldSubscription).toEqual(subscription1);
 
@@ -155,14 +147,15 @@ describe('Service: Unsubscribe / ', () => {
         subscription2.unsubscribe();
       });
     });
+
   });
 
-  it('#unsubscribeASubscriptionByKey() - unsubscribe and remove a subscription from key record', () => {
+  it('#unsubscribeASubscriptionByKey() - unsubscribe and remove a subscription from key record', (() => {
     const interval1$ = interval(100);
     const interval2$ = interval(200);
 
-    service.collectASubscriptionByKey('k1', interval1$.subscribe({ next: () => {} }));
-    service.collectASubscriptionByKey('k2', interval2$.subscribe({ next: () => {} }));
+    service.collectASubscriptionByKey('k1', interval1$.subscribe({ next: () => { } }));
+    service.collectASubscriptionByKey('k2', interval2$.subscribe({ next: () => { } }))
     expect(service.subscriptionMap.size).toEqual(2);
 
     // verify the #unsubscribeASubscriptionByKey()
@@ -173,7 +166,7 @@ describe('Service: Unsubscribe / ', () => {
     unsubscribeResult = service.unsubscribeASubscriptionByKey('k1');
     expect(unsubscribeResult).toEqual(true);
     expect(service.subscriptionMap.size).toEqual(1);
-  });
+  }));
 
   it('#getDestructionSignal() - get an observable destructionSingal', fakeAsync(() => {
     const destructionSingal = service.getDestructionSignal();
@@ -183,7 +176,7 @@ describe('Service: Unsubscribe / ', () => {
     expect(isObservable).toBeTrue();
     expect(isSubject).toBeFalse();
 
-    const subscriber = { next: () => {} };
+    const subscriber = { next: () => { } };
     const spyOn = spyOnAllFunctions(subscriber);
     destructionSingal.subscribe(subscriber);
 
@@ -191,13 +184,14 @@ describe('Service: Unsubscribe / ', () => {
     tick(100);
     expect(spyOn.next).toHaveBeenCalledTimes(1);
   }));
+
 });
 
 @Component({
   standalone: true,
   template: '',
-  providers: [NbUnsubscribeService],
+  providers: [NbUnsubscribeService]
 })
 export class TestComponent {
-  constructor(public unsubscribeService: NbUnsubscribeService) {}
+  constructor(public unsubscribeService: NbUnsubscribeService) { }
 }

@@ -6,7 +6,7 @@ import { NbRStrComponent } from '../r-str.component';
 
 @Component({
   selector: 'nb-r-str-host',
-  template: `<span [nb-r-str]="content"></span>`,
+  template: `<span [nb-r-str]="content"></span>`
 })
 class RStrHostComponent {
   content: string | Observable<string> | Promise<string> = '';
@@ -16,11 +16,11 @@ describe('NbRStrComponent', () => {
   [
     {
       title: 'imported by ngModule',
-      imports: [NbCommonTestingModule],
+      imports: [NbCommonTestingModule]
     },
     {
       title: 'imported by standalone component',
-      imports: [NbRStrComponent],
+      imports: [NbRStrComponent]
     },
   ].forEach(item => {
     describe(item.title, () => {
@@ -33,7 +33,7 @@ describe('NbRStrComponent', () => {
       beforeEach(() => {
         TestBed.configureTestingModule({
           imports: [...item.imports],
-          declarations: [RStrHostComponent],
+          declarations: [RStrHostComponent]
         });
       });
 
@@ -69,7 +69,7 @@ describe('NbRStrComponent', () => {
             tick(10);
             rStrFixture.detectChanges();
             return rStrHostEle.querySelector('span')?.textContent?.trim();
-          };
+          }
 
           expect(getContent()).toEqual('1');
 
@@ -77,19 +77,20 @@ describe('NbRStrComponent', () => {
           expect(getContent()).toEqual('2');
         }));
       });
+
     });
-  });
+  })
 
   describe('used in standalone component', () => {
     [
       {
         title: 'imported by standalone component',
-        createComp: () => TestBed.createComponent(StandaloneComponent),
+        createComp: () => TestBed.createComponent(StandaloneComponent)
       },
       {
         title: 'imported by ngModule',
-        createComp: () => TestBed.createComponent(StandaloneComponentWithNgModule),
-      },
+        createComp: () => TestBed.createComponent(StandaloneComponentWithNgModule)
+      }
     ].forEach(item => {
       it(item.title, () => {
         const fixture = item.createComp();
@@ -98,8 +99,10 @@ describe('NbRStrComponent', () => {
 
         expect(component.compInstance).toBeTruthy();
       });
-    });
+    })
   });
+
+
 });
 
 const StandaloneCompConfig = {
@@ -118,5 +121,5 @@ class StandaloneComponent {
   ...StandaloneCompConfig,
   imports: [NbCommonTestingModule],
 })
-// eslint-disable-next-line @angular-eslint/component-class-suffix
-class StandaloneComponentWithNgModule extends StandaloneComponent {}
+class StandaloneComponentWithNgModule extends StandaloneComponent {
+}
