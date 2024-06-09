@@ -7,16 +7,12 @@ import { NbCommonModule } from 'nb-common';
 const routes: Routes = [
   {
     path: '',
-    component: TplContentDemoComponent
-  }
+    component: TplContentDemoComponent,
+  },
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    NbCommonModule,
-    RouterModule.forChild(routes),
-  ],
-  declarations: [TplContentDemoComponent]
+  imports: [CommonModule, NbCommonModule, RouterModule.forChild(routes)],
+  declarations: [TplContentDemoComponent],
 })
-export class TplContentDemoModule { }
+export class TplContentDemoModule {}

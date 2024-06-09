@@ -1,9 +1,9 @@
 <h2>
   <a *ngFor="let item of links" [href]="item.link" target="_blank" (click)="go2Link(item)">
-    {{item.title}}
+    {{ item.title }}
   </a>
 </h2>
-<hr>
+<hr />
 <h3>
   <a routerLink="/tpl-content-demo">tpl content pipe</a>
   <a routerLink="/r-str-demo">r-str component</a>

@@ -11,11 +11,12 @@ const importsFromSelf = [NbIsAsyncPipe];
 @Component({
   standalone: true,
   imports: [...importsFromNgCommon, ...importsFromSelf],
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[nb-r-str]',
   template: `
     <ng-container [ngSwitch]="content | nbIsAsync">
-      <ng-container *ngSwitchCase="true">{{asyncContent | async}}</ng-container>
-      <ng-container *ngSwitchDefault>{{content}}</ng-container>
+      <ng-container *ngSwitchCase="true">{{ asyncContent | async }}</ng-container>
+      <ng-container *ngSwitchDefault>{{ content }}</ng-container>
     </ng-container>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
