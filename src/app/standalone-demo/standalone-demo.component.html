@@ -1,16 +1,14 @@
 <h5>r-str component</h5>
 <span [nb-r-str]="promiseDemo"></span>
-<hr>
+<hr />
 <h5>placeholderStr director</h5>
-<input [nbPlaceholder]="placeholder$">
-<hr>
+<input [nbPlaceholder]="placeholder$" />
+<hr />
 <h5>img director</h5>
-<img [nbImg]="bigImg">
-<hr>
+<img [nbImg]="bigImg" alt="img" />
+<hr />
 <h5>nbTplContent pipe</h5>
 <ng-container *ngTemplateOutlet="tpl | nbTplContent"></ng-container>
-<hr>
-
-
+<hr />
 
 <ng-template #tpl> template content </ng-template>

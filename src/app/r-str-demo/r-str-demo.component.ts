@@ -6,23 +6,19 @@ import { GTagService } from '../g-tag.service';
   selector: 'app-r-str-demo',
   templateUrl: './r-str-demo.component.html',
   styleUrls: ['./r-str-demo.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RStrDemoComponent implements OnInit {
-
   observableDemo$ = new BehaviorSubject<string>('1');
   promiseDemo = Promise.resolve('1');
 
-  constructor(
-    private gtagService: GTagService
-  ) {
+  constructor(private gtagService: GTagService) {
     this.gtagService.trackPage({
       page_name: 'r-str component',
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   changeObservableContent(): void {
     const content = Number(this.observableDemo$.value) + 1;
@@ -32,5 +28,4 @@ export class RStrDemoComponent implements OnInit {
       page_name: 'r-str component',
     });
   }
-
 }
