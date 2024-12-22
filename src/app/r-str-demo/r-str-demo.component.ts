@@ -3,10 +3,11 @@ import { BehaviorSubject } from 'rxjs';
 import { GTagService } from '../g-tag.service';
 
 @Component({
-  selector: 'app-r-str-demo',
-  templateUrl: './r-str-demo.component.html',
-  styleUrls: ['./r-str-demo.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-r-str-demo',
+    templateUrl: './r-str-demo.component.html',
+    styleUrls: ['./r-str-demo.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class RStrDemoComponent implements OnInit {
   observableDemo$ = new BehaviorSubject<string>('1');

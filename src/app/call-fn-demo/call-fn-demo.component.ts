@@ -5,11 +5,10 @@ import { NbCallFnPipe } from 'nb-common';
 import { GTagService } from '../g-tag.service';
 
 @Component({
-  selector: 'app-call-fn-demo',
-  standalone: true,
-  imports: [NbCallFnPipe, FormsModule],
-  templateUrl: './call-fn-demo.component.html',
-  styleUrls: ['./call-fn-demo.component.css'],
+    selector: 'app-call-fn-demo',
+    imports: [NbCallFnPipe, FormsModule],
+    templateUrl: './call-fn-demo.component.html',
+    styleUrls: ['./call-fn-demo.component.css']
 })
 export class CallFnDemoComponent implements OnInit {
   val1 = 0;

@@ -5,6 +5,7 @@ import { NbCommonTestingModule } from '../../../testing/nb-common-testing.module
 import { NbRStrComponent } from '../r-str.component';
 
 @Component({
+  standalone: false,
   selector: 'nb-r-str-host',
   template: `<span [nb-r-str]="content"></span>`,
 })

@@ -3,10 +3,11 @@ import { BehaviorSubject } from 'rxjs';
 import { GTagService } from '../g-tag.service';
 
 @Component({
-  selector: 'app-placeholder-str-demo',
-  templateUrl: './placeholder-str-demo.component.html',
-  styleUrls: ['./placeholder-str-demo.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-placeholder-str-demo',
+    templateUrl: './placeholder-str-demo.component.html',
+    styleUrls: ['./placeholder-str-demo.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class PlaceholderStrDemoComponent implements OnInit {
   placeholder$ = new BehaviorSubject('这是placeholder');

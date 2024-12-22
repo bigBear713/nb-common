@@ -10,6 +10,7 @@ const STR_PLACEHOLDER = 'this is a string placeholder';
 const OBSERVABLE_PLACEHOLDER = 'this is a observable placeholder';
 
 @Component({
+  standalone: false,
   selector: 'mock-component',
   template: `<input [nbPlaceholder]="placeholder" />`,
 })
