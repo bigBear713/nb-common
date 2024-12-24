@@ -6,6 +6,7 @@ import { GTagService } from '../g-tag.service';
   templateUrl: './img-demo.component.html',
   styleUrls: ['./img-demo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 export class ImgDemoComponent implements OnInit {

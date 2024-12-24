@@ -7,6 +7,7 @@ import { GTagService } from '../g-tag.service';
   templateUrl: './r-str-demo.component.html',
   styleUrls: ['./r-str-demo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 export class RStrDemoComponent implements OnInit {

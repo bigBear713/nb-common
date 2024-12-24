@@ -7,6 +7,7 @@ import { GTagService } from '../g-tag.service';
   templateUrl: './placeholder-str-demo.component.html',
   styleUrls: ['./placeholder-str-demo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 export class PlaceholderStrDemoComponent implements OnInit {
