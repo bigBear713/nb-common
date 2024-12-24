@@ -1,3 +1,9 @@
+# v19.0.0
+## Breaking Changes
+- feat: Upgrade `angular` to `v19`;
+
+---
+
 # v18.0.0
 ## Breaking Changes
 - feat: Upgrade `angular` to `v18`;
