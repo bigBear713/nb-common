@@ -7,6 +7,8 @@ import { ComponentFixture, TestBedStatic } from '@angular/core/testing';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mock-templateRef',
   template: `<ng-template #tplRef></ng-template>`,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 export class TemplateRefTestingComponent {
   @ViewChild('tplRef', { static: true }) tplRef!: TemplateRef<any>;
