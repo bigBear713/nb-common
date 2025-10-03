@@ -14,11 +14,15 @@ const importsFromSelf = [NbIsAsyncPipe];
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[nb-r-str]',
   template: `
-    <ng-container [ngSwitch]="content | nbIsAsync">
-      <ng-container *ngSwitchCase="true">{{ asyncContent | async }}</ng-container>
-      <ng-container *ngSwitchDefault>{{ content }}</ng-container>
-    </ng-container>
-  `,
+@switch (content | nbIsAsync) {
+  @case (true) {
+    {{ asyncContent | async }}
+  }
+  @default {
+    {{ content }}
+  }
+}
+`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NbRStrComponent {
