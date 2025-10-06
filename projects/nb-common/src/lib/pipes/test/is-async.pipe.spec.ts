@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { NbValueTypeService } from '../../services/value-type.service';
 import { NbIsAsyncPipe } from '../is-async.pipe';
 import { Observable, Subject } from 'rxjs';
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, inject } from '@angular/core';
 import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 
 describe('Pipe: NbIsAsync', () => {
@@ -15,8 +15,7 @@ describe('Pipe: NbIsAsync', () => {
   });
 
   beforeEach(() => {
-    const valueTypeService = TestBed.inject(NbValueTypeService);
-    pipe = new NbIsAsyncPipe(valueTypeService);
+    pipe = TestBed.runInInjectionContext(() => new NbIsAsyncPipe());
   });
 
   it('create an instance', () => {
@@ -78,9 +77,9 @@ const StandaloneCompConfig = {
 
 @Component(StandaloneCompConfig)
 class StandaloneComponent {
+  public elementRef: ElementRef<HTMLDivElement> = inject(ElementRef);
   asyncValue = Promise.resolve('string');
   strValue = 'string';
-  constructor(public elementRef: ElementRef<HTMLDivElement>) {}
 }
 
 @Component({

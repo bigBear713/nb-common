@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'tpl-content-demo',
     loadChildren: () =>
@@ -33,9 +32,3 @@ const routes: Routes = [
       import('./call-fn-demo/call-fn-demo.component').then(m => m.callFnDemoRoutes),
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

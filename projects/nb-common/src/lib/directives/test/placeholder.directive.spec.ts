@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { NbUnsubscribeService } from '../../services/unsubscribe.service';
-import { NbValueTypeService } from '../../services/value-type.service';
 import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 import { NbPlaceholderDirective } from '../placeholder.directive';
+import { NbValueTypeService } from '../../services/value-type.service';
+import { NbUnsubscribeService } from '../../services/unsubscribe.service';
 
 const STR_PLACEHOLDER = 'this is a string placeholder';
 const OBSERVABLE_PLACEHOLDER = 'this is a observable placeholder';
@@ -40,15 +40,14 @@ describe('Directive: NbPlaceholder', () => {
               provide: ChangeDetectorRef,
               useValue: jasmine.createSpyObj(ChangeDetectorRef, ['markForCheck']),
             },
+            NbValueTypeService,
+            NbUnsubscribeService,
           ],
         });
       });
 
       it('create an instance', () => {
-        const service = TestBed.inject(NbValueTypeService);
-        const unsubscribeService = new NbUnsubscribeService();
-        const changeDR = TestBed.inject(ChangeDetectorRef);
-        const directive = new NbPlaceholderDirective(changeDR, unsubscribeService, service);
+        const directive = TestBed.runInInjectionContext(() => new NbPlaceholderDirective());
         expect(directive).toBeTruthy();
       });
 

@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, inject } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Observable, of, Subject } from 'rxjs';
 import { NbValueTypeService } from '../../services/value-type.service';
@@ -15,8 +15,7 @@ describe('Pipe: NbIsString', () => {
   });
 
   beforeEach(() => {
-    const valueTypeService = TestBed.inject(NbValueTypeService);
-    pipe = new NbIsStringPipe(valueTypeService);
+    pipe = TestBed.runInInjectionContext(() => new NbIsStringPipe());
   });
 
   it('create an instance', () => {
@@ -80,9 +79,9 @@ const StandaloneCompConfig = {
 
 @Component(StandaloneCompConfig)
 class StandaloneComponent {
+  public elementRef: ElementRef<HTMLDivElement> = inject(ElementRef);
   observableValue = of(null);
   strValue = 'string';
-  constructor(public elementRef: ElementRef<HTMLDivElement>) {}
 }
 
 @Component({

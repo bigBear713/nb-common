@@ -1,16 +1,18 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { RouterOutlet,RouterLink } from '@angular/router';
 import { GTagService } from './g-tag.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  imports: [RouterOutlet,RouterLink],
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
-  standalone: false,
 })
-export class AppComponent {
-  title = 'nb-common-demo';
+export class App {
+  private gtagService:GTagService = inject(GTagService);
+
+  protected readonly title = signal('nb-common-demo');
 
   links = [
     {
@@ -22,8 +24,6 @@ export class AppComponent {
       link: 'https://github.com/bigBear713/nb-common/blob/main/CHANGELOG.md',
     },
   ];
-
-  constructor(private gtagService: GTagService) {}
 
   go2Link(target: { title: string; link: string }): void {
     this.gtagService.trackLink({
