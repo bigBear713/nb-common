@@ -1,0 +1,17 @@
+<h2>
+  @for (item of links; track item) {
+    <a [href]="item.link" target="_blank" (click)="go2Link(item)">
+      {{ item.title }}
+    </a>
+  }
+</h2>
+<hr />
+<h3>
+  <a routerLink="/tpl-content-demo">tpl content pipe</a>
+  <a routerLink="/r-str-demo">r-str component</a>
+  <a routerLink="/placeholder-str-demo">placeholderStr Director</a>
+  <a routerLink="/img-demo">img Director</a>
+  <a routerLink="/standalone-demo">standalone component</a>
+  <a routerLink="/call-fn-demo">call fn pipe</a>
+</h3>
+<router-outlet></router-outlet>
