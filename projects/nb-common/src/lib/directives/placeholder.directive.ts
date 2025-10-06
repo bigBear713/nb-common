@@ -1,19 +1,19 @@
-import { ChangeDetectorRef, Directive, HostBinding, Input, OnChanges } from '@angular/core';
+import { ChangeDetectorRef, Directive, HostBinding, inject, Input, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NbUnsubscribeService } from '../services/unsubscribe.service';
 import { NbValueTypeService } from '../services/value-type.service';
 
 @Directive({ standalone: true, selector: '[nbPlaceholder]', providers: [NbUnsubscribeService] })
 export class NbPlaceholderDirective implements OnChanges {
+  private chageDR: ChangeDetectorRef = inject(ChangeDetectorRef);
+
+  private unsubscribeService: NbUnsubscribeService = inject(NbUnsubscribeService);
+
+  private valueTypeService: NbValueTypeService = inject(NbValueTypeService);
+
   @Input() nbPlaceholder: string | Observable<string> = '';
 
   @HostBinding('placeholder') placeholder: string = '';
-
-  constructor(
-    private chageDR: ChangeDetectorRef,
-    private unsubscribeService: NbUnsubscribeService,
-    private valueTypeService: NbValueTypeService
-  ) {}
 
   ngOnChanges() {
     this.reRender();

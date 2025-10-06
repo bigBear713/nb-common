@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { NbValueTypeService } from '../../services/value-type.service';
 import { NbTplContentPipe } from '../tpl-content.pipe';
 import { getTplRefInstance } from '../../testing/templateRef/templateRef-testing.module';
-import { Component, TemplateRef, ElementRef } from '@angular/core';
+import { Component, TemplateRef, ElementRef, inject } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 
@@ -94,9 +94,9 @@ const StandaloneCompConfig = {
 
 @Component(StandaloneCompConfig)
 class StandaloneComponent {
+  public elementRef: ElementRef<HTMLDivElement> = inject(ElementRef);
   tplValue = getTplRefInstance(TestBed).tplRef;
   strValue = 'string';
-  constructor(public elementRef: ElementRef<HTMLDivElement>) {}
 }
 
 @Component({

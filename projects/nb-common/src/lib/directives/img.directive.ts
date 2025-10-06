@@ -3,10 +3,9 @@ import {
   Directive,
   ElementRef,
   HostBinding,
-  Inject,
+  inject,
   Input,
   OnChanges,
-  Optional,
   SimpleChange,
   SimpleChanges,
 } from '@angular/core';
@@ -18,6 +17,18 @@ const DEFAULT_ERR_IMG = './assets/nb-common/picture.svg';
 
 @Directive({ standalone: true, selector: 'img[nbImg]' })
 export class NbImgDirective implements OnChanges {
+  private changeDR: ChangeDetectorRef = inject(ChangeDetectorRef);
+
+  private defaultErrImg: string | SafeResourceUrl | null = inject(NB_DEFAULT_ERR_IMG, {
+    optional: true,
+  });
+
+  private defaultLoadingImg: string | SafeResourceUrl | null = inject(NB_DEFAULT_LOADING_IMG, {
+    optional: true,
+  });
+
+  private elementRef: ElementRef<HTMLImageElement> = inject(ElementRef);
+
   @Input() errImg: string | SafeResourceUrl;
 
   @Input() loadingImg: string | SafeResourceUrl;
@@ -26,18 +37,9 @@ export class NbImgDirective implements OnChanges {
 
   @HostBinding('src') src: string | SafeResourceUrl = '';
 
-  constructor(
-    private changeDR: ChangeDetectorRef,
-    @Inject(NB_DEFAULT_ERR_IMG)
-    @Optional()
-    private defaultErrImg: string | SafeResourceUrl,
-    @Inject(NB_DEFAULT_LOADING_IMG)
-    @Optional()
-    private defaultLoadingImg: string | SafeResourceUrl,
-    private elementRef: ElementRef<HTMLImageElement>
-  ) {
-    this.loadingImg = this.defaultLoadingImg || DEFAULT_LOADING_IMG;
-    this.errImg = this.defaultErrImg || DEFAULT_ERR_IMG;
+  constructor() {
+    this.loadingImg = this.defaultLoadingImg ? this.defaultLoadingImg : DEFAULT_LOADING_IMG;
+    this.errImg = this.defaultErrImg ? this.defaultErrImg : DEFAULT_ERR_IMG;
   }
 
   ngOnChanges(changes: SimpleChanges) {

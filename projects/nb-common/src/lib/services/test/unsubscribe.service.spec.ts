@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { interval, Observable, Subject, Subscription } from 'rxjs';
 import { NbUnsubscribeService } from '../unsubscribe.service';
@@ -199,5 +199,5 @@ describe('Service: Unsubscribe / ', () => {
   providers: [NbUnsubscribeService],
 })
 export class TestComponent {
-  constructor(public unsubscribeService: NbUnsubscribeService) {}
+  public unsubscribeService: NbUnsubscribeService = inject(NbUnsubscribeService);
 }
