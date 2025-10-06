@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { NbValueTypeService } from '../../services/value-type.service';
 import { NbIsObservablePipe } from '../is-observable.pipe';
 import { Observable, of, Subject } from 'rxjs';
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, inject } from '@angular/core';
 import { NbCommonTestingModule } from '../../testing/nb-common-testing.module';
 
 describe('Pipe: NbIsObservablee', () => {
@@ -15,8 +15,7 @@ describe('Pipe: NbIsObservablee', () => {
   });
 
   beforeEach(() => {
-    const valueTypeService = TestBed.inject(NbValueTypeService);
-    pipe = new NbIsObservablePipe(valueTypeService);
+    pipe = TestBed.runInInjectionContext(() => new NbIsObservablePipe());
   });
 
   it('create an instance', () => {
@@ -80,9 +79,9 @@ const StandaloneCompConfig = {
 
 @Component(StandaloneCompConfig)
 class StandaloneComponent {
+  public elementRef: ElementRef<HTMLDivElement> = inject(ElementRef);
   observableValue = of(null);
   strValue = 'string';
-  constructor(public elementRef: ElementRef<HTMLDivElement>) {}
 }
 
 @Component({
