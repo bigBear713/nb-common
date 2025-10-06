@@ -15,8 +15,7 @@ describe('Pipe: NbIsAsync', () => {
   });
 
   beforeEach(() => {
-    const valueTypeService = TestBed.inject(NbValueTypeService);
-    pipe = new NbIsAsyncPipe(valueTypeService);
+    pipe = TestBed.runInInjectionContext(() => new NbIsAsyncPipe());
   });
 
   it('create an instance', () => {

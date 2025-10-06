@@ -15,8 +15,7 @@ describe('Pipe: NbIsBoolean', () => {
   });
 
   beforeEach(() => {
-    const valueTypeService = TestBed.inject(NbValueTypeService);
-    pipe = new NbIsBooleanPipe(valueTypeService);
+    pipe = TestBed.runInInjectionContext(() => new NbIsBooleanPipe());
   });
 
   it('create an instance', () => {

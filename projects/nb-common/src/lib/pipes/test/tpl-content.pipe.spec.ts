@@ -18,8 +18,7 @@ describe('Pipe:  NbTplContente', () => {
   });
 
   beforeEach(() => {
-    const valueTypeService = TestBed.inject(NbValueTypeService);
-    pipe = new NbTplContentPipe(valueTypeService);
+    pipe = TestBed.runInInjectionContext(() => new NbTplContentPipe());
     tplRef = getTplRefInstance(TestBed).tplRef;
   });
 

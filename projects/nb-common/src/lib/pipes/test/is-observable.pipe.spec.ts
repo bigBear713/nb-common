@@ -15,8 +15,7 @@ describe('Pipe: NbIsObservablee', () => {
   });
 
   beforeEach(() => {
-    const valueTypeService = TestBed.inject(NbValueTypeService);
-    pipe = new NbIsObservablePipe(valueTypeService);
+    pipe = TestBed.runInInjectionContext(() => new NbIsObservablePipe());
   });
 
   it('create an instance', () => {

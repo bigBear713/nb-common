@@ -15,8 +15,7 @@ describe('Pipe: NbIsString', () => {
   });
 
   beforeEach(() => {
-    const valueTypeService = TestBed.inject(NbValueTypeService);
-    pipe = new NbIsStringPipe(valueTypeService);
+    pipe = TestBed.runInInjectionContext(() => new NbIsStringPipe());
   });
 
   it('create an instance', () => {
